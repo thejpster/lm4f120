@@ -1,4 +1,4 @@
-//! CPU definitions for primer.
+//! # FPU support for the Cortex-M4F
 
 // ****************************************************************************
 //
@@ -6,11 +6,8 @@
 //
 // ****************************************************************************
 
-#[cfg(feature="launchpad")]
-pub mod lm4f120h5qr;
-
-#[cfg(feature="launchpad")]
-pub mod cortex_m4f;
+use core::intrinsics::{volatile_store, volatile_load};
+use super::registers;
 
 // ****************************************************************************
 //
@@ -50,7 +47,23 @@ pub mod cortex_m4f;
 //
 // ****************************************************************************
 
-// None
+pub fn init() {
+    // Enable full access to the FPU
+    unsafe {
+        let mut reg = volatile_load(registers::NVIC_CPAC_R);
+        reg &= !(registers::NVIC_CPAC_CP11_M | registers::NVIC_CPAC_CP10_M);
+        reg |= registers::NVIC_CPAC_CP11_FULL | registers::NVIC_CPAC_CP10_FULL;
+        volatile_store(registers::NVIC_CPAC_R, reg);
+    }
+
+    // Enable lazy-stacking of FPU registers
+    // Stack space is allocated, but they aren't pushed until the first FPU operation
+    unsafe {
+        let mut reg = volatile_load(registers::NVIC_FPCC_R);
+        reg |= registers::NVIC_FPCC_ASPEN | registers::NVIC_FPCC_LSPEN;
+        volatile_store(registers::NVIC_FPCC_R, reg);
+    }
+}
 
 // ****************************************************************************
 //

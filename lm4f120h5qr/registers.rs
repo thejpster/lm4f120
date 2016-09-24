@@ -43,26 +43,18 @@
 
 use ::common::volatile::{Volatile, VolatileStruct};
 
-// ****
+// *****************************************************************************
 //
 // Watchdog Timer registers (WATCHDOG0)
 //
 // *****************************************************************************
-
 pub const WATCHDOG0_LOAD_R: *mut usize = 0x40000000 as *mut usize;
-
 pub const WATCHDOG0_VALUE_R: *mut usize = 0x40000004 as *mut usize;
-
 pub const WATCHDOG0_CTL_R: *mut usize = 0x40000008 as *mut usize;
-
 pub const WATCHDOG0_ICR_R: *mut usize = 0x4000000C as *mut usize;
-
 pub const WATCHDOG0_RIS_R: *mut usize = 0x40000010 as *mut usize;
-
 pub const WATCHDOG0_MIS_R: *mut usize = 0x40000014 as *mut usize;
-
 pub const WATCHDOG0_TEST_R: *mut usize = 0x40000418 as *mut usize;
-
 pub const WATCHDOG0_LOCK_R: *mut usize = 0x40000C00 as *mut usize;
 
 // *****************************************************************************
@@ -70,21 +62,13 @@ pub const WATCHDOG0_LOCK_R: *mut usize = 0x40000C00 as *mut usize;
 // Watchdog Timer registers (WATCHDOG1)
 //
 // *****************************************************************************
-
 pub const WATCHDOG1_LOAD_R: *mut usize = 0x40001000 as *mut usize;
-
 pub const WATCHDOG1_VALUE_R: *mut usize = 0x40001004 as *mut usize;
-
 pub const WATCHDOG1_CTL_R: *mut usize = 0x40001008 as *mut usize;
-
 pub const WATCHDOG1_ICR_R: *mut usize = 0x4000100C as *mut usize;
-
 pub const WATCHDOG1_RIS_R: *mut usize = 0x40001010 as *mut usize;
-
 pub const WATCHDOG1_MIS_R: *mut usize = 0x40001014 as *mut usize;
-
 pub const WATCHDOG1_TEST_R: *mut usize = 0x40001418 as *mut usize;
-
 pub const WATCHDOG1_LOCK_R: *mut usize = 0x40001C00 as *mut usize;
 
 // *****************************************************************************
@@ -92,57 +76,31 @@ pub const WATCHDOG1_LOCK_R: *mut usize = 0x40001C00 as *mut usize;
 // GPIO registers (PORTA)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTA_DATA_BITS_R: *mut usize = 0x40004000 as *mut usize;
-
 pub const GPIO_PORTA_DATA_R: *mut usize = 0x400043FC as *mut usize;
-
 pub const GPIO_PORTA_DIR_R: *mut usize = 0x40004400 as *mut usize;
-
 pub const GPIO_PORTA_IS_R: *mut usize = 0x40004404 as *mut usize;
-
 pub const GPIO_PORTA_IBE_R: *mut usize = 0x40004408 as *mut usize;
-
 pub const GPIO_PORTA_IEV_R: *mut usize = 0x4000440C as *mut usize;
-
 pub const GPIO_PORTA_IM_R: *mut usize = 0x40004410 as *mut usize;
-
 pub const GPIO_PORTA_RIS_R: *mut usize = 0x40004414 as *mut usize;
-
 pub const GPIO_PORTA_MIS_R: *mut usize = 0x40004418 as *mut usize;
-
 pub const GPIO_PORTA_ICR_R: *mut usize = 0x4000441C as *mut usize;
-
 pub const GPIO_PORTA_AFSEL_R: *mut usize = 0x40004420 as *mut usize;
-
 pub const GPIO_PORTA_DR2R_R: *mut usize = 0x40004500 as *mut usize;
-
 pub const GPIO_PORTA_DR4R_R: *mut usize = 0x40004504 as *mut usize;
-
 pub const GPIO_PORTA_DR8R_R: *mut usize = 0x40004508 as *mut usize;
-
 pub const GPIO_PORTA_ODR_R: *mut usize = 0x4000450C as *mut usize;
-
 pub const GPIO_PORTA_PUR_R: *mut usize = 0x40004510 as *mut usize;
-
 pub const GPIO_PORTA_PDR_R: *mut usize = 0x40004514 as *mut usize;
-
 pub const GPIO_PORTA_SLR_R: *mut usize = 0x40004518 as *mut usize;
-
 pub const GPIO_PORTA_DEN_R: *mut usize = 0x4000451C as *mut usize;
-
 pub const GPIO_PORTA_LOCK_R: *mut usize = 0x40004520 as *mut usize;
-
 pub const GPIO_PORTA_CR_R: *mut usize = 0x40004524 as *mut usize;
-
 pub const GPIO_PORTA_AMSEL_R: *mut usize = 0x40004528 as *mut usize;
-
 pub const GPIO_PORTA_PCTL_R: *mut usize = 0x4000452C as *mut usize;
-
 pub const GPIO_PORTA_ADCCTL_R: *mut usize = 0x40004530 as *mut usize;
-
 pub const GPIO_PORTA_DMACTL_R: *mut usize = 0x40004534 as *mut usize;
-
 pub const GPIO_PORTA_SI_R: *mut usize = 0x40004538 as *mut usize;
 
 // *****************************************************************************
@@ -150,57 +108,31 @@ pub const GPIO_PORTA_SI_R: *mut usize = 0x40004538 as *mut usize;
 // GPIO registers (PORTB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTB_DATA_BITS_R: *mut usize = 0x40005000 as *mut usize;
-
 pub const GPIO_PORTB_DATA_R: *mut usize = 0x400053FC as *mut usize;
-
 pub const GPIO_PORTB_DIR_R: *mut usize = 0x40005400 as *mut usize;
-
 pub const GPIO_PORTB_IS_R: *mut usize = 0x40005404 as *mut usize;
-
 pub const GPIO_PORTB_IBE_R: *mut usize = 0x40005408 as *mut usize;
-
 pub const GPIO_PORTB_IEV_R: *mut usize = 0x4000540C as *mut usize;
-
 pub const GPIO_PORTB_IM_R: *mut usize = 0x40005410 as *mut usize;
-
 pub const GPIO_PORTB_RIS_R: *mut usize = 0x40005414 as *mut usize;
-
 pub const GPIO_PORTB_MIS_R: *mut usize = 0x40005418 as *mut usize;
-
 pub const GPIO_PORTB_ICR_R: *mut usize = 0x4000541C as *mut usize;
-
 pub const GPIO_PORTB_AFSEL_R: *mut usize = 0x40005420 as *mut usize;
-
 pub const GPIO_PORTB_DR2R_R: *mut usize = 0x40005500 as *mut usize;
-
 pub const GPIO_PORTB_DR4R_R: *mut usize = 0x40005504 as *mut usize;
-
 pub const GPIO_PORTB_DR8R_R: *mut usize = 0x40005508 as *mut usize;
-
 pub const GPIO_PORTB_ODR_R: *mut usize = 0x4000550C as *mut usize;
-
 pub const GPIO_PORTB_PUR_R: *mut usize = 0x40005510 as *mut usize;
-
 pub const GPIO_PORTB_PDR_R: *mut usize = 0x40005514 as *mut usize;
-
 pub const GPIO_PORTB_SLR_R: *mut usize = 0x40005518 as *mut usize;
-
 pub const GPIO_PORTB_DEN_R: *mut usize = 0x4000551C as *mut usize;
-
 pub const GPIO_PORTB_LOCK_R: *mut usize = 0x40005520 as *mut usize;
-
 pub const GPIO_PORTB_CR_R: *mut usize = 0x40005524 as *mut usize;
-
 pub const GPIO_PORTB_AMSEL_R: *mut usize = 0x40005528 as *mut usize;
-
 pub const GPIO_PORTB_PCTL_R: *mut usize = 0x4000552C as *mut usize;
-
 pub const GPIO_PORTB_ADCCTL_R: *mut usize = 0x40005530 as *mut usize;
-
 pub const GPIO_PORTB_DMACTL_R: *mut usize = 0x40005534 as *mut usize;
-
 pub const GPIO_PORTB_SI_R: *mut usize = 0x40005538 as *mut usize;
 
 // *****************************************************************************
@@ -208,57 +140,31 @@ pub const GPIO_PORTB_SI_R: *mut usize = 0x40005538 as *mut usize;
 // GPIO registers (PORTC)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTC_DATA_BITS_R: *mut usize = 0x40006000 as *mut usize;
-
 pub const GPIO_PORTC_DATA_R: *mut usize = 0x400063FC as *mut usize;
-
 pub const GPIO_PORTC_DIR_R: *mut usize = 0x40006400 as *mut usize;
-
 pub const GPIO_PORTC_IS_R: *mut usize = 0x40006404 as *mut usize;
-
 pub const GPIO_PORTC_IBE_R: *mut usize = 0x40006408 as *mut usize;
-
 pub const GPIO_PORTC_IEV_R: *mut usize = 0x4000640C as *mut usize;
-
 pub const GPIO_PORTC_IM_R: *mut usize = 0x40006410 as *mut usize;
-
 pub const GPIO_PORTC_RIS_R: *mut usize = 0x40006414 as *mut usize;
-
 pub const GPIO_PORTC_MIS_R: *mut usize = 0x40006418 as *mut usize;
-
 pub const GPIO_PORTC_ICR_R: *mut usize = 0x4000641C as *mut usize;
-
 pub const GPIO_PORTC_AFSEL_R: *mut usize = 0x40006420 as *mut usize;
-
 pub const GPIO_PORTC_DR2R_R: *mut usize = 0x40006500 as *mut usize;
-
 pub const GPIO_PORTC_DR4R_R: *mut usize = 0x40006504 as *mut usize;
-
 pub const GPIO_PORTC_DR8R_R: *mut usize = 0x40006508 as *mut usize;
-
 pub const GPIO_PORTC_ODR_R: *mut usize = 0x4000650C as *mut usize;
-
 pub const GPIO_PORTC_PUR_R: *mut usize = 0x40006510 as *mut usize;
-
 pub const GPIO_PORTC_PDR_R: *mut usize = 0x40006514 as *mut usize;
-
 pub const GPIO_PORTC_SLR_R: *mut usize = 0x40006518 as *mut usize;
-
 pub const GPIO_PORTC_DEN_R: *mut usize = 0x4000651C as *mut usize;
-
 pub const GPIO_PORTC_LOCK_R: *mut usize = 0x40006520 as *mut usize;
-
 pub const GPIO_PORTC_CR_R: *mut usize = 0x40006524 as *mut usize;
-
 pub const GPIO_PORTC_AMSEL_R: *mut usize = 0x40006528 as *mut usize;
-
 pub const GPIO_PORTC_PCTL_R: *mut usize = 0x4000652C as *mut usize;
-
 pub const GPIO_PORTC_ADCCTL_R: *mut usize = 0x40006530 as *mut usize;
-
 pub const GPIO_PORTC_DMACTL_R: *mut usize = 0x40006534 as *mut usize;
-
 pub const GPIO_PORTC_SI_R: *mut usize = 0x40006538 as *mut usize;
 
 // *****************************************************************************
@@ -266,57 +172,31 @@ pub const GPIO_PORTC_SI_R: *mut usize = 0x40006538 as *mut usize;
 // GPIO registers (PORTD)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTD_DATA_BITS_R: *mut usize = 0x40007000 as *mut usize;
-
 pub const GPIO_PORTD_DATA_R: *mut usize = 0x400073FC as *mut usize;
-
 pub const GPIO_PORTD_DIR_R: *mut usize = 0x40007400 as *mut usize;
-
 pub const GPIO_PORTD_IS_R: *mut usize = 0x40007404 as *mut usize;
-
 pub const GPIO_PORTD_IBE_R: *mut usize = 0x40007408 as *mut usize;
-
 pub const GPIO_PORTD_IEV_R: *mut usize = 0x4000740C as *mut usize;
-
 pub const GPIO_PORTD_IM_R: *mut usize = 0x40007410 as *mut usize;
-
 pub const GPIO_PORTD_RIS_R: *mut usize = 0x40007414 as *mut usize;
-
 pub const GPIO_PORTD_MIS_R: *mut usize = 0x40007418 as *mut usize;
-
 pub const GPIO_PORTD_ICR_R: *mut usize = 0x4000741C as *mut usize;
-
 pub const GPIO_PORTD_AFSEL_R: *mut usize = 0x40007420 as *mut usize;
-
 pub const GPIO_PORTD_DR2R_R: *mut usize = 0x40007500 as *mut usize;
-
 pub const GPIO_PORTD_DR4R_R: *mut usize = 0x40007504 as *mut usize;
-
 pub const GPIO_PORTD_DR8R_R: *mut usize = 0x40007508 as *mut usize;
-
 pub const GPIO_PORTD_ODR_R: *mut usize = 0x4000750C as *mut usize;
-
 pub const GPIO_PORTD_PUR_R: *mut usize = 0x40007510 as *mut usize;
-
 pub const GPIO_PORTD_PDR_R: *mut usize = 0x40007514 as *mut usize;
-
 pub const GPIO_PORTD_SLR_R: *mut usize = 0x40007518 as *mut usize;
-
 pub const GPIO_PORTD_DEN_R: *mut usize = 0x4000751C as *mut usize;
-
 pub const GPIO_PORTD_LOCK_R: *mut usize = 0x40007520 as *mut usize;
-
 pub const GPIO_PORTD_CR_R: *mut usize = 0x40007524 as *mut usize;
-
 pub const GPIO_PORTD_AMSEL_R: *mut usize = 0x40007528 as *mut usize;
-
 pub const GPIO_PORTD_PCTL_R: *mut usize = 0x4000752C as *mut usize;
-
 pub const GPIO_PORTD_ADCCTL_R: *mut usize = 0x40007530 as *mut usize;
-
 pub const GPIO_PORTD_DMACTL_R: *mut usize = 0x40007534 as *mut usize;
-
 pub const GPIO_PORTD_SI_R: *mut usize = 0x40007538 as *mut usize;
 
 // *****************************************************************************
@@ -324,27 +204,16 @@ pub const GPIO_PORTD_SI_R: *mut usize = 0x40007538 as *mut usize;
 // SSI registers (SSI0)
 //
 // *****************************************************************************
-
 pub const SSI0_CR0_R: *mut usize = 0x40008000 as *mut usize;
-
 pub const SSI0_CR1_R: *mut usize = 0x40008004 as *mut usize;
-
 pub const SSI0_DR_R: *mut usize = 0x40008008 as *mut usize;
-
 pub const SSI0_SR_R: *mut usize = 0x4000800C as *mut usize;
-
 pub const SSI0_CPSR_R: *mut usize = 0x40008010 as *mut usize;
-
 pub const SSI0_IM_R: *mut usize = 0x40008014 as *mut usize;
-
 pub const SSI0_RIS_R: *mut usize = 0x40008018 as *mut usize;
-
 pub const SSI0_MIS_R: *mut usize = 0x4000801C as *mut usize;
-
 pub const SSI0_ICR_R: *mut usize = 0x40008020 as *mut usize;
-
 pub const SSI0_DMACTL_R: *mut usize = 0x40008024 as *mut usize;
-
 pub const SSI0_CC_R: *mut usize = 0x40008FC8 as *mut usize;
 
 // *****************************************************************************
@@ -352,27 +221,16 @@ pub const SSI0_CC_R: *mut usize = 0x40008FC8 as *mut usize;
 // SSI registers (SSI1)
 //
 // *****************************************************************************
-
 pub const SSI1_CR0_R: *mut usize = 0x40009000 as *mut usize;
-
 pub const SSI1_CR1_R: *mut usize = 0x40009004 as *mut usize;
-
 pub const SSI1_DR_R: *mut usize = 0x40009008 as *mut usize;
-
 pub const SSI1_SR_R: *mut usize = 0x4000900C as *mut usize;
-
 pub const SSI1_CPSR_R: *mut usize = 0x40009010 as *mut usize;
-
 pub const SSI1_IM_R: *mut usize = 0x40009014 as *mut usize;
-
 pub const SSI1_RIS_R: *mut usize = 0x40009018 as *mut usize;
-
 pub const SSI1_MIS_R: *mut usize = 0x4000901C as *mut usize;
-
 pub const SSI1_ICR_R: *mut usize = 0x40009020 as *mut usize;
-
 pub const SSI1_DMACTL_R: *mut usize = 0x40009024 as *mut usize;
-
 pub const SSI1_CC_R: *mut usize = 0x40009FC8 as *mut usize;
 
 // *****************************************************************************
@@ -380,27 +238,16 @@ pub const SSI1_CC_R: *mut usize = 0x40009FC8 as *mut usize;
 // SSI registers (SSI2)
 //
 // *****************************************************************************
-
 pub const SSI2_CR0_R: *mut usize = 0x4000A000 as *mut usize;
-
 pub const SSI2_CR1_R: *mut usize = 0x4000A004 as *mut usize;
-
 pub const SSI2_DR_R: *mut usize = 0x4000A008 as *mut usize;
-
 pub const SSI2_SR_R: *mut usize = 0x4000A00C as *mut usize;
-
 pub const SSI2_CPSR_R: *mut usize = 0x4000A010 as *mut usize;
-
 pub const SSI2_IM_R: *mut usize = 0x4000A014 as *mut usize;
-
 pub const SSI2_RIS_R: *mut usize = 0x4000A018 as *mut usize;
-
 pub const SSI2_MIS_R: *mut usize = 0x4000A01C as *mut usize;
-
 pub const SSI2_ICR_R: *mut usize = 0x4000A020 as *mut usize;
-
 pub const SSI2_DMACTL_R: *mut usize = 0x4000A024 as *mut usize;
-
 pub const SSI2_CC_R: *mut usize = 0x4000AFC8 as *mut usize;
 
 // *****************************************************************************
@@ -408,27 +255,16 @@ pub const SSI2_CC_R: *mut usize = 0x4000AFC8 as *mut usize;
 // SSI registers (SSI3)
 //
 // *****************************************************************************
-
 pub const SSI3_CR0_R: *mut usize = 0x4000B000 as *mut usize;
-
 pub const SSI3_CR1_R: *mut usize = 0x4000B004 as *mut usize;
-
 pub const SSI3_DR_R: *mut usize = 0x4000B008 as *mut usize;
-
 pub const SSI3_SR_R: *mut usize = 0x4000B00C as *mut usize;
-
 pub const SSI3_CPSR_R: *mut usize = 0x4000B010 as *mut usize;
-
 pub const SSI3_IM_R: *mut usize = 0x4000B014 as *mut usize;
-
 pub const SSI3_RIS_R: *mut usize = 0x4000B018 as *mut usize;
-
 pub const SSI3_MIS_R: *mut usize = 0x4000B01C as *mut usize;
-
 pub const SSI3_ICR_R: *mut usize = 0x4000B020 as *mut usize;
-
 pub const SSI3_DMACTL_R: *mut usize = 0x4000B024 as *mut usize;
-
 pub const SSI3_CC_R: *mut usize = 0x4000BFC8 as *mut usize;
 
 // *****************************************************************************
@@ -438,70 +274,70 @@ pub const SSI3_CC_R: *mut usize = 0x4000BFC8 as *mut usize;
 // *****************************************************************************
 
 /// The data register. Data written here is added to the FIFO.
-/// Reading here reads data + 4-bit status from the FIFO.
+/// Reading here reads data + 4-bit status from the IFO.
 pub const UART0_DR_R: *mut usize = 0x4000C000 as *mut usize;
 
-/// UART Receive Status
+/// UART Receive Statu
 pub const UART0_RSR_R: *mut usize = 0x4000C004 as *mut usize;
 
-/// UART Error Clear
+/// UART Error Clea
 pub const UART0_ECR_R: *mut usize = 0x4000C004 as *mut usize;
 
-/// UART Flags
+/// UART Flag
 pub const UART0_FR_R: *mut usize = 0x4000C018 as *mut usize;
 
-/// UART IrDA Low-Power Register
+/// UART IrDA Low-Power Registe
 pub const UART0_ILPR_R: *mut usize = 0x4000C020 as *mut usize;
 
-/// UART Integer Baud-Rate Divisor
+/// UART Integer Baud-Rate Diviso
 pub const UART0_IBRD_R: *mut usize = 0x4000C024 as *mut usize;
 
-/// UART Fractional Baud-Rate Divisor
+/// UART Fractional Baud-Rate Diviso
 pub const UART0_FBRD_R: *mut usize = 0x4000C028 as *mut usize;
 
-/// UART Line Control
+/// UART Line Contro
 pub const UART0_LCRH_R: *mut usize = 0x4000C02C as *mut usize;
 
-/// UART Control
+/// UART Contro
 pub const UART0_CTL_R: *mut usize = 0x4000C030 as *mut usize;
 
-/// UART Interrupt FIFO Level Select
+/// UART Interrupt FIFO Level Selec
 pub const UART0_IFLS_R: *mut usize = 0x4000C034 as *mut usize;
 
-/// UART Interrupt Mask
+/// UART Interrupt Mas
 pub const UART0_IM_R: *mut usize = 0x4000C038 as *mut usize;
 
-/// UART Raw Interrupt Status
+/// UART Raw Interrupt Statu
 pub const UART0_RIS_R: *mut usize = 0x4000C03C as *mut usize;
 
-/// UART Masked Interrupt Status
+/// UART Masked Interrupt Statu
 pub const UART0_MIS_R: *mut usize = 0x4000C040 as *mut usize;
 
-/// UART Interrupt Clear
+/// UART Interrupt Clea
 pub const UART0_ICR_R: *mut usize = 0x4000C044 as *mut usize;
 
-/// UART DMA Control
+/// UART DMA Contro
 pub const UART0_DMACTL_R: *mut usize = 0x4000C048 as *mut usize;
 
-/// ??? - Not in datasheet
+/// ??? - Not in datashee
 pub const UART0_LCTL_R: *mut usize = 0x4000C090 as *mut usize;
 
-/// ??? - Not in datasheet
+/// ??? - Not in datashee
 pub const UART0_LSS_R: *mut usize = 0x4000C094 as *mut usize;
 
-/// ??? - Not in datasheet
+/// ??? - Not in datashee
 pub const UART0_LTIM_R: *mut usize = 0x4000C098 as *mut usize;
 
-/// UART 9-bit Self Address
+/// UART 9-bit Self Addres
 pub const UART0_9BITADDR_R: *mut usize = 0x4000C0A4 as *mut usize;
 
-/// UART 9-bit Self Address Mask
+/// UART 9-bit Self Address Mas
 pub const UART0_9BITAMASK_R: *mut usize = 0x4000C0A8 as *mut usize;
 
-/// UART Peripheral Properties
+/// UART Peripheral Propertie
 pub const UART0_PP_R: *mut usize = 0x4000CFC0 as *mut usize;
 
-/// UART Clock Configuration
+/// UART Clock Configuratio
 pub const UART0_CC_R: *mut usize = 0x4000CFC8 as *mut usize;
 
 // *****************************************************************************
@@ -509,49 +345,27 @@ pub const UART0_CC_R: *mut usize = 0x4000CFC8 as *mut usize;
 // UART registers (UART1)
 //
 // *****************************************************************************
-
 pub const UART1_DR_R: *mut usize = 0x4000D000 as *mut usize;
-
 pub const UART1_RSR_R: *mut usize = 0x4000D004 as *mut usize;
-
 pub const UART1_ECR_R: *mut usize = 0x4000D004 as *mut usize;
-
 pub const UART1_FR_R: *mut usize = 0x4000D018 as *mut usize;
-
 pub const UART1_ILPR_R: *mut usize = 0x4000D020 as *mut usize;
-
 pub const UART1_IBRD_R: *mut usize = 0x4000D024 as *mut usize;
-
 pub const UART1_FBRD_R: *mut usize = 0x4000D028 as *mut usize;
-
 pub const UART1_LCRH_R: *mut usize = 0x4000D02C as *mut usize;
-
 pub const UART1_CTL_R: *mut usize = 0x4000D030 as *mut usize;
-
 pub const UART1_IFLS_R: *mut usize = 0x4000D034 as *mut usize;
-
 pub const UART1_IM_R: *mut usize = 0x4000D038 as *mut usize;
-
 pub const UART1_RIS_R: *mut usize = 0x4000D03C as *mut usize;
-
 pub const UART1_MIS_R: *mut usize = 0x4000D040 as *mut usize;
-
 pub const UART1_ICR_R: *mut usize = 0x4000D044 as *mut usize;
-
 pub const UART1_DMACTL_R: *mut usize = 0x4000D048 as *mut usize;
-
 pub const UART1_LCTL_R: *mut usize = 0x4000D090 as *mut usize;
-
 pub const UART1_LSS_R: *mut usize = 0x4000D094 as *mut usize;
-
 pub const UART1_LTIM_R: *mut usize = 0x4000D098 as *mut usize;
-
 pub const UART1_9BITADDR_R: *mut usize = 0x4000D0A4 as *mut usize;
-
 pub const UART1_9BITAMASK_R: *mut usize = 0x4000D0A8 as *mut usize;
-
 pub const UART1_PP_R: *mut usize = 0x4000DFC0 as *mut usize;
-
 pub const UART1_CC_R: *mut usize = 0x4000DFC8 as *mut usize;
 
 // *****************************************************************************
@@ -559,49 +373,27 @@ pub const UART1_CC_R: *mut usize = 0x4000DFC8 as *mut usize;
 // UART registers (UART2)
 //
 // *****************************************************************************
-
 pub const UART2_DR_R: *mut usize = 0x4000E000 as *mut usize;
-
 pub const UART2_RSR_R: *mut usize = 0x4000E004 as *mut usize;
-
 pub const UART2_ECR_R: *mut usize = 0x4000E004 as *mut usize;
-
 pub const UART2_FR_R: *mut usize = 0x4000E018 as *mut usize;
-
 pub const UART2_ILPR_R: *mut usize = 0x4000E020 as *mut usize;
-
 pub const UART2_IBRD_R: *mut usize = 0x4000E024 as *mut usize;
-
 pub const UART2_FBRD_R: *mut usize = 0x4000E028 as *mut usize;
-
 pub const UART2_LCRH_R: *mut usize = 0x4000E02C as *mut usize;
-
 pub const UART2_CTL_R: *mut usize = 0x4000E030 as *mut usize;
-
 pub const UART2_IFLS_R: *mut usize = 0x4000E034 as *mut usize;
-
 pub const UART2_IM_R: *mut usize = 0x4000E038 as *mut usize;
-
 pub const UART2_RIS_R: *mut usize = 0x4000E03C as *mut usize;
-
 pub const UART2_MIS_R: *mut usize = 0x4000E040 as *mut usize;
-
 pub const UART2_ICR_R: *mut usize = 0x4000E044 as *mut usize;
-
 pub const UART2_DMACTL_R: *mut usize = 0x4000E048 as *mut usize;
-
 pub const UART2_LCTL_R: *mut usize = 0x4000E090 as *mut usize;
-
 pub const UART2_LSS_R: *mut usize = 0x4000E094 as *mut usize;
-
 pub const UART2_LTIM_R: *mut usize = 0x4000E098 as *mut usize;
-
 pub const UART2_9BITADDR_R: *mut usize = 0x4000E0A4 as *mut usize;
-
 pub const UART2_9BITAMASK_R: *mut usize = 0x4000E0A8 as *mut usize;
-
 pub const UART2_PP_R: *mut usize = 0x4000EFC0 as *mut usize;
-
 pub const UART2_CC_R: *mut usize = 0x4000EFC8 as *mut usize;
 
 // *****************************************************************************
@@ -609,49 +401,27 @@ pub const UART2_CC_R: *mut usize = 0x4000EFC8 as *mut usize;
 // UART registers (UART3)
 //
 // *****************************************************************************
-
 pub const UART3_DR_R: *mut usize = 0x4000F000 as *mut usize;
-
 pub const UART3_RSR_R: *mut usize = 0x4000F004 as *mut usize;
-
 pub const UART3_ECR_R: *mut usize = 0x4000F004 as *mut usize;
-
 pub const UART3_FR_R: *mut usize = 0x4000F018 as *mut usize;
-
 pub const UART3_ILPR_R: *mut usize = 0x4000F020 as *mut usize;
-
 pub const UART3_IBRD_R: *mut usize = 0x4000F024 as *mut usize;
-
 pub const UART3_FBRD_R: *mut usize = 0x4000F028 as *mut usize;
-
 pub const UART3_LCRH_R: *mut usize = 0x4000F02C as *mut usize;
-
 pub const UART3_CTL_R: *mut usize = 0x4000F030 as *mut usize;
-
 pub const UART3_IFLS_R: *mut usize = 0x4000F034 as *mut usize;
-
 pub const UART3_IM_R: *mut usize = 0x4000F038 as *mut usize;
-
 pub const UART3_RIS_R: *mut usize = 0x4000F03C as *mut usize;
-
 pub const UART3_MIS_R: *mut usize = 0x4000F040 as *mut usize;
-
 pub const UART3_ICR_R: *mut usize = 0x4000F044 as *mut usize;
-
 pub const UART3_DMACTL_R: *mut usize = 0x4000F048 as *mut usize;
-
 pub const UART3_LCTL_R: *mut usize = 0x4000F090 as *mut usize;
-
 pub const UART3_LSS_R: *mut usize = 0x4000F094 as *mut usize;
-
 pub const UART3_LTIM_R: *mut usize = 0x4000F098 as *mut usize;
-
 pub const UART3_9BITADDR_R: *mut usize = 0x4000F0A4 as *mut usize;
-
 pub const UART3_9BITAMASK_R: *mut usize = 0x4000F0A8 as *mut usize;
-
 pub const UART3_PP_R: *mut usize = 0x4000FFC0 as *mut usize;
-
 pub const UART3_CC_R: *mut usize = 0x4000FFC8 as *mut usize;
 
 // *****************************************************************************
@@ -659,49 +429,27 @@ pub const UART3_CC_R: *mut usize = 0x4000FFC8 as *mut usize;
 // UART registers (UART4)
 //
 // *****************************************************************************
-
 pub const UART4_DR_R: *mut usize = 0x40010000 as *mut usize;
-
 pub const UART4_RSR_R: *mut usize = 0x40010004 as *mut usize;
-
 pub const UART4_ECR_R: *mut usize = 0x40010004 as *mut usize;
-
 pub const UART4_FR_R: *mut usize = 0x40010018 as *mut usize;
-
 pub const UART4_ILPR_R: *mut usize = 0x40010020 as *mut usize;
-
 pub const UART4_IBRD_R: *mut usize = 0x40010024 as *mut usize;
-
 pub const UART4_FBRD_R: *mut usize = 0x40010028 as *mut usize;
-
 pub const UART4_LCRH_R: *mut usize = 0x4001002C as *mut usize;
-
 pub const UART4_CTL_R: *mut usize = 0x40010030 as *mut usize;
-
 pub const UART4_IFLS_R: *mut usize = 0x40010034 as *mut usize;
-
 pub const UART4_IM_R: *mut usize = 0x40010038 as *mut usize;
-
 pub const UART4_RIS_R: *mut usize = 0x4001003C as *mut usize;
-
 pub const UART4_MIS_R: *mut usize = 0x40010040 as *mut usize;
-
 pub const UART4_ICR_R: *mut usize = 0x40010044 as *mut usize;
-
 pub const UART4_DMACTL_R: *mut usize = 0x40010048 as *mut usize;
-
 pub const UART4_LCTL_R: *mut usize = 0x40010090 as *mut usize;
-
 pub const UART4_LSS_R: *mut usize = 0x40010094 as *mut usize;
-
 pub const UART4_LTIM_R: *mut usize = 0x40010098 as *mut usize;
-
 pub const UART4_9BITADDR_R: *mut usize = 0x400100A4 as *mut usize;
-
 pub const UART4_9BITAMASK_R: *mut usize = 0x400100A8 as *mut usize;
-
 pub const UART4_PP_R: *mut usize = 0x40010FC0 as *mut usize;
-
 pub const UART4_CC_R: *mut usize = 0x40010FC8 as *mut usize;
 
 // *****************************************************************************
@@ -709,49 +457,27 @@ pub const UART4_CC_R: *mut usize = 0x40010FC8 as *mut usize;
 // UART registers (UART5)
 //
 // *****************************************************************************
-
 pub const UART5_DR_R: *mut usize = 0x40011000 as *mut usize;
-
 pub const UART5_RSR_R: *mut usize = 0x40011004 as *mut usize;
-
 pub const UART5_ECR_R: *mut usize = 0x40011004 as *mut usize;
-
 pub const UART5_FR_R: *mut usize = 0x40011018 as *mut usize;
-
 pub const UART5_ILPR_R: *mut usize = 0x40011020 as *mut usize;
-
 pub const UART5_IBRD_R: *mut usize = 0x40011024 as *mut usize;
-
 pub const UART5_FBRD_R: *mut usize = 0x40011028 as *mut usize;
-
 pub const UART5_LCRH_R: *mut usize = 0x4001102C as *mut usize;
-
 pub const UART5_CTL_R: *mut usize = 0x40011030 as *mut usize;
-
 pub const UART5_IFLS_R: *mut usize = 0x40011034 as *mut usize;
-
 pub const UART5_IM_R: *mut usize = 0x40011038 as *mut usize;
-
 pub const UART5_RIS_R: *mut usize = 0x4001103C as *mut usize;
-
 pub const UART5_MIS_R: *mut usize = 0x40011040 as *mut usize;
-
 pub const UART5_ICR_R: *mut usize = 0x40011044 as *mut usize;
-
 pub const UART5_DMACTL_R: *mut usize = 0x40011048 as *mut usize;
-
 pub const UART5_LCTL_R: *mut usize = 0x40011090 as *mut usize;
-
 pub const UART5_LSS_R: *mut usize = 0x40011094 as *mut usize;
-
 pub const UART5_LTIM_R: *mut usize = 0x40011098 as *mut usize;
-
 pub const UART5_9BITADDR_R: *mut usize = 0x400110A4 as *mut usize;
-
 pub const UART5_9BITAMASK_R: *mut usize = 0x400110A8 as *mut usize;
-
 pub const UART5_PP_R: *mut usize = 0x40011FC0 as *mut usize;
-
 pub const UART5_CC_R: *mut usize = 0x40011FC8 as *mut usize;
 
 // *****************************************************************************
@@ -759,49 +485,27 @@ pub const UART5_CC_R: *mut usize = 0x40011FC8 as *mut usize;
 // UART registers (UART6)
 //
 // *****************************************************************************
-
 pub const UART6_DR_R: *mut usize = 0x40012000 as *mut usize;
-
 pub const UART6_RSR_R: *mut usize = 0x40012004 as *mut usize;
-
 pub const UART6_ECR_R: *mut usize = 0x40012004 as *mut usize;
-
 pub const UART6_FR_R: *mut usize = 0x40012018 as *mut usize;
-
 pub const UART6_ILPR_R: *mut usize = 0x40012020 as *mut usize;
-
 pub const UART6_IBRD_R: *mut usize = 0x40012024 as *mut usize;
-
 pub const UART6_FBRD_R: *mut usize = 0x40012028 as *mut usize;
-
 pub const UART6_LCRH_R: *mut usize = 0x4001202C as *mut usize;
-
 pub const UART6_CTL_R: *mut usize = 0x40012030 as *mut usize;
-
 pub const UART6_IFLS_R: *mut usize = 0x40012034 as *mut usize;
-
 pub const UART6_IM_R: *mut usize = 0x40012038 as *mut usize;
-
 pub const UART6_RIS_R: *mut usize = 0x4001203C as *mut usize;
-
 pub const UART6_MIS_R: *mut usize = 0x40012040 as *mut usize;
-
 pub const UART6_ICR_R: *mut usize = 0x40012044 as *mut usize;
-
 pub const UART6_DMACTL_R: *mut usize = 0x40012048 as *mut usize;
-
 pub const UART6_LCTL_R: *mut usize = 0x40012090 as *mut usize;
-
 pub const UART6_LSS_R: *mut usize = 0x40012094 as *mut usize;
-
 pub const UART6_LTIM_R: *mut usize = 0x40012098 as *mut usize;
-
 pub const UART6_9BITADDR_R: *mut usize = 0x400120A4 as *mut usize;
-
 pub const UART6_9BITAMASK_R: *mut usize = 0x400120A8 as *mut usize;
-
 pub const UART6_PP_R: *mut usize = 0x40012FC0 as *mut usize;
-
 pub const UART6_CC_R: *mut usize = 0x40012FC8 as *mut usize;
 
 // *****************************************************************************
@@ -809,49 +513,27 @@ pub const UART6_CC_R: *mut usize = 0x40012FC8 as *mut usize;
 // UART registers (UART7)
 //
 // *****************************************************************************
-
 pub const UART7_DR_R: *mut usize = 0x40013000 as *mut usize;
-
 pub const UART7_RSR_R: *mut usize = 0x40013004 as *mut usize;
-
 pub const UART7_ECR_R: *mut usize = 0x40013004 as *mut usize;
-
 pub const UART7_FR_R: *mut usize = 0x40013018 as *mut usize;
-
 pub const UART7_ILPR_R: *mut usize = 0x40013020 as *mut usize;
-
 pub const UART7_IBRD_R: *mut usize = 0x40013024 as *mut usize;
-
 pub const UART7_FBRD_R: *mut usize = 0x40013028 as *mut usize;
-
 pub const UART7_LCRH_R: *mut usize = 0x4001302C as *mut usize;
-
 pub const UART7_CTL_R: *mut usize = 0x40013030 as *mut usize;
-
 pub const UART7_IFLS_R: *mut usize = 0x40013034 as *mut usize;
-
 pub const UART7_IM_R: *mut usize = 0x40013038 as *mut usize;
-
 pub const UART7_RIS_R: *mut usize = 0x4001303C as *mut usize;
-
 pub const UART7_MIS_R: *mut usize = 0x40013040 as *mut usize;
-
 pub const UART7_ICR_R: *mut usize = 0x40013044 as *mut usize;
-
 pub const UART7_DMACTL_R: *mut usize = 0x40013048 as *mut usize;
-
 pub const UART7_LCTL_R: *mut usize = 0x40013090 as *mut usize;
-
 pub const UART7_LSS_R: *mut usize = 0x40013094 as *mut usize;
-
 pub const UART7_LTIM_R: *mut usize = 0x40013098 as *mut usize;
-
 pub const UART7_9BITADDR_R: *mut usize = 0x400130A4 as *mut usize;
-
 pub const UART7_9BITAMASK_R: *mut usize = 0x400130A8 as *mut usize;
-
 pub const UART7_PP_R: *mut usize = 0x40013FC0 as *mut usize;
-
 pub const UART7_CC_R: *mut usize = 0x40013FC8 as *mut usize;
 
 // *****************************************************************************
@@ -859,27 +541,16 @@ pub const UART7_CC_R: *mut usize = 0x40013FC8 as *mut usize;
 // I2C registers (I2C0 MASTER)
 //
 // *****************************************************************************
-
 pub const I2C0_MASTER_MSA_R: *mut usize = 0x40020000 as *mut usize;
-
 pub const I2C0_MASTER_MCS_R: *mut usize = 0x40020004 as *mut usize;
-
 pub const I2C0_MASTER_MDR_R: *mut usize = 0x40020008 as *mut usize;
-
 pub const I2C0_MASTER_MTPR_R: *mut usize = 0x4002000C as *mut usize;
-
 pub const I2C0_MASTER_MIMR_R: *mut usize = 0x40020010 as *mut usize;
-
 pub const I2C0_MASTER_MRIS_R: *mut usize = 0x40020014 as *mut usize;
-
 pub const I2C0_MASTER_MMIS_R: *mut usize = 0x40020018 as *mut usize;
-
 pub const I2C0_MASTER_MICR_R: *mut usize = 0x4002001C as *mut usize;
-
 pub const I2C0_MASTER_MCR_R: *mut usize = 0x40020020 as *mut usize;
-
 pub const I2C0_MASTER_MCLKOCNT_R: *mut usize = 0x40020024 as *mut usize;
-
 pub const I2C0_MASTER_MBMON_R: *mut usize = 0x4002002C as *mut usize;
 
 // *****************************************************************************
@@ -887,23 +558,14 @@ pub const I2C0_MASTER_MBMON_R: *mut usize = 0x4002002C as *mut usize;
 // I2C registers (I2C0 SLAVE)
 //
 // *****************************************************************************
-
 pub const I2C0_SLAVE_SOAR_R: *mut usize = 0x40020800 as *mut usize;
-
 pub const I2C0_SLAVE_SCSR_R: *mut usize = 0x40020804 as *mut usize;
-
 pub const I2C0_SLAVE_SDR_R: *mut usize = 0x40020808 as *mut usize;
-
 pub const I2C0_SLAVE_SIMR_R: *mut usize = 0x4002080C as *mut usize;
-
 pub const I2C0_SLAVE_SRIS_R: *mut usize = 0x40020810 as *mut usize;
-
 pub const I2C0_SLAVE_SMIS_R: *mut usize = 0x40020814 as *mut usize;
-
 pub const I2C0_SLAVE_SICR_R: *mut usize = 0x40020818 as *mut usize;
-
 pub const I2C0_SLAVE_SOAR2_R: *mut usize = 0x4002081C as *mut usize;
-
 pub const I2C0_SLAVE_SACKCTL_R: *mut usize = 0x40020820 as *mut usize;
 
 // *****************************************************************************
@@ -911,27 +573,16 @@ pub const I2C0_SLAVE_SACKCTL_R: *mut usize = 0x40020820 as *mut usize;
 // I2C registers (I2C1 MASTER)
 //
 // *****************************************************************************
-
 pub const I2C1_MASTER_MSA_R: *mut usize = 0x40021000 as *mut usize;
-
 pub const I2C1_MASTER_MCS_R: *mut usize = 0x40021004 as *mut usize;
-
 pub const I2C1_MASTER_MDR_R: *mut usize = 0x40021008 as *mut usize;
-
 pub const I2C1_MASTER_MTPR_R: *mut usize = 0x4002100C as *mut usize;
-
 pub const I2C1_MASTER_MIMR_R: *mut usize = 0x40021010 as *mut usize;
-
 pub const I2C1_MASTER_MRIS_R: *mut usize = 0x40021014 as *mut usize;
-
 pub const I2C1_MASTER_MMIS_R: *mut usize = 0x40021018 as *mut usize;
-
 pub const I2C1_MASTER_MICR_R: *mut usize = 0x4002101C as *mut usize;
-
 pub const I2C1_MASTER_MCR_R: *mut usize = 0x40021020 as *mut usize;
-
 pub const I2C1_MASTER_MCLKOCNT_R: *mut usize = 0x40021024 as *mut usize;
-
 pub const I2C1_MASTER_MBMON_R: *mut usize = 0x4002102C as *mut usize;
 
 // *****************************************************************************
@@ -939,23 +590,14 @@ pub const I2C1_MASTER_MBMON_R: *mut usize = 0x4002102C as *mut usize;
 // I2C registers (I2C1 SLAVE)
 //
 // *****************************************************************************
-
 pub const I2C1_SLAVE_SOAR_R: *mut usize = 0x40021800 as *mut usize;
-
 pub const I2C1_SLAVE_SCSR_R: *mut usize = 0x40021804 as *mut usize;
-
 pub const I2C1_SLAVE_SDR_R: *mut usize = 0x40021808 as *mut usize;
-
 pub const I2C1_SLAVE_SIMR_R: *mut usize = 0x4002180C as *mut usize;
-
 pub const I2C1_SLAVE_SRIS_R: *mut usize = 0x40021810 as *mut usize;
-
 pub const I2C1_SLAVE_SMIS_R: *mut usize = 0x40021814 as *mut usize;
-
 pub const I2C1_SLAVE_SICR_R: *mut usize = 0x40021818 as *mut usize;
-
 pub const I2C1_SLAVE_SOAR2_R: *mut usize = 0x4002181C as *mut usize;
-
 pub const I2C1_SLAVE_SACKCTL_R: *mut usize = 0x40021820 as *mut usize;
 
 // *****************************************************************************
@@ -963,27 +605,16 @@ pub const I2C1_SLAVE_SACKCTL_R: *mut usize = 0x40021820 as *mut usize;
 // I2C registers (I2C2 MASTER)
 //
 // *****************************************************************************
-
 pub const I2C2_MASTER_MSA_R: *mut usize = 0x40022000 as *mut usize;
-
 pub const I2C2_MASTER_MCS_R: *mut usize = 0x40022004 as *mut usize;
-
 pub const I2C2_MASTER_MDR_R: *mut usize = 0x40022008 as *mut usize;
-
 pub const I2C2_MASTER_MTPR_R: *mut usize = 0x4002200C as *mut usize;
-
 pub const I2C2_MASTER_MIMR_R: *mut usize = 0x40022010 as *mut usize;
-
 pub const I2C2_MASTER_MRIS_R: *mut usize = 0x40022014 as *mut usize;
-
 pub const I2C2_MASTER_MMIS_R: *mut usize = 0x40022018 as *mut usize;
-
 pub const I2C2_MASTER_MICR_R: *mut usize = 0x4002201C as *mut usize;
-
 pub const I2C2_MASTER_MCR_R: *mut usize = 0x40022020 as *mut usize;
-
 pub const I2C2_MASTER_MCLKOCNT_R: *mut usize = 0x40022024 as *mut usize;
-
 pub const I2C2_MASTER_MBMON_R: *mut usize = 0x4002202C as *mut usize;
 
 // *****************************************************************************
@@ -991,23 +622,14 @@ pub const I2C2_MASTER_MBMON_R: *mut usize = 0x4002202C as *mut usize;
 // I2C registers (I2C2 SLAVE)
 //
 // *****************************************************************************
-
 pub const I2C2_SLAVE_SOAR_R: *mut usize = 0x40022800 as *mut usize;
-
 pub const I2C2_SLAVE_SCSR_R: *mut usize = 0x40022804 as *mut usize;
-
 pub const I2C2_SLAVE_SDR_R: *mut usize = 0x40022808 as *mut usize;
-
 pub const I2C2_SLAVE_SIMR_R: *mut usize = 0x4002280C as *mut usize;
-
 pub const I2C2_SLAVE_SRIS_R: *mut usize = 0x40022810 as *mut usize;
-
 pub const I2C2_SLAVE_SMIS_R: *mut usize = 0x40022814 as *mut usize;
-
 pub const I2C2_SLAVE_SICR_R: *mut usize = 0x40022818 as *mut usize;
-
 pub const I2C2_SLAVE_SOAR2_R: *mut usize = 0x4002281C as *mut usize;
-
 pub const I2C2_SLAVE_SACKCTL_R: *mut usize = 0x40022820 as *mut usize;
 
 // *****************************************************************************
@@ -1015,27 +637,16 @@ pub const I2C2_SLAVE_SACKCTL_R: *mut usize = 0x40022820 as *mut usize;
 // I2C registers (I2C3 MASTER)
 //
 // *****************************************************************************
-
 pub const I2C3_MASTER_MSA_R: *mut usize = 0x40023000 as *mut usize;
-
 pub const I2C3_MASTER_MCS_R: *mut usize = 0x40023004 as *mut usize;
-
 pub const I2C3_MASTER_MDR_R: *mut usize = 0x40023008 as *mut usize;
-
 pub const I2C3_MASTER_MTPR_R: *mut usize = 0x4002300C as *mut usize;
-
 pub const I2C3_MASTER_MIMR_R: *mut usize = 0x40023010 as *mut usize;
-
 pub const I2C3_MASTER_MRIS_R: *mut usize = 0x40023014 as *mut usize;
-
 pub const I2C3_MASTER_MMIS_R: *mut usize = 0x40023018 as *mut usize;
-
 pub const I2C3_MASTER_MICR_R: *mut usize = 0x4002301C as *mut usize;
-
 pub const I2C3_MASTER_MCR_R: *mut usize = 0x40023020 as *mut usize;
-
 pub const I2C3_MASTER_MCLKOCNT_R: *mut usize = 0x40023024 as *mut usize;
-
 pub const I2C3_MASTER_MBMON_R: *mut usize = 0x4002302C as *mut usize;
 
 // *****************************************************************************
@@ -1043,23 +654,14 @@ pub const I2C3_MASTER_MBMON_R: *mut usize = 0x4002302C as *mut usize;
 // I2C registers (I2C3 SLAVE)
 //
 // *****************************************************************************
-
 pub const I2C3_SLAVE_SOAR_R: *mut usize = 0x40023800 as *mut usize;
-
 pub const I2C3_SLAVE_SCSR_R: *mut usize = 0x40023804 as *mut usize;
-
 pub const I2C3_SLAVE_SDR_R: *mut usize = 0x40023808 as *mut usize;
-
 pub const I2C3_SLAVE_SIMR_R: *mut usize = 0x4002380C as *mut usize;
-
 pub const I2C3_SLAVE_SRIS_R: *mut usize = 0x40023810 as *mut usize;
-
 pub const I2C3_SLAVE_SMIS_R: *mut usize = 0x40023814 as *mut usize;
-
 pub const I2C3_SLAVE_SICR_R: *mut usize = 0x40023818 as *mut usize;
-
 pub const I2C3_SLAVE_SOAR2_R: *mut usize = 0x4002381C as *mut usize;
-
 pub const I2C3_SLAVE_SACKCTL_R: *mut usize = 0x40023820 as *mut usize;
 
 // *****************************************************************************
@@ -1067,57 +669,31 @@ pub const I2C3_SLAVE_SACKCTL_R: *mut usize = 0x40023820 as *mut usize;
 // GPIO registers (PORTE)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTE_DATA_BITS_R: *mut usize = 0x40024000 as *mut usize;
-
 pub const GPIO_PORTE_DATA_R: *mut usize = 0x400243FC as *mut usize;
-
 pub const GPIO_PORTE_DIR_R: *mut usize = 0x40024400 as *mut usize;
-
 pub const GPIO_PORTE_IS_R: *mut usize = 0x40024404 as *mut usize;
-
 pub const GPIO_PORTE_IBE_R: *mut usize = 0x40024408 as *mut usize;
-
 pub const GPIO_PORTE_IEV_R: *mut usize = 0x4002440C as *mut usize;
-
 pub const GPIO_PORTE_IM_R: *mut usize = 0x40024410 as *mut usize;
-
 pub const GPIO_PORTE_RIS_R: *mut usize = 0x40024414 as *mut usize;
-
 pub const GPIO_PORTE_MIS_R: *mut usize = 0x40024418 as *mut usize;
-
 pub const GPIO_PORTE_ICR_R: *mut usize = 0x4002441C as *mut usize;
-
 pub const GPIO_PORTE_AFSEL_R: *mut usize = 0x40024420 as *mut usize;
-
 pub const GPIO_PORTE_DR2R_R: *mut usize = 0x40024500 as *mut usize;
-
 pub const GPIO_PORTE_DR4R_R: *mut usize = 0x40024504 as *mut usize;
-
 pub const GPIO_PORTE_DR8R_R: *mut usize = 0x40024508 as *mut usize;
-
 pub const GPIO_PORTE_ODR_R: *mut usize = 0x4002450C as *mut usize;
-
 pub const GPIO_PORTE_PUR_R: *mut usize = 0x40024510 as *mut usize;
-
 pub const GPIO_PORTE_PDR_R: *mut usize = 0x40024514 as *mut usize;
-
 pub const GPIO_PORTE_SLR_R: *mut usize = 0x40024518 as *mut usize;
-
 pub const GPIO_PORTE_DEN_R: *mut usize = 0x4002451C as *mut usize;
-
 pub const GPIO_PORTE_LOCK_R: *mut usize = 0x40024520 as *mut usize;
-
 pub const GPIO_PORTE_CR_R: *mut usize = 0x40024524 as *mut usize;
-
 pub const GPIO_PORTE_AMSEL_R: *mut usize = 0x40024528 as *mut usize;
-
 pub const GPIO_PORTE_PCTL_R: *mut usize = 0x4002452C as *mut usize;
-
 pub const GPIO_PORTE_ADCCTL_R: *mut usize = 0x40024530 as *mut usize;
-
 pub const GPIO_PORTE_DMACTL_R: *mut usize = 0x40024534 as *mut usize;
-
 pub const GPIO_PORTE_SI_R: *mut usize = 0x40024538 as *mut usize;
 
 // *****************************************************************************
@@ -1125,57 +701,31 @@ pub const GPIO_PORTE_SI_R: *mut usize = 0x40024538 as *mut usize;
 // GPIO registers (PORTF)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTF_DATA_BITS_R: *mut usize = 0x40025000 as *mut usize;
-
 pub const GPIO_PORTF_DATA_R: *mut usize = 0x400253FC as *mut usize;
-
 pub const GPIO_PORTF_DIR_R: *mut usize = 0x40025400 as *mut usize;
-
 pub const GPIO_PORTF_IS_R: *mut usize = 0x40025404 as *mut usize;
-
 pub const GPIO_PORTF_IBE_R: *mut usize = 0x40025408 as *mut usize;
-
 pub const GPIO_PORTF_IEV_R: *mut usize = 0x4002540C as *mut usize;
-
 pub const GPIO_PORTF_IM_R: *mut usize = 0x40025410 as *mut usize;
-
 pub const GPIO_PORTF_RIS_R: *mut usize = 0x40025414 as *mut usize;
-
 pub const GPIO_PORTF_MIS_R: *mut usize = 0x40025418 as *mut usize;
-
 pub const GPIO_PORTF_ICR_R: *mut usize = 0x4002541C as *mut usize;
-
 pub const GPIO_PORTF_AFSEL_R: *mut usize = 0x40025420 as *mut usize;
-
 pub const GPIO_PORTF_DR2R_R: *mut usize = 0x40025500 as *mut usize;
-
 pub const GPIO_PORTF_DR4R_R: *mut usize = 0x40025504 as *mut usize;
-
 pub const GPIO_PORTF_DR8R_R: *mut usize = 0x40025508 as *mut usize;
-
 pub const GPIO_PORTF_ODR_R: *mut usize = 0x4002550C as *mut usize;
-
 pub const GPIO_PORTF_PUR_R: *mut usize = 0x40025510 as *mut usize;
-
 pub const GPIO_PORTF_PDR_R: *mut usize = 0x40025514 as *mut usize;
-
 pub const GPIO_PORTF_SLR_R: *mut usize = 0x40025518 as *mut usize;
-
 pub const GPIO_PORTF_DEN_R: *mut usize = 0x4002551C as *mut usize;
-
 pub const GPIO_PORTF_LOCK_R: *mut usize = 0x40025520 as *mut usize;
-
 pub const GPIO_PORTF_CR_R: *mut usize = 0x40025524 as *mut usize;
-
 pub const GPIO_PORTF_AMSEL_R: *mut usize = 0x40025528 as *mut usize;
-
 pub const GPIO_PORTF_PCTL_R: *mut usize = 0x4002552C as *mut usize;
-
 pub const GPIO_PORTF_ADCCTL_R: *mut usize = 0x40025530 as *mut usize;
-
 pub const GPIO_PORTF_DMACTL_R: *mut usize = 0x40025534 as *mut usize;
-
 pub const GPIO_PORTF_SI_R: *mut usize = 0x40025538 as *mut usize;
 
 // *****************************************************************************
@@ -1183,59 +733,32 @@ pub const GPIO_PORTF_SI_R: *mut usize = 0x40025538 as *mut usize;
 // Timer registers (TIMER0)
 //
 // *****************************************************************************
-
 pub const TIMER0_CFG_R: *mut usize = 0x40030000 as *mut usize;
-
 pub const TIMER0_TAMR_R: *mut usize = 0x40030004 as *mut usize;
-
 pub const TIMER0_TBMR_R: *mut usize = 0x40030008 as *mut usize;
-
 pub const TIMER0_CTL_R: *mut usize = 0x4003000C as *mut usize;
-
 pub const TIMER0_SYNC_R: *mut usize = 0x40030010 as *mut usize;
-
 pub const TIMER0_IMR_R: *mut usize = 0x40030018 as *mut usize;
-
 pub const TIMER0_RIS_R: *mut usize = 0x4003001C as *mut usize;
-
 pub const TIMER0_MIS_R: *mut usize = 0x40030020 as *mut usize;
-
 pub const TIMER0_ICR_R: *mut usize = 0x40030024 as *mut usize;
-
 pub const TIMER0_TAILR_R: *mut usize = 0x40030028 as *mut usize;
-
 pub const TIMER0_TBILR_R: *mut usize = 0x4003002C as *mut usize;
-
 pub const TIMER0_TAMATCHR_R: *mut usize = 0x40030030 as *mut usize;
-
 pub const TIMER0_TBMATCHR_R: *mut usize = 0x40030034 as *mut usize;
-
 pub const TIMER0_TAPR_R: *mut usize = 0x40030038 as *mut usize;
-
 pub const TIMER0_TBPR_R: *mut usize = 0x4003003C as *mut usize;
-
 pub const TIMER0_TAPMR_R: *mut usize = 0x40030040 as *mut usize;
-
 pub const TIMER0_TBPMR_R: *mut usize = 0x40030044 as *mut usize;
-
 pub const TIMER0_TAR_R: *mut usize = 0x40030048 as *mut usize;
-
 pub const TIMER0_TBR_R: *mut usize = 0x4003004C as *mut usize;
-
 pub const TIMER0_TAV_R: *mut usize = 0x40030050 as *mut usize;
-
 pub const TIMER0_TBV_R: *mut usize = 0x40030054 as *mut usize;
-
 pub const TIMER0_RTCPD_R: *mut usize = 0x40030058 as *mut usize;
-
 pub const TIMER0_TAPS_R: *mut usize = 0x4003005C as *mut usize;
-
 pub const TIMER0_TBPS_R: *mut usize = 0x40030060 as *mut usize;
-
 pub const TIMER0_TAPV_R: *mut usize = 0x40030064 as *mut usize;
-
 pub const TIMER0_TBPV_R: *mut usize = 0x40030068 as *mut usize;
-
 pub const TIMER0_PP_R: *mut usize = 0x40030FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1243,59 +766,32 @@ pub const TIMER0_PP_R: *mut usize = 0x40030FC0 as *mut usize;
 // Timer registers (TIMER1)
 //
 // *****************************************************************************
-
 pub const TIMER1_CFG_R: *mut usize = 0x40031000 as *mut usize;
-
 pub const TIMER1_TAMR_R: *mut usize = 0x40031004 as *mut usize;
-
 pub const TIMER1_TBMR_R: *mut usize = 0x40031008 as *mut usize;
-
 pub const TIMER1_CTL_R: *mut usize = 0x4003100C as *mut usize;
-
 pub const TIMER1_SYNC_R: *mut usize = 0x40031010 as *mut usize;
-
 pub const TIMER1_IMR_R: *mut usize = 0x40031018 as *mut usize;
-
 pub const TIMER1_RIS_R: *mut usize = 0x4003101C as *mut usize;
-
 pub const TIMER1_MIS_R: *mut usize = 0x40031020 as *mut usize;
-
 pub const TIMER1_ICR_R: *mut usize = 0x40031024 as *mut usize;
-
 pub const TIMER1_TAILR_R: *mut usize = 0x40031028 as *mut usize;
-
 pub const TIMER1_TBILR_R: *mut usize = 0x4003102C as *mut usize;
-
 pub const TIMER1_TAMATCHR_R: *mut usize = 0x40031030 as *mut usize;
-
 pub const TIMER1_TBMATCHR_R: *mut usize = 0x40031034 as *mut usize;
-
 pub const TIMER1_TAPR_R: *mut usize = 0x40031038 as *mut usize;
-
 pub const TIMER1_TBPR_R: *mut usize = 0x4003103C as *mut usize;
-
 pub const TIMER1_TAPMR_R: *mut usize = 0x40031040 as *mut usize;
-
 pub const TIMER1_TBPMR_R: *mut usize = 0x40031044 as *mut usize;
-
 pub const TIMER1_TAR_R: *mut usize = 0x40031048 as *mut usize;
-
 pub const TIMER1_TBR_R: *mut usize = 0x4003104C as *mut usize;
-
 pub const TIMER1_TAV_R: *mut usize = 0x40031050 as *mut usize;
-
 pub const TIMER1_TBV_R: *mut usize = 0x40031054 as *mut usize;
-
 pub const TIMER1_RTCPD_R: *mut usize = 0x40031058 as *mut usize;
-
 pub const TIMER1_TAPS_R: *mut usize = 0x4003105C as *mut usize;
-
 pub const TIMER1_TBPS_R: *mut usize = 0x40031060 as *mut usize;
-
 pub const TIMER1_TAPV_R: *mut usize = 0x40031064 as *mut usize;
-
 pub const TIMER1_TBPV_R: *mut usize = 0x40031068 as *mut usize;
-
 pub const TIMER1_PP_R: *mut usize = 0x40031FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1303,59 +799,32 @@ pub const TIMER1_PP_R: *mut usize = 0x40031FC0 as *mut usize;
 // Timer registers (TIMER2)
 //
 // *****************************************************************************
-
 pub const TIMER2_CFG_R: *mut usize = 0x40032000 as *mut usize;
-
 pub const TIMER2_TAMR_R: *mut usize = 0x40032004 as *mut usize;
-
 pub const TIMER2_TBMR_R: *mut usize = 0x40032008 as *mut usize;
-
 pub const TIMER2_CTL_R: *mut usize = 0x4003200C as *mut usize;
-
 pub const TIMER2_SYNC_R: *mut usize = 0x40032010 as *mut usize;
-
 pub const TIMER2_IMR_R: *mut usize = 0x40032018 as *mut usize;
-
 pub const TIMER2_RIS_R: *mut usize = 0x4003201C as *mut usize;
-
 pub const TIMER2_MIS_R: *mut usize = 0x40032020 as *mut usize;
-
 pub const TIMER2_ICR_R: *mut usize = 0x40032024 as *mut usize;
-
 pub const TIMER2_TAILR_R: *mut usize = 0x40032028 as *mut usize;
-
 pub const TIMER2_TBILR_R: *mut usize = 0x4003202C as *mut usize;
-
 pub const TIMER2_TAMATCHR_R: *mut usize = 0x40032030 as *mut usize;
-
 pub const TIMER2_TBMATCHR_R: *mut usize = 0x40032034 as *mut usize;
-
 pub const TIMER2_TAPR_R: *mut usize = 0x40032038 as *mut usize;
-
 pub const TIMER2_TBPR_R: *mut usize = 0x4003203C as *mut usize;
-
 pub const TIMER2_TAPMR_R: *mut usize = 0x40032040 as *mut usize;
-
 pub const TIMER2_TBPMR_R: *mut usize = 0x40032044 as *mut usize;
-
 pub const TIMER2_TAR_R: *mut usize = 0x40032048 as *mut usize;
-
 pub const TIMER2_TBR_R: *mut usize = 0x4003204C as *mut usize;
-
 pub const TIMER2_TAV_R: *mut usize = 0x40032050 as *mut usize;
-
 pub const TIMER2_TBV_R: *mut usize = 0x40032054 as *mut usize;
-
 pub const TIMER2_RTCPD_R: *mut usize = 0x40032058 as *mut usize;
-
 pub const TIMER2_TAPS_R: *mut usize = 0x4003205C as *mut usize;
-
 pub const TIMER2_TBPS_R: *mut usize = 0x40032060 as *mut usize;
-
 pub const TIMER2_TAPV_R: *mut usize = 0x40032064 as *mut usize;
-
 pub const TIMER2_TBPV_R: *mut usize = 0x40032068 as *mut usize;
-
 pub const TIMER2_PP_R: *mut usize = 0x40032FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1363,59 +832,32 @@ pub const TIMER2_PP_R: *mut usize = 0x40032FC0 as *mut usize;
 // Timer registers (TIMER3)
 //
 // *****************************************************************************
-
 pub const TIMER3_CFG_R: *mut usize = 0x40033000 as *mut usize;
-
 pub const TIMER3_TAMR_R: *mut usize = 0x40033004 as *mut usize;
-
 pub const TIMER3_TBMR_R: *mut usize = 0x40033008 as *mut usize;
-
 pub const TIMER3_CTL_R: *mut usize = 0x4003300C as *mut usize;
-
 pub const TIMER3_SYNC_R: *mut usize = 0x40033010 as *mut usize;
-
 pub const TIMER3_IMR_R: *mut usize = 0x40033018 as *mut usize;
-
 pub const TIMER3_RIS_R: *mut usize = 0x4003301C as *mut usize;
-
 pub const TIMER3_MIS_R: *mut usize = 0x40033020 as *mut usize;
-
 pub const TIMER3_ICR_R: *mut usize = 0x40033024 as *mut usize;
-
 pub const TIMER3_TAILR_R: *mut usize = 0x40033028 as *mut usize;
-
 pub const TIMER3_TBILR_R: *mut usize = 0x4003302C as *mut usize;
-
 pub const TIMER3_TAMATCHR_R: *mut usize = 0x40033030 as *mut usize;
-
 pub const TIMER3_TBMATCHR_R: *mut usize = 0x40033034 as *mut usize;
-
 pub const TIMER3_TAPR_R: *mut usize = 0x40033038 as *mut usize;
-
 pub const TIMER3_TBPR_R: *mut usize = 0x4003303C as *mut usize;
-
 pub const TIMER3_TAPMR_R: *mut usize = 0x40033040 as *mut usize;
-
 pub const TIMER3_TBPMR_R: *mut usize = 0x40033044 as *mut usize;
-
 pub const TIMER3_TAR_R: *mut usize = 0x40033048 as *mut usize;
-
 pub const TIMER3_TBR_R: *mut usize = 0x4003304C as *mut usize;
-
 pub const TIMER3_TAV_R: *mut usize = 0x40033050 as *mut usize;
-
 pub const TIMER3_TBV_R: *mut usize = 0x40033054 as *mut usize;
-
 pub const TIMER3_RTCPD_R: *mut usize = 0x40033058 as *mut usize;
-
 pub const TIMER3_TAPS_R: *mut usize = 0x4003305C as *mut usize;
-
 pub const TIMER3_TBPS_R: *mut usize = 0x40033060 as *mut usize;
-
 pub const TIMER3_TAPV_R: *mut usize = 0x40033064 as *mut usize;
-
 pub const TIMER3_TBPV_R: *mut usize = 0x40033068 as *mut usize;
-
 pub const TIMER3_PP_R: *mut usize = 0x40033FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1423,59 +865,32 @@ pub const TIMER3_PP_R: *mut usize = 0x40033FC0 as *mut usize;
 // Timer registers (TIMER4)
 //
 // *****************************************************************************
-
 pub const TIMER4_CFG_R: *mut usize = 0x40034000 as *mut usize;
-
 pub const TIMER4_TAMR_R: *mut usize = 0x40034004 as *mut usize;
-
 pub const TIMER4_TBMR_R: *mut usize = 0x40034008 as *mut usize;
-
 pub const TIMER4_CTL_R: *mut usize = 0x4003400C as *mut usize;
-
 pub const TIMER4_SYNC_R: *mut usize = 0x40034010 as *mut usize;
-
 pub const TIMER4_IMR_R: *mut usize = 0x40034018 as *mut usize;
-
 pub const TIMER4_RIS_R: *mut usize = 0x4003401C as *mut usize;
-
 pub const TIMER4_MIS_R: *mut usize = 0x40034020 as *mut usize;
-
 pub const TIMER4_ICR_R: *mut usize = 0x40034024 as *mut usize;
-
 pub const TIMER4_TAILR_R: *mut usize = 0x40034028 as *mut usize;
-
 pub const TIMER4_TBILR_R: *mut usize = 0x4003402C as *mut usize;
-
 pub const TIMER4_TAMATCHR_R: *mut usize = 0x40034030 as *mut usize;
-
 pub const TIMER4_TBMATCHR_R: *mut usize = 0x40034034 as *mut usize;
-
 pub const TIMER4_TAPR_R: *mut usize = 0x40034038 as *mut usize;
-
 pub const TIMER4_TBPR_R: *mut usize = 0x4003403C as *mut usize;
-
 pub const TIMER4_TAPMR_R: *mut usize = 0x40034040 as *mut usize;
-
 pub const TIMER4_TBPMR_R: *mut usize = 0x40034044 as *mut usize;
-
 pub const TIMER4_TAR_R: *mut usize = 0x40034048 as *mut usize;
-
 pub const TIMER4_TBR_R: *mut usize = 0x4003404C as *mut usize;
-
 pub const TIMER4_TAV_R: *mut usize = 0x40034050 as *mut usize;
-
 pub const TIMER4_TBV_R: *mut usize = 0x40034054 as *mut usize;
-
 pub const TIMER4_RTCPD_R: *mut usize = 0x40034058 as *mut usize;
-
 pub const TIMER4_TAPS_R: *mut usize = 0x4003405C as *mut usize;
-
 pub const TIMER4_TBPS_R: *mut usize = 0x40034060 as *mut usize;
-
 pub const TIMER4_TAPV_R: *mut usize = 0x40034064 as *mut usize;
-
 pub const TIMER4_TBPV_R: *mut usize = 0x40034068 as *mut usize;
-
 pub const TIMER4_PP_R: *mut usize = 0x40034FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1483,59 +898,32 @@ pub const TIMER4_PP_R: *mut usize = 0x40034FC0 as *mut usize;
 // Timer registers (TIMER5)
 //
 // *****************************************************************************
-
 pub const TIMER5_CFG_R: *mut usize = 0x40035000 as *mut usize;
-
 pub const TIMER5_TAMR_R: *mut usize = 0x40035004 as *mut usize;
-
 pub const TIMER5_TBMR_R: *mut usize = 0x40035008 as *mut usize;
-
 pub const TIMER5_CTL_R: *mut usize = 0x4003500C as *mut usize;
-
 pub const TIMER5_SYNC_R: *mut usize = 0x40035010 as *mut usize;
-
 pub const TIMER5_IMR_R: *mut usize = 0x40035018 as *mut usize;
-
 pub const TIMER5_RIS_R: *mut usize = 0x4003501C as *mut usize;
-
 pub const TIMER5_MIS_R: *mut usize = 0x40035020 as *mut usize;
-
 pub const TIMER5_ICR_R: *mut usize = 0x40035024 as *mut usize;
-
 pub const TIMER5_TAILR_R: *mut usize = 0x40035028 as *mut usize;
-
 pub const TIMER5_TBILR_R: *mut usize = 0x4003502C as *mut usize;
-
 pub const TIMER5_TAMATCHR_R: *mut usize = 0x40035030 as *mut usize;
-
 pub const TIMER5_TBMATCHR_R: *mut usize = 0x40035034 as *mut usize;
-
 pub const TIMER5_TAPR_R: *mut usize = 0x40035038 as *mut usize;
-
 pub const TIMER5_TBPR_R: *mut usize = 0x4003503C as *mut usize;
-
 pub const TIMER5_TAPMR_R: *mut usize = 0x40035040 as *mut usize;
-
 pub const TIMER5_TBPMR_R: *mut usize = 0x40035044 as *mut usize;
-
 pub const TIMER5_TAR_R: *mut usize = 0x40035048 as *mut usize;
-
 pub const TIMER5_TBR_R: *mut usize = 0x4003504C as *mut usize;
-
 pub const TIMER5_TAV_R: *mut usize = 0x40035050 as *mut usize;
-
 pub const TIMER5_TBV_R: *mut usize = 0x40035054 as *mut usize;
-
 pub const TIMER5_RTCPD_R: *mut usize = 0x40035058 as *mut usize;
-
 pub const TIMER5_TAPS_R: *mut usize = 0x4003505C as *mut usize;
-
 pub const TIMER5_TBPS_R: *mut usize = 0x40035060 as *mut usize;
-
 pub const TIMER5_TAPV_R: *mut usize = 0x40035064 as *mut usize;
-
 pub const TIMER5_TBPV_R: *mut usize = 0x40035068 as *mut usize;
-
 pub const TIMER5_PP_R: *mut usize = 0x40035FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1543,59 +931,32 @@ pub const TIMER5_PP_R: *mut usize = 0x40035FC0 as *mut usize;
 // Timer registers (WTIMER0)
 //
 // *****************************************************************************
-
 pub const WTIMER0_CFG_R: *mut usize = 0x40036000 as *mut usize;
-
 pub const WTIMER0_TAMR_R: *mut usize = 0x40036004 as *mut usize;
-
 pub const WTIMER0_TBMR_R: *mut usize = 0x40036008 as *mut usize;
-
 pub const WTIMER0_CTL_R: *mut usize = 0x4003600C as *mut usize;
-
 pub const WTIMER0_SYNC_R: *mut usize = 0x40036010 as *mut usize;
-
 pub const WTIMER0_IMR_R: *mut usize = 0x40036018 as *mut usize;
-
 pub const WTIMER0_RIS_R: *mut usize = 0x4003601C as *mut usize;
-
 pub const WTIMER0_MIS_R: *mut usize = 0x40036020 as *mut usize;
-
 pub const WTIMER0_ICR_R: *mut usize = 0x40036024 as *mut usize;
-
 pub const WTIMER0_TAILR_R: *mut usize = 0x40036028 as *mut usize;
-
 pub const WTIMER0_TBILR_R: *mut usize = 0x4003602C as *mut usize;
-
 pub const WTIMER0_TAMATCHR_R: *mut usize = 0x40036030 as *mut usize;
-
 pub const WTIMER0_TBMATCHR_R: *mut usize = 0x40036034 as *mut usize;
-
 pub const WTIMER0_TAPR_R: *mut usize = 0x40036038 as *mut usize;
-
 pub const WTIMER0_TBPR_R: *mut usize = 0x4003603C as *mut usize;
-
 pub const WTIMER0_TAPMR_R: *mut usize = 0x40036040 as *mut usize;
-
 pub const WTIMER0_TBPMR_R: *mut usize = 0x40036044 as *mut usize;
-
 pub const WTIMER0_TAR_R: *mut usize = 0x40036048 as *mut usize;
-
 pub const WTIMER0_TBR_R: *mut usize = 0x4003604C as *mut usize;
-
 pub const WTIMER0_TAV_R: *mut usize = 0x40036050 as *mut usize;
-
 pub const WTIMER0_TBV_R: *mut usize = 0x40036054 as *mut usize;
-
 pub const WTIMER0_RTCPD_R: *mut usize = 0x40036058 as *mut usize;
-
 pub const WTIMER0_TAPS_R: *mut usize = 0x4003605C as *mut usize;
-
 pub const WTIMER0_TBPS_R: *mut usize = 0x40036060 as *mut usize;
-
 pub const WTIMER0_TAPV_R: *mut usize = 0x40036064 as *mut usize;
-
 pub const WTIMER0_TBPV_R: *mut usize = 0x40036068 as *mut usize;
-
 pub const WTIMER0_PP_R: *mut usize = 0x40036FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1603,59 +964,32 @@ pub const WTIMER0_PP_R: *mut usize = 0x40036FC0 as *mut usize;
 // Timer registers (WTIMER1)
 //
 // *****************************************************************************
-
 pub const WTIMER1_CFG_R: *mut usize = 0x40037000 as *mut usize;
-
 pub const WTIMER1_TAMR_R: *mut usize = 0x40037004 as *mut usize;
-
 pub const WTIMER1_TBMR_R: *mut usize = 0x40037008 as *mut usize;
-
 pub const WTIMER1_CTL_R: *mut usize = 0x4003700C as *mut usize;
-
 pub const WTIMER1_SYNC_R: *mut usize = 0x40037010 as *mut usize;
-
 pub const WTIMER1_IMR_R: *mut usize = 0x40037018 as *mut usize;
-
 pub const WTIMER1_RIS_R: *mut usize = 0x4003701C as *mut usize;
-
 pub const WTIMER1_MIS_R: *mut usize = 0x40037020 as *mut usize;
-
 pub const WTIMER1_ICR_R: *mut usize = 0x40037024 as *mut usize;
-
 pub const WTIMER1_TAILR_R: *mut usize = 0x40037028 as *mut usize;
-
 pub const WTIMER1_TBILR_R: *mut usize = 0x4003702C as *mut usize;
-
 pub const WTIMER1_TAMATCHR_R: *mut usize = 0x40037030 as *mut usize;
-
 pub const WTIMER1_TBMATCHR_R: *mut usize = 0x40037034 as *mut usize;
-
 pub const WTIMER1_TAPR_R: *mut usize = 0x40037038 as *mut usize;
-
 pub const WTIMER1_TBPR_R: *mut usize = 0x4003703C as *mut usize;
-
 pub const WTIMER1_TAPMR_R: *mut usize = 0x40037040 as *mut usize;
-
 pub const WTIMER1_TBPMR_R: *mut usize = 0x40037044 as *mut usize;
-
 pub const WTIMER1_TAR_R: *mut usize = 0x40037048 as *mut usize;
-
 pub const WTIMER1_TBR_R: *mut usize = 0x4003704C as *mut usize;
-
 pub const WTIMER1_TAV_R: *mut usize = 0x40037050 as *mut usize;
-
 pub const WTIMER1_TBV_R: *mut usize = 0x40037054 as *mut usize;
-
 pub const WTIMER1_RTCPD_R: *mut usize = 0x40037058 as *mut usize;
-
 pub const WTIMER1_TAPS_R: *mut usize = 0x4003705C as *mut usize;
-
 pub const WTIMER1_TBPS_R: *mut usize = 0x40037060 as *mut usize;
-
 pub const WTIMER1_TAPV_R: *mut usize = 0x40037064 as *mut usize;
-
 pub const WTIMER1_TBPV_R: *mut usize = 0x40037068 as *mut usize;
-
 pub const WTIMER1_PP_R: *mut usize = 0x40037FC0 as *mut usize;
 
 // *****************************************************************************
@@ -1663,117 +997,61 @@ pub const WTIMER1_PP_R: *mut usize = 0x40037FC0 as *mut usize;
 // ADC registers (ADC0)
 //
 // *****************************************************************************
-
 pub const ADC0_ACTSS_R: *mut usize = 0x40038000 as *mut usize;
-
 pub const ADC0_RIS_R: *mut usize = 0x40038004 as *mut usize;
-
 pub const ADC0_IM_R: *mut usize = 0x40038008 as *mut usize;
-
 pub const ADC0_ISC_R: *mut usize = 0x4003800C as *mut usize;
-
 pub const ADC0_OSTAT_R: *mut usize = 0x40038010 as *mut usize;
-
 pub const ADC0_EMUX_R: *mut usize = 0x40038014 as *mut usize;
-
 pub const ADC0_USTAT_R: *mut usize = 0x40038018 as *mut usize;
-
 pub const ADC0_SSPRI_R: *mut usize = 0x40038020 as *mut usize;
-
 pub const ADC0_SPC_R: *mut usize = 0x40038024 as *mut usize;
-
 pub const ADC0_PSSI_R: *mut usize = 0x40038028 as *mut usize;
-
 pub const ADC0_SAC_R: *mut usize = 0x40038030 as *mut usize;
-
 pub const ADC0_DCISC_R: *mut usize = 0x40038034 as *mut usize;
-
 pub const ADC0_SSMUX0_R: *mut usize = 0x40038040 as *mut usize;
-
 pub const ADC0_SSCTL0_R: *mut usize = 0x40038044 as *mut usize;
-
 pub const ADC0_SSFIFO0_R: *mut usize = 0x40038048 as *mut usize;
-
 pub const ADC0_SSFSTAT0_R: *mut usize = 0x4003804C as *mut usize;
-
 pub const ADC0_SSOP0_R: *mut usize = 0x40038050 as *mut usize;
-
 pub const ADC0_SSDC0_R: *mut usize = 0x40038054 as *mut usize;
-
 pub const ADC0_SSMUX1_R: *mut usize = 0x40038060 as *mut usize;
-
 pub const ADC0_SSCTL1_R: *mut usize = 0x40038064 as *mut usize;
-
 pub const ADC0_SSFIFO1_R: *mut usize = 0x40038068 as *mut usize;
-
 pub const ADC0_SSFSTAT1_R: *mut usize = 0x4003806C as *mut usize;
-
 pub const ADC0_SSOP1_R: *mut usize = 0x40038070 as *mut usize;
-
 pub const ADC0_SSDC1_R: *mut usize = 0x40038074 as *mut usize;
-
 pub const ADC0_SSMUX2_R: *mut usize = 0x40038080 as *mut usize;
-
 pub const ADC0_SSCTL2_R: *mut usize = 0x40038084 as *mut usize;
-
 pub const ADC0_SSFIFO2_R: *mut usize = 0x40038088 as *mut usize;
-
 pub const ADC0_SSFSTAT2_R: *mut usize = 0x4003808C as *mut usize;
-
 pub const ADC0_SSOP2_R: *mut usize = 0x40038090 as *mut usize;
-
 pub const ADC0_SSDC2_R: *mut usize = 0x40038094 as *mut usize;
-
 pub const ADC0_SSMUX3_R: *mut usize = 0x400380A0 as *mut usize;
-
 pub const ADC0_SSCTL3_R: *mut usize = 0x400380A4 as *mut usize;
-
 pub const ADC0_SSFIFO3_R: *mut usize = 0x400380A8 as *mut usize;
-
 pub const ADC0_SSFSTAT3_R: *mut usize = 0x400380AC as *mut usize;
-
 pub const ADC0_SSOP3_R: *mut usize = 0x400380B0 as *mut usize;
-
 pub const ADC0_SSDC3_R: *mut usize = 0x400380B4 as *mut usize;
-
 pub const ADC0_DCRIC_R: *mut usize = 0x40038D00 as *mut usize;
-
 pub const ADC0_DCCTL0_R: *mut usize = 0x40038E00 as *mut usize;
-
 pub const ADC0_DCCTL1_R: *mut usize = 0x40038E04 as *mut usize;
-
 pub const ADC0_DCCTL2_R: *mut usize = 0x40038E08 as *mut usize;
-
 pub const ADC0_DCCTL3_R: *mut usize = 0x40038E0C as *mut usize;
-
 pub const ADC0_DCCTL4_R: *mut usize = 0x40038E10 as *mut usize;
-
 pub const ADC0_DCCTL5_R: *mut usize = 0x40038E14 as *mut usize;
-
 pub const ADC0_DCCTL6_R: *mut usize = 0x40038E18 as *mut usize;
-
 pub const ADC0_DCCTL7_R: *mut usize = 0x40038E1C as *mut usize;
-
 pub const ADC0_DCCMP0_R: *mut usize = 0x40038E40 as *mut usize;
-
 pub const ADC0_DCCMP1_R: *mut usize = 0x40038E44 as *mut usize;
-
 pub const ADC0_DCCMP2_R: *mut usize = 0x40038E48 as *mut usize;
-
 pub const ADC0_DCCMP3_R: *mut usize = 0x40038E4C as *mut usize;
-
 pub const ADC0_DCCMP4_R: *mut usize = 0x40038E50 as *mut usize;
-
 pub const ADC0_DCCMP5_R: *mut usize = 0x40038E54 as *mut usize;
-
 pub const ADC0_DCCMP6_R: *mut usize = 0x40038E58 as *mut usize;
-
 pub const ADC0_DCCMP7_R: *mut usize = 0x40038E5C as *mut usize;
-
 pub const ADC0_PP_R: *mut usize = 0x40038FC0 as *mut usize;
-
 pub const ADC0_PC_R: *mut usize = 0x40038FC4 as *mut usize;
-
 pub const ADC0_CC_R: *mut usize = 0x40038FC8 as *mut usize;
 
 // *****************************************************************************
@@ -1781,117 +1059,61 @@ pub const ADC0_CC_R: *mut usize = 0x40038FC8 as *mut usize;
 // ADC registers (ADC1)
 //
 // *****************************************************************************
-
 pub const ADC1_ACTSS_R: *mut usize = 0x40039000 as *mut usize;
-
 pub const ADC1_RIS_R: *mut usize = 0x40039004 as *mut usize;
-
 pub const ADC1_IM_R: *mut usize = 0x40039008 as *mut usize;
-
 pub const ADC1_ISC_R: *mut usize = 0x4003900C as *mut usize;
-
 pub const ADC1_OSTAT_R: *mut usize = 0x40039010 as *mut usize;
-
 pub const ADC1_EMUX_R: *mut usize = 0x40039014 as *mut usize;
-
 pub const ADC1_USTAT_R: *mut usize = 0x40039018 as *mut usize;
-
 pub const ADC1_SSPRI_R: *mut usize = 0x40039020 as *mut usize;
-
 pub const ADC1_SPC_R: *mut usize = 0x40039024 as *mut usize;
-
 pub const ADC1_PSSI_R: *mut usize = 0x40039028 as *mut usize;
-
 pub const ADC1_SAC_R: *mut usize = 0x40039030 as *mut usize;
-
 pub const ADC1_DCISC_R: *mut usize = 0x40039034 as *mut usize;
-
 pub const ADC1_SSMUX0_R: *mut usize = 0x40039040 as *mut usize;
-
 pub const ADC1_SSCTL0_R: *mut usize = 0x40039044 as *mut usize;
-
 pub const ADC1_SSFIFO0_R: *mut usize = 0x40039048 as *mut usize;
-
 pub const ADC1_SSFSTAT0_R: *mut usize = 0x4003904C as *mut usize;
-
 pub const ADC1_SSOP0_R: *mut usize = 0x40039050 as *mut usize;
-
 pub const ADC1_SSDC0_R: *mut usize = 0x40039054 as *mut usize;
-
 pub const ADC1_SSMUX1_R: *mut usize = 0x40039060 as *mut usize;
-
 pub const ADC1_SSCTL1_R: *mut usize = 0x40039064 as *mut usize;
-
 pub const ADC1_SSFIFO1_R: *mut usize = 0x40039068 as *mut usize;
-
 pub const ADC1_SSFSTAT1_R: *mut usize = 0x4003906C as *mut usize;
-
 pub const ADC1_SSOP1_R: *mut usize = 0x40039070 as *mut usize;
-
 pub const ADC1_SSDC1_R: *mut usize = 0x40039074 as *mut usize;
-
 pub const ADC1_SSMUX2_R: *mut usize = 0x40039080 as *mut usize;
-
 pub const ADC1_SSCTL2_R: *mut usize = 0x40039084 as *mut usize;
-
 pub const ADC1_SSFIFO2_R: *mut usize = 0x40039088 as *mut usize;
-
 pub const ADC1_SSFSTAT2_R: *mut usize = 0x4003908C as *mut usize;
-
 pub const ADC1_SSOP2_R: *mut usize = 0x40039090 as *mut usize;
-
 pub const ADC1_SSDC2_R: *mut usize = 0x40039094 as *mut usize;
-
 pub const ADC1_SSMUX3_R: *mut usize = 0x400390A0 as *mut usize;
-
 pub const ADC1_SSCTL3_R: *mut usize = 0x400390A4 as *mut usize;
-
 pub const ADC1_SSFIFO3_R: *mut usize = 0x400390A8 as *mut usize;
-
 pub const ADC1_SSFSTAT3_R: *mut usize = 0x400390AC as *mut usize;
-
 pub const ADC1_SSOP3_R: *mut usize = 0x400390B0 as *mut usize;
-
 pub const ADC1_SSDC3_R: *mut usize = 0x400390B4 as *mut usize;
-
 pub const ADC1_DCRIC_R: *mut usize = 0x40039D00 as *mut usize;
-
 pub const ADC1_DCCTL0_R: *mut usize = 0x40039E00 as *mut usize;
-
 pub const ADC1_DCCTL1_R: *mut usize = 0x40039E04 as *mut usize;
-
 pub const ADC1_DCCTL2_R: *mut usize = 0x40039E08 as *mut usize;
-
 pub const ADC1_DCCTL3_R: *mut usize = 0x40039E0C as *mut usize;
-
 pub const ADC1_DCCTL4_R: *mut usize = 0x40039E10 as *mut usize;
-
 pub const ADC1_DCCTL5_R: *mut usize = 0x40039E14 as *mut usize;
-
 pub const ADC1_DCCTL6_R: *mut usize = 0x40039E18 as *mut usize;
-
 pub const ADC1_DCCTL7_R: *mut usize = 0x40039E1C as *mut usize;
-
 pub const ADC1_DCCMP0_R: *mut usize = 0x40039E40 as *mut usize;
-
 pub const ADC1_DCCMP1_R: *mut usize = 0x40039E44 as *mut usize;
-
 pub const ADC1_DCCMP2_R: *mut usize = 0x40039E48 as *mut usize;
-
 pub const ADC1_DCCMP3_R: *mut usize = 0x40039E4C as *mut usize;
-
 pub const ADC1_DCCMP4_R: *mut usize = 0x40039E50 as *mut usize;
-
 pub const ADC1_DCCMP5_R: *mut usize = 0x40039E54 as *mut usize;
-
 pub const ADC1_DCCMP6_R: *mut usize = 0x40039E58 as *mut usize;
-
 pub const ADC1_DCCMP7_R: *mut usize = 0x40039E5C as *mut usize;
-
 pub const ADC1_PP_R: *mut usize = 0x40039FC0 as *mut usize;
-
 pub const ADC1_PC_R: *mut usize = 0x40039FC4 as *mut usize;
-
 pub const ADC1_CC_R: *mut usize = 0x40039FC8 as *mut usize;
 
 // *****************************************************************************
@@ -1899,23 +1121,14 @@ pub const ADC1_CC_R: *mut usize = 0x40039FC8 as *mut usize;
 // Comparator registers (COMP)
 //
 // *****************************************************************************
-
 pub const COMP_ACMIS_R: *mut usize = 0x4003C000 as *mut usize;
-
 pub const COMP_ACRIS_R: *mut usize = 0x4003C004 as *mut usize;
-
 pub const COMP_ACINTEN_R: *mut usize = 0x4003C008 as *mut usize;
-
 pub const COMP_ACREFCTL_R: *mut usize = 0x4003C010 as *mut usize;
-
 pub const COMP_ACSTAT0_R: *mut usize = 0x4003C020 as *mut usize;
-
 pub const COMP_ACCTL0_R: *mut usize = 0x4003C024 as *mut usize;
-
 pub const COMP_ACSTAT1_R: *mut usize = 0x4003C040 as *mut usize;
-
 pub const COMP_ACCTL1_R: *mut usize = 0x4003C044 as *mut usize;
-
 pub const COMP_PP_R: *mut usize = 0x4003CFC0 as *mut usize;
 
 // *****************************************************************************
@@ -1923,79 +1136,42 @@ pub const COMP_PP_R: *mut usize = 0x4003CFC0 as *mut usize;
 // CAN registers (CAN0)
 //
 // *****************************************************************************
-
 pub const CAN0_CTL_R: *mut usize = 0x40040000 as *mut usize;
-
 pub const CAN0_STS_R: *mut usize = 0x40040004 as *mut usize;
-
 pub const CAN0_ERR_R: *mut usize = 0x40040008 as *mut usize;
-
 pub const CAN0_BIT_R: *mut usize = 0x4004000C as *mut usize;
-
 pub const CAN0_INT_R: *mut usize = 0x40040010 as *mut usize;
-
 pub const CAN0_TST_R: *mut usize = 0x40040014 as *mut usize;
-
 pub const CAN0_BRPE_R: *mut usize = 0x40040018 as *mut usize;
-
 pub const CAN0_IF1CRQ_R: *mut usize = 0x40040020 as *mut usize;
-
 pub const CAN0_IF1CMSK_R: *mut usize = 0x40040024 as *mut usize;
-
 pub const CAN0_IF1MSK1_R: *mut usize = 0x40040028 as *mut usize;
-
 pub const CAN0_IF1MSK2_R: *mut usize = 0x4004002C as *mut usize;
-
 pub const CAN0_IF1ARB1_R: *mut usize = 0x40040030 as *mut usize;
-
 pub const CAN0_IF1ARB2_R: *mut usize = 0x40040034 as *mut usize;
-
 pub const CAN0_IF1MCTL_R: *mut usize = 0x40040038 as *mut usize;
-
 pub const CAN0_IF1DA1_R: *mut usize = 0x4004003C as *mut usize;
-
 pub const CAN0_IF1DA2_R: *mut usize = 0x40040040 as *mut usize;
-
 pub const CAN0_IF1DB1_R: *mut usize = 0x40040044 as *mut usize;
-
 pub const CAN0_IF1DB2_R: *mut usize = 0x40040048 as *mut usize;
-
 pub const CAN0_IF2CRQ_R: *mut usize = 0x40040080 as *mut usize;
-
 pub const CAN0_IF2CMSK_R: *mut usize = 0x40040084 as *mut usize;
-
 pub const CAN0_IF2MSK1_R: *mut usize = 0x40040088 as *mut usize;
-
 pub const CAN0_IF2MSK2_R: *mut usize = 0x4004008C as *mut usize;
-
 pub const CAN0_IF2ARB1_R: *mut usize = 0x40040090 as *mut usize;
-
 pub const CAN0_IF2ARB2_R: *mut usize = 0x40040094 as *mut usize;
-
 pub const CAN0_IF2MCTL_R: *mut usize = 0x40040098 as *mut usize;
-
 pub const CAN0_IF2DA1_R: *mut usize = 0x4004009C as *mut usize;
-
 pub const CAN0_IF2DA2_R: *mut usize = 0x400400A0 as *mut usize;
-
 pub const CAN0_IF2DB1_R: *mut usize = 0x400400A4 as *mut usize;
-
 pub const CAN0_IF2DB2_R: *mut usize = 0x400400A8 as *mut usize;
-
 pub const CAN0_TXRQ1_R: *mut usize = 0x40040100 as *mut usize;
-
 pub const CAN0_TXRQ2_R: *mut usize = 0x40040104 as *mut usize;
-
 pub const CAN0_NWDA1_R: *mut usize = 0x40040120 as *mut usize;
-
 pub const CAN0_NWDA2_R: *mut usize = 0x40040124 as *mut usize;
-
 pub const CAN0_MSG1INT_R: *mut usize = 0x40040140 as *mut usize;
-
 pub const CAN0_MSG2INT_R: *mut usize = 0x40040144 as *mut usize;
-
 pub const CAN0_MSG1VAL_R: *mut usize = 0x40040160 as *mut usize;
-
 pub const CAN0_MSG2VAL_R: *mut usize = 0x40040164 as *mut usize;
 
 // *****************************************************************************
@@ -2003,59 +1179,32 @@ pub const CAN0_MSG2VAL_R: *mut usize = 0x40040164 as *mut usize;
 // Timer registers (WTIMER2)
 //
 // *****************************************************************************
-
 pub const WTIMER2_CFG_R: *mut usize = 0x4004C000 as *mut usize;
-
 pub const WTIMER2_TAMR_R: *mut usize = 0x4004C004 as *mut usize;
-
 pub const WTIMER2_TBMR_R: *mut usize = 0x4004C008 as *mut usize;
-
 pub const WTIMER2_CTL_R: *mut usize = 0x4004C00C as *mut usize;
-
 pub const WTIMER2_SYNC_R: *mut usize = 0x4004C010 as *mut usize;
-
 pub const WTIMER2_IMR_R: *mut usize = 0x4004C018 as *mut usize;
-
 pub const WTIMER2_RIS_R: *mut usize = 0x4004C01C as *mut usize;
-
 pub const WTIMER2_MIS_R: *mut usize = 0x4004C020 as *mut usize;
-
 pub const WTIMER2_ICR_R: *mut usize = 0x4004C024 as *mut usize;
-
 pub const WTIMER2_TAILR_R: *mut usize = 0x4004C028 as *mut usize;
-
 pub const WTIMER2_TBILR_R: *mut usize = 0x4004C02C as *mut usize;
-
 pub const WTIMER2_TAMATCHR_R: *mut usize = 0x4004C030 as *mut usize;
-
 pub const WTIMER2_TBMATCHR_R: *mut usize = 0x4004C034 as *mut usize;
-
 pub const WTIMER2_TAPR_R: *mut usize = 0x4004C038 as *mut usize;
-
 pub const WTIMER2_TBPR_R: *mut usize = 0x4004C03C as *mut usize;
-
 pub const WTIMER2_TAPMR_R: *mut usize = 0x4004C040 as *mut usize;
-
 pub const WTIMER2_TBPMR_R: *mut usize = 0x4004C044 as *mut usize;
-
 pub const WTIMER2_TAR_R: *mut usize = 0x4004C048 as *mut usize;
-
 pub const WTIMER2_TBR_R: *mut usize = 0x4004C04C as *mut usize;
-
 pub const WTIMER2_TAV_R: *mut usize = 0x4004C050 as *mut usize;
-
 pub const WTIMER2_TBV_R: *mut usize = 0x4004C054 as *mut usize;
-
 pub const WTIMER2_RTCPD_R: *mut usize = 0x4004C058 as *mut usize;
-
 pub const WTIMER2_TAPS_R: *mut usize = 0x4004C05C as *mut usize;
-
 pub const WTIMER2_TBPS_R: *mut usize = 0x4004C060 as *mut usize;
-
 pub const WTIMER2_TAPV_R: *mut usize = 0x4004C064 as *mut usize;
-
 pub const WTIMER2_TBPV_R: *mut usize = 0x4004C068 as *mut usize;
-
 pub const WTIMER2_PP_R: *mut usize = 0x4004CFC0 as *mut usize;
 
 // *****************************************************************************
@@ -2063,59 +1212,32 @@ pub const WTIMER2_PP_R: *mut usize = 0x4004CFC0 as *mut usize;
 // Timer registers (WTIMER3)
 //
 // *****************************************************************************
-
 pub const WTIMER3_CFG_R: *mut usize = 0x4004D000 as *mut usize;
-
 pub const WTIMER3_TAMR_R: *mut usize = 0x4004D004 as *mut usize;
-
 pub const WTIMER3_TBMR_R: *mut usize = 0x4004D008 as *mut usize;
-
 pub const WTIMER3_CTL_R: *mut usize = 0x4004D00C as *mut usize;
-
 pub const WTIMER3_SYNC_R: *mut usize = 0x4004D010 as *mut usize;
-
 pub const WTIMER3_IMR_R: *mut usize = 0x4004D018 as *mut usize;
-
 pub const WTIMER3_RIS_R: *mut usize = 0x4004D01C as *mut usize;
-
 pub const WTIMER3_MIS_R: *mut usize = 0x4004D020 as *mut usize;
-
 pub const WTIMER3_ICR_R: *mut usize = 0x4004D024 as *mut usize;
-
 pub const WTIMER3_TAILR_R: *mut usize = 0x4004D028 as *mut usize;
-
 pub const WTIMER3_TBILR_R: *mut usize = 0x4004D02C as *mut usize;
-
 pub const WTIMER3_TAMATCHR_R: *mut usize = 0x4004D030 as *mut usize;
-
 pub const WTIMER3_TBMATCHR_R: *mut usize = 0x4004D034 as *mut usize;
-
 pub const WTIMER3_TAPR_R: *mut usize = 0x4004D038 as *mut usize;
-
 pub const WTIMER3_TBPR_R: *mut usize = 0x4004D03C as *mut usize;
-
 pub const WTIMER3_TAPMR_R: *mut usize = 0x4004D040 as *mut usize;
-
 pub const WTIMER3_TBPMR_R: *mut usize = 0x4004D044 as *mut usize;
-
 pub const WTIMER3_TAR_R: *mut usize = 0x4004D048 as *mut usize;
-
 pub const WTIMER3_TBR_R: *mut usize = 0x4004D04C as *mut usize;
-
 pub const WTIMER3_TAV_R: *mut usize = 0x4004D050 as *mut usize;
-
 pub const WTIMER3_TBV_R: *mut usize = 0x4004D054 as *mut usize;
-
 pub const WTIMER3_RTCPD_R: *mut usize = 0x4004D058 as *mut usize;
-
 pub const WTIMER3_TAPS_R: *mut usize = 0x4004D05C as *mut usize;
-
 pub const WTIMER3_TBPS_R: *mut usize = 0x4004D060 as *mut usize;
-
 pub const WTIMER3_TAPV_R: *mut usize = 0x4004D064 as *mut usize;
-
 pub const WTIMER3_TBPV_R: *mut usize = 0x4004D068 as *mut usize;
-
 pub const WTIMER3_PP_R: *mut usize = 0x4004DFC0 as *mut usize;
 
 // *****************************************************************************
@@ -2123,59 +1245,32 @@ pub const WTIMER3_PP_R: *mut usize = 0x4004DFC0 as *mut usize;
 // Timer registers (WTIMER4)
 //
 // *****************************************************************************
-
 pub const WTIMER4_CFG_R: *mut usize = 0x4004E000 as *mut usize;
-
 pub const WTIMER4_TAMR_R: *mut usize = 0x4004E004 as *mut usize;
-
 pub const WTIMER4_TBMR_R: *mut usize = 0x4004E008 as *mut usize;
-
 pub const WTIMER4_CTL_R: *mut usize = 0x4004E00C as *mut usize;
-
 pub const WTIMER4_SYNC_R: *mut usize = 0x4004E010 as *mut usize;
-
 pub const WTIMER4_IMR_R: *mut usize = 0x4004E018 as *mut usize;
-
 pub const WTIMER4_RIS_R: *mut usize = 0x4004E01C as *mut usize;
-
 pub const WTIMER4_MIS_R: *mut usize = 0x4004E020 as *mut usize;
-
 pub const WTIMER4_ICR_R: *mut usize = 0x4004E024 as *mut usize;
-
 pub const WTIMER4_TAILR_R: *mut usize = 0x4004E028 as *mut usize;
-
 pub const WTIMER4_TBILR_R: *mut usize = 0x4004E02C as *mut usize;
-
 pub const WTIMER4_TAMATCHR_R: *mut usize = 0x4004E030 as *mut usize;
-
 pub const WTIMER4_TBMATCHR_R: *mut usize = 0x4004E034 as *mut usize;
-
 pub const WTIMER4_TAPR_R: *mut usize = 0x4004E038 as *mut usize;
-
 pub const WTIMER4_TBPR_R: *mut usize = 0x4004E03C as *mut usize;
-
 pub const WTIMER4_TAPMR_R: *mut usize = 0x4004E040 as *mut usize;
-
 pub const WTIMER4_TBPMR_R: *mut usize = 0x4004E044 as *mut usize;
-
 pub const WTIMER4_TAR_R: *mut usize = 0x4004E048 as *mut usize;
-
 pub const WTIMER4_TBR_R: *mut usize = 0x4004E04C as *mut usize;
-
 pub const WTIMER4_TAV_R: *mut usize = 0x4004E050 as *mut usize;
-
 pub const WTIMER4_TBV_R: *mut usize = 0x4004E054 as *mut usize;
-
 pub const WTIMER4_RTCPD_R: *mut usize = 0x4004E058 as *mut usize;
-
 pub const WTIMER4_TAPS_R: *mut usize = 0x4004E05C as *mut usize;
-
 pub const WTIMER4_TBPS_R: *mut usize = 0x4004E060 as *mut usize;
-
 pub const WTIMER4_TAPV_R: *mut usize = 0x4004E064 as *mut usize;
-
 pub const WTIMER4_TBPV_R: *mut usize = 0x4004E068 as *mut usize;
-
 pub const WTIMER4_PP_R: *mut usize = 0x4004EFC0 as *mut usize;
 
 // *****************************************************************************
@@ -2183,59 +1278,32 @@ pub const WTIMER4_PP_R: *mut usize = 0x4004EFC0 as *mut usize;
 // Timer registers (WTIMER5)
 //
 // *****************************************************************************
-
 pub const WTIMER5_CFG_R: *mut usize = 0x4004F000 as *mut usize;
-
 pub const WTIMER5_TAMR_R: *mut usize = 0x4004F004 as *mut usize;
-
 pub const WTIMER5_TBMR_R: *mut usize = 0x4004F008 as *mut usize;
-
 pub const WTIMER5_CTL_R: *mut usize = 0x4004F00C as *mut usize;
-
 pub const WTIMER5_SYNC_R: *mut usize = 0x4004F010 as *mut usize;
-
 pub const WTIMER5_IMR_R: *mut usize = 0x4004F018 as *mut usize;
-
 pub const WTIMER5_RIS_R: *mut usize = 0x4004F01C as *mut usize;
-
 pub const WTIMER5_MIS_R: *mut usize = 0x4004F020 as *mut usize;
-
 pub const WTIMER5_ICR_R: *mut usize = 0x4004F024 as *mut usize;
-
 pub const WTIMER5_TAILR_R: *mut usize = 0x4004F028 as *mut usize;
-
 pub const WTIMER5_TBILR_R: *mut usize = 0x4004F02C as *mut usize;
-
 pub const WTIMER5_TAMATCHR_R: *mut usize = 0x4004F030 as *mut usize;
-
 pub const WTIMER5_TBMATCHR_R: *mut usize = 0x4004F034 as *mut usize;
-
 pub const WTIMER5_TAPR_R: *mut usize = 0x4004F038 as *mut usize;
-
 pub const WTIMER5_TBPR_R: *mut usize = 0x4004F03C as *mut usize;
-
 pub const WTIMER5_TAPMR_R: *mut usize = 0x4004F040 as *mut usize;
-
 pub const WTIMER5_TBPMR_R: *mut usize = 0x4004F044 as *mut usize;
-
 pub const WTIMER5_TAR_R: *mut usize = 0x4004F048 as *mut usize;
-
 pub const WTIMER5_TBR_R: *mut usize = 0x4004F04C as *mut usize;
-
 pub const WTIMER5_TAV_R: *mut usize = 0x4004F050 as *mut usize;
-
 pub const WTIMER5_TBV_R: *mut usize = 0x4004F054 as *mut usize;
-
 pub const WTIMER5_RTCPD_R: *mut usize = 0x4004F058 as *mut usize;
-
 pub const WTIMER5_TAPS_R: *mut usize = 0x4004F05C as *mut usize;
-
 pub const WTIMER5_TBPS_R: *mut usize = 0x4004F060 as *mut usize;
-
 pub const WTIMER5_TAPV_R: *mut usize = 0x4004F064 as *mut usize;
-
 pub const WTIMER5_TBPV_R: *mut usize = 0x4004F068 as *mut usize;
-
 pub const WTIMER5_PP_R: *mut usize = 0x4004FFC0 as *mut usize;
 
 // *****************************************************************************
@@ -2265,21 +1333,13 @@ pub const USB0_FRAME_R: *mut u16 = 0x4005000C as *mut u16;
 pub const USB0_EPIDX_R: *mut u8 = 0x4005000E as *mut u8;
 
 pub const USB0_TEST_R: *mut u8 = 0x4005000F as *mut u8;
-
 pub const USB0_FIFO0_R: *mut usize = 0x40050020 as *mut usize;
-
 pub const USB0_FIFO1_R: *mut usize = 0x40050024 as *mut usize;
-
 pub const USB0_FIFO2_R: *mut usize = 0x40050028 as *mut usize;
-
 pub const USB0_FIFO3_R: *mut usize = 0x4005002C as *mut usize;
-
 pub const USB0_FIFO4_R: *mut usize = 0x40050030 as *mut usize;
-
 pub const USB0_FIFO5_R: *mut usize = 0x40050034 as *mut usize;
-
 pub const USB0_FIFO6_R: *mut usize = 0x40050038 as *mut usize;
-
 pub const USB0_FIFO7_R: *mut usize = 0x4005003C as *mut usize;
 
 pub const USB0_TXFIFOSZ_R: *mut u8 = 0x40050062 as *mut u8;
@@ -2403,15 +1463,10 @@ pub const USB0_RXCOUNT7_R: *mut u16 = 0x40050178 as *mut u16;
 pub const USB0_RXDPKTBUFDIS_R: *mut u16 = 0x40050340 as *mut u16;
 
 pub const USB0_TXDPKTBUFDIS_R: *mut u16 = 0x40050342 as *mut u16;
-
 pub const USB0_DRRIS_R: *mut usize = 0x40050410 as *mut usize;
-
 pub const USB0_DRIM_R: *mut usize = 0x40050414 as *mut usize;
-
 pub const USB0_DRISC_R: *mut usize = 0x40050418 as *mut usize;
-
 pub const USB0_DMASEL_R: *mut usize = 0x40050450 as *mut usize;
-
 pub const USB0_PP_R: *mut usize = 0x40050FC0 as *mut usize;
 
 // *****************************************************************************
@@ -2419,57 +1474,31 @@ pub const USB0_PP_R: *mut usize = 0x40050FC0 as *mut usize;
 // GPIO registers (PORTA AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTA_AHB_DATA_BITS_R: *mut usize = 0x40058000 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DATA_R: *mut usize = 0x400583FC as *mut usize;
-
 pub const GPIO_PORTA_AHB_DIR_R: *mut usize = 0x40058400 as *mut usize;
-
 pub const GPIO_PORTA_AHB_IS_R: *mut usize = 0x40058404 as *mut usize;
-
 pub const GPIO_PORTA_AHB_IBE_R: *mut usize = 0x40058408 as *mut usize;
-
 pub const GPIO_PORTA_AHB_IEV_R: *mut usize = 0x4005840C as *mut usize;
-
 pub const GPIO_PORTA_AHB_IM_R: *mut usize = 0x40058410 as *mut usize;
-
 pub const GPIO_PORTA_AHB_RIS_R: *mut usize = 0x40058414 as *mut usize;
-
 pub const GPIO_PORTA_AHB_MIS_R: *mut usize = 0x40058418 as *mut usize;
-
 pub const GPIO_PORTA_AHB_ICR_R: *mut usize = 0x4005841C as *mut usize;
-
 pub const GPIO_PORTA_AHB_AFSEL_R: *mut usize = 0x40058420 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DR2R_R: *mut usize = 0x40058500 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DR4R_R: *mut usize = 0x40058504 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DR8R_R: *mut usize = 0x40058508 as *mut usize;
-
 pub const GPIO_PORTA_AHB_ODR_R: *mut usize = 0x4005850C as *mut usize;
-
 pub const GPIO_PORTA_AHB_PUR_R: *mut usize = 0x40058510 as *mut usize;
-
 pub const GPIO_PORTA_AHB_PDR_R: *mut usize = 0x40058514 as *mut usize;
-
 pub const GPIO_PORTA_AHB_SLR_R: *mut usize = 0x40058518 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DEN_R: *mut usize = 0x4005851C as *mut usize;
-
 pub const GPIO_PORTA_AHB_LOCK_R: *mut usize = 0x40058520 as *mut usize;
-
 pub const GPIO_PORTA_AHB_CR_R: *mut usize = 0x40058524 as *mut usize;
-
 pub const GPIO_PORTA_AHB_AMSEL_R: *mut usize = 0x40058528 as *mut usize;
-
 pub const GPIO_PORTA_AHB_PCTL_R: *mut usize = 0x4005852C as *mut usize;
-
 pub const GPIO_PORTA_AHB_ADCCTL_R: *mut usize = 0x40058530 as *mut usize;
-
 pub const GPIO_PORTA_AHB_DMACTL_R: *mut usize = 0x40058534 as *mut usize;
-
 pub const GPIO_PORTA_AHB_SI_R: *mut usize = 0x40058538 as *mut usize;
 
 // *****************************************************************************
@@ -2477,57 +1506,31 @@ pub const GPIO_PORTA_AHB_SI_R: *mut usize = 0x40058538 as *mut usize;
 // GPIO registers (PORTB AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTB_AHB_DATA_BITS_R: *mut usize = 0x40059000 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DATA_R: *mut usize = 0x400593FC as *mut usize;
-
 pub const GPIO_PORTB_AHB_DIR_R: *mut usize = 0x40059400 as *mut usize;
-
 pub const GPIO_PORTB_AHB_IS_R: *mut usize = 0x40059404 as *mut usize;
-
 pub const GPIO_PORTB_AHB_IBE_R: *mut usize = 0x40059408 as *mut usize;
-
 pub const GPIO_PORTB_AHB_IEV_R: *mut usize = 0x4005940C as *mut usize;
-
 pub const GPIO_PORTB_AHB_IM_R: *mut usize = 0x40059410 as *mut usize;
-
 pub const GPIO_PORTB_AHB_RIS_R: *mut usize = 0x40059414 as *mut usize;
-
 pub const GPIO_PORTB_AHB_MIS_R: *mut usize = 0x40059418 as *mut usize;
-
 pub const GPIO_PORTB_AHB_ICR_R: *mut usize = 0x4005941C as *mut usize;
-
 pub const GPIO_PORTB_AHB_AFSEL_R: *mut usize = 0x40059420 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DR2R_R: *mut usize = 0x40059500 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DR4R_R: *mut usize = 0x40059504 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DR8R_R: *mut usize = 0x40059508 as *mut usize;
-
 pub const GPIO_PORTB_AHB_ODR_R: *mut usize = 0x4005950C as *mut usize;
-
 pub const GPIO_PORTB_AHB_PUR_R: *mut usize = 0x40059510 as *mut usize;
-
 pub const GPIO_PORTB_AHB_PDR_R: *mut usize = 0x40059514 as *mut usize;
-
 pub const GPIO_PORTB_AHB_SLR_R: *mut usize = 0x40059518 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DEN_R: *mut usize = 0x4005951C as *mut usize;
-
 pub const GPIO_PORTB_AHB_LOCK_R: *mut usize = 0x40059520 as *mut usize;
-
 pub const GPIO_PORTB_AHB_CR_R: *mut usize = 0x40059524 as *mut usize;
-
 pub const GPIO_PORTB_AHB_AMSEL_R: *mut usize = 0x40059528 as *mut usize;
-
 pub const GPIO_PORTB_AHB_PCTL_R: *mut usize = 0x4005952C as *mut usize;
-
 pub const GPIO_PORTB_AHB_ADCCTL_R: *mut usize = 0x40059530 as *mut usize;
-
 pub const GPIO_PORTB_AHB_DMACTL_R: *mut usize = 0x40059534 as *mut usize;
-
 pub const GPIO_PORTB_AHB_SI_R: *mut usize = 0x40059538 as *mut usize;
 
 // *****************************************************************************
@@ -2535,57 +1538,31 @@ pub const GPIO_PORTB_AHB_SI_R: *mut usize = 0x40059538 as *mut usize;
 // GPIO registers (PORTC AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTC_AHB_DATA_BITS_R: *mut usize = 0x4005A000 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DATA_R: *mut usize = 0x4005A3FC as *mut usize;
-
 pub const GPIO_PORTC_AHB_DIR_R: *mut usize = 0x4005A400 as *mut usize;
-
 pub const GPIO_PORTC_AHB_IS_R: *mut usize = 0x4005A404 as *mut usize;
-
 pub const GPIO_PORTC_AHB_IBE_R: *mut usize = 0x4005A408 as *mut usize;
-
 pub const GPIO_PORTC_AHB_IEV_R: *mut usize = 0x4005A40C as *mut usize;
-
 pub const GPIO_PORTC_AHB_IM_R: *mut usize = 0x4005A410 as *mut usize;
-
 pub const GPIO_PORTC_AHB_RIS_R: *mut usize = 0x4005A414 as *mut usize;
-
 pub const GPIO_PORTC_AHB_MIS_R: *mut usize = 0x4005A418 as *mut usize;
-
 pub const GPIO_PORTC_AHB_ICR_R: *mut usize = 0x4005A41C as *mut usize;
-
 pub const GPIO_PORTC_AHB_AFSEL_R: *mut usize = 0x4005A420 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DR2R_R: *mut usize = 0x4005A500 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DR4R_R: *mut usize = 0x4005A504 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DR8R_R: *mut usize = 0x4005A508 as *mut usize;
-
 pub const GPIO_PORTC_AHB_ODR_R: *mut usize = 0x4005A50C as *mut usize;
-
 pub const GPIO_PORTC_AHB_PUR_R: *mut usize = 0x4005A510 as *mut usize;
-
 pub const GPIO_PORTC_AHB_PDR_R: *mut usize = 0x4005A514 as *mut usize;
-
 pub const GPIO_PORTC_AHB_SLR_R: *mut usize = 0x4005A518 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DEN_R: *mut usize = 0x4005A51C as *mut usize;
-
 pub const GPIO_PORTC_AHB_LOCK_R: *mut usize = 0x4005A520 as *mut usize;
-
 pub const GPIO_PORTC_AHB_CR_R: *mut usize = 0x4005A524 as *mut usize;
-
 pub const GPIO_PORTC_AHB_AMSEL_R: *mut usize = 0x4005A528 as *mut usize;
-
 pub const GPIO_PORTC_AHB_PCTL_R: *mut usize = 0x4005A52C as *mut usize;
-
 pub const GPIO_PORTC_AHB_ADCCTL_R: *mut usize = 0x4005A530 as *mut usize;
-
 pub const GPIO_PORTC_AHB_DMACTL_R: *mut usize = 0x4005A534 as *mut usize;
-
 pub const GPIO_PORTC_AHB_SI_R: *mut usize = 0x4005A538 as *mut usize;
 
 // *****************************************************************************
@@ -2593,57 +1570,31 @@ pub const GPIO_PORTC_AHB_SI_R: *mut usize = 0x4005A538 as *mut usize;
 // GPIO registers (PORTD AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTD_AHB_DATA_BITS_R: *mut usize = 0x4005B000 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DATA_R: *mut usize = 0x4005B3FC as *mut usize;
-
 pub const GPIO_PORTD_AHB_DIR_R: *mut usize = 0x4005B400 as *mut usize;
-
 pub const GPIO_PORTD_AHB_IS_R: *mut usize = 0x4005B404 as *mut usize;
-
 pub const GPIO_PORTD_AHB_IBE_R: *mut usize = 0x4005B408 as *mut usize;
-
 pub const GPIO_PORTD_AHB_IEV_R: *mut usize = 0x4005B40C as *mut usize;
-
 pub const GPIO_PORTD_AHB_IM_R: *mut usize = 0x4005B410 as *mut usize;
-
 pub const GPIO_PORTD_AHB_RIS_R: *mut usize = 0x4005B414 as *mut usize;
-
 pub const GPIO_PORTD_AHB_MIS_R: *mut usize = 0x4005B418 as *mut usize;
-
 pub const GPIO_PORTD_AHB_ICR_R: *mut usize = 0x4005B41C as *mut usize;
-
 pub const GPIO_PORTD_AHB_AFSEL_R: *mut usize = 0x4005B420 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DR2R_R: *mut usize = 0x4005B500 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DR4R_R: *mut usize = 0x4005B504 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DR8R_R: *mut usize = 0x4005B508 as *mut usize;
-
 pub const GPIO_PORTD_AHB_ODR_R: *mut usize = 0x4005B50C as *mut usize;
-
 pub const GPIO_PORTD_AHB_PUR_R: *mut usize = 0x4005B510 as *mut usize;
-
 pub const GPIO_PORTD_AHB_PDR_R: *mut usize = 0x4005B514 as *mut usize;
-
 pub const GPIO_PORTD_AHB_SLR_R: *mut usize = 0x4005B518 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DEN_R: *mut usize = 0x4005B51C as *mut usize;
-
 pub const GPIO_PORTD_AHB_LOCK_R: *mut usize = 0x4005B520 as *mut usize;
-
 pub const GPIO_PORTD_AHB_CR_R: *mut usize = 0x4005B524 as *mut usize;
-
 pub const GPIO_PORTD_AHB_AMSEL_R: *mut usize = 0x4005B528 as *mut usize;
-
 pub const GPIO_PORTD_AHB_PCTL_R: *mut usize = 0x4005B52C as *mut usize;
-
 pub const GPIO_PORTD_AHB_ADCCTL_R: *mut usize = 0x4005B530 as *mut usize;
-
 pub const GPIO_PORTD_AHB_DMACTL_R: *mut usize = 0x4005B534 as *mut usize;
-
 pub const GPIO_PORTD_AHB_SI_R: *mut usize = 0x4005B538 as *mut usize;
 
 // *****************************************************************************
@@ -2651,57 +1602,31 @@ pub const GPIO_PORTD_AHB_SI_R: *mut usize = 0x4005B538 as *mut usize;
 // GPIO registers (PORTE AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTE_AHB_DATA_BITS_R: *mut usize = 0x4005C000 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DATA_R: *mut usize = 0x4005C3FC as *mut usize;
-
 pub const GPIO_PORTE_AHB_DIR_R: *mut usize = 0x4005C400 as *mut usize;
-
 pub const GPIO_PORTE_AHB_IS_R: *mut usize = 0x4005C404 as *mut usize;
-
 pub const GPIO_PORTE_AHB_IBE_R: *mut usize = 0x4005C408 as *mut usize;
-
 pub const GPIO_PORTE_AHB_IEV_R: *mut usize = 0x4005C40C as *mut usize;
-
 pub const GPIO_PORTE_AHB_IM_R: *mut usize = 0x4005C410 as *mut usize;
-
 pub const GPIO_PORTE_AHB_RIS_R: *mut usize = 0x4005C414 as *mut usize;
-
 pub const GPIO_PORTE_AHB_MIS_R: *mut usize = 0x4005C418 as *mut usize;
-
 pub const GPIO_PORTE_AHB_ICR_R: *mut usize = 0x4005C41C as *mut usize;
-
 pub const GPIO_PORTE_AHB_AFSEL_R: *mut usize = 0x4005C420 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DR2R_R: *mut usize = 0x4005C500 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DR4R_R: *mut usize = 0x4005C504 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DR8R_R: *mut usize = 0x4005C508 as *mut usize;
-
 pub const GPIO_PORTE_AHB_ODR_R: *mut usize = 0x4005C50C as *mut usize;
-
 pub const GPIO_PORTE_AHB_PUR_R: *mut usize = 0x4005C510 as *mut usize;
-
 pub const GPIO_PORTE_AHB_PDR_R: *mut usize = 0x4005C514 as *mut usize;
-
 pub const GPIO_PORTE_AHB_SLR_R: *mut usize = 0x4005C518 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DEN_R: *mut usize = 0x4005C51C as *mut usize;
-
 pub const GPIO_PORTE_AHB_LOCK_R: *mut usize = 0x4005C520 as *mut usize;
-
 pub const GPIO_PORTE_AHB_CR_R: *mut usize = 0x4005C524 as *mut usize;
-
 pub const GPIO_PORTE_AHB_AMSEL_R: *mut usize = 0x4005C528 as *mut usize;
-
 pub const GPIO_PORTE_AHB_PCTL_R: *mut usize = 0x4005C52C as *mut usize;
-
 pub const GPIO_PORTE_AHB_ADCCTL_R: *mut usize = 0x4005C530 as *mut usize;
-
 pub const GPIO_PORTE_AHB_DMACTL_R: *mut usize = 0x4005C534 as *mut usize;
-
 pub const GPIO_PORTE_AHB_SI_R: *mut usize = 0x4005C538 as *mut usize;
 
 // *****************************************************************************
@@ -2709,57 +1634,31 @@ pub const GPIO_PORTE_AHB_SI_R: *mut usize = 0x4005C538 as *mut usize;
 // GPIO registers (PORTF AHB)
 //
 // *****************************************************************************
-
 pub const GPIO_PORTF_AHB_DATA_BITS_R: *mut usize = 0x4005D000 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DATA_R: *mut usize = 0x4005D3FC as *mut usize;
-
 pub const GPIO_PORTF_AHB_DIR_R: *mut usize = 0x4005D400 as *mut usize;
-
 pub const GPIO_PORTF_AHB_IS_R: *mut usize = 0x4005D404 as *mut usize;
-
 pub const GPIO_PORTF_AHB_IBE_R: *mut usize = 0x4005D408 as *mut usize;
-
 pub const GPIO_PORTF_AHB_IEV_R: *mut usize = 0x4005D40C as *mut usize;
-
 pub const GPIO_PORTF_AHB_IM_R: *mut usize = 0x4005D410 as *mut usize;
-
 pub const GPIO_PORTF_AHB_RIS_R: *mut usize = 0x4005D414 as *mut usize;
-
 pub const GPIO_PORTF_AHB_MIS_R: *mut usize = 0x4005D418 as *mut usize;
-
 pub const GPIO_PORTF_AHB_ICR_R: *mut usize = 0x4005D41C as *mut usize;
-
 pub const GPIO_PORTF_AHB_AFSEL_R: *mut usize = 0x4005D420 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DR2R_R: *mut usize = 0x4005D500 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DR4R_R: *mut usize = 0x4005D504 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DR8R_R: *mut usize = 0x4005D508 as *mut usize;
-
 pub const GPIO_PORTF_AHB_ODR_R: *mut usize = 0x4005D50C as *mut usize;
-
 pub const GPIO_PORTF_AHB_PUR_R: *mut usize = 0x4005D510 as *mut usize;
-
 pub const GPIO_PORTF_AHB_PDR_R: *mut usize = 0x4005D514 as *mut usize;
-
 pub const GPIO_PORTF_AHB_SLR_R: *mut usize = 0x4005D518 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DEN_R: *mut usize = 0x4005D51C as *mut usize;
-
 pub const GPIO_PORTF_AHB_LOCK_R: *mut usize = 0x4005D520 as *mut usize;
-
 pub const GPIO_PORTF_AHB_CR_R: *mut usize = 0x4005D524 as *mut usize;
-
 pub const GPIO_PORTF_AHB_AMSEL_R: *mut usize = 0x4005D528 as *mut usize;
-
 pub const GPIO_PORTF_AHB_PCTL_R: *mut usize = 0x4005D52C as *mut usize;
-
 pub const GPIO_PORTF_AHB_ADCCTL_R: *mut usize = 0x4005D530 as *mut usize;
-
 pub const GPIO_PORTF_AHB_DMACTL_R: *mut usize = 0x4005D534 as *mut usize;
-
 pub const GPIO_PORTF_AHB_SI_R: *mut usize = 0x4005D538 as *mut usize;
 
 // *****************************************************************************
@@ -2767,37 +1666,21 @@ pub const GPIO_PORTF_AHB_SI_R: *mut usize = 0x4005D538 as *mut usize;
 // EEPROM registers (EEPROM)
 //
 // *****************************************************************************
-
 pub const EEPROM_EESIZE_R: *mut usize = 0x400AF000 as *mut usize;
-
 pub const EEPROM_EEBLOCK_R: *mut usize = 0x400AF004 as *mut usize;
-
 pub const EEPROM_EEOFFSET_R: *mut usize = 0x400AF008 as *mut usize;
-
 pub const EEPROM_EERDWR_R: *mut usize = 0x400AF010 as *mut usize;
-
 pub const EEPROM_EERDWRINC_R: *mut usize = 0x400AF014 as *mut usize;
-
 pub const EEPROM_EEDONE_R: *mut usize = 0x400AF018 as *mut usize;
-
 pub const EEPROM_EESUPP_R: *mut usize = 0x400AF01C as *mut usize;
-
 pub const EEPROM_EEUNLOCK_R: *mut usize = 0x400AF020 as *mut usize;
-
 pub const EEPROM_EEPROT_R: *mut usize = 0x400AF030 as *mut usize;
-
 pub const EEPROM_EEPASS0_R: *mut usize = 0x400AF034 as *mut usize;
-
 pub const EEPROM_EEPASS1_R: *mut usize = 0x400AF038 as *mut usize;
-
 pub const EEPROM_EEPASS2_R: *mut usize = 0x400AF03C as *mut usize;
-
 pub const EEPROM_EEINT_R: *mut usize = 0x400AF040 as *mut usize;
-
 pub const EEPROM_EEHIDE_R: *mut usize = 0x400AF050 as *mut usize;
-
 pub const EEPROM_EEDBGME_R: *mut usize = 0x400AF080 as *mut usize;
-
 pub const EEPROM_PP_R: *mut usize = 0x400AFFC0 as *mut usize;
 
 // *****************************************************************************
@@ -2805,13 +1688,9 @@ pub const EEPROM_PP_R: *mut usize = 0x400AFFC0 as *mut usize;
 // System Exception Module registers (SYSEXC)
 //
 // *****************************************************************************
-
 pub const SYSEXC_RIS_R: *mut usize = 0x400F9000 as *mut usize;
-
 pub const SYSEXC_IM_R: *mut usize = 0x400F9004 as *mut usize;
-
 pub const SYSEXC_MIS_R: *mut usize = 0x400F9008 as *mut usize;
-
 pub const SYSEXC_IC_R: *mut usize = 0x400F900C as *mut usize;
 
 // *****************************************************************************
@@ -2819,27 +1698,16 @@ pub const SYSEXC_IC_R: *mut usize = 0x400F900C as *mut usize;
 // Hibernation module registers (HIB)
 //
 // *****************************************************************************
-
 pub const HIB_RTCC_R: *mut usize = 0x400FC000 as *mut usize;
-
 pub const HIB_RTCM0_R: *mut usize = 0x400FC004 as *mut usize;
-
 pub const HIB_RTCLD_R: *mut usize = 0x400FC00C as *mut usize;
-
 pub const HIB_CTL_R: *mut usize = 0x400FC010 as *mut usize;
-
 pub const HIB_IM_R: *mut usize = 0x400FC014 as *mut usize;
-
 pub const HIB_RIS_R: *mut usize = 0x400FC018 as *mut usize;
-
 pub const HIB_MIS_R: *mut usize = 0x400FC01C as *mut usize;
-
 pub const HIB_IC_R: *mut usize = 0x400FC020 as *mut usize;
-
 pub const HIB_RTCT_R: *mut usize = 0x400FC024 as *mut usize;
-
 pub const HIB_RTCSS_R: *mut usize = 0x400FC028 as *mut usize;
-
 pub const HIB_DATA_R: *mut usize = 0x400FC030 as *mut usize;
 
 // *****************************************************************************
@@ -2847,57 +1715,31 @@ pub const HIB_DATA_R: *mut usize = 0x400FC030 as *mut usize;
 // FLASH registers (FLASH CTRL)
 //
 // *****************************************************************************
-
 pub const FLASH_FMA_R: *mut usize = 0x400FD000 as *mut usize;
-
 pub const FLASH_FMD_R: *mut usize = 0x400FD004 as *mut usize;
-
 pub const FLASH_FMC_R: *mut usize = 0x400FD008 as *mut usize;
-
 pub const FLASH_FCRIS_R: *mut usize = 0x400FD00C as *mut usize;
-
 pub const FLASH_FCIM_R: *mut usize = 0x400FD010 as *mut usize;
-
 pub const FLASH_FCMISC_R: *mut usize = 0x400FD014 as *mut usize;
-
 pub const FLASH_FMC2_R: *mut usize = 0x400FD020 as *mut usize;
-
 pub const FLASH_FWBVAL_R: *mut usize = 0x400FD030 as *mut usize;
-
 pub const FLASH_FWBN_R: *mut usize = 0x400FD100 as *mut usize;
-
 pub const FLASH_FSIZE_R: *mut usize = 0x400FDFC0 as *mut usize;
-
 pub const FLASH_SSIZE_R: *mut usize = 0x400FDFC4 as *mut usize;
-
 pub const FLASH_ROMSWMAP_R: *mut usize = 0x400FDFCC as *mut usize;
-
 pub const FLASH_RMCTL_R: *mut usize = 0x400FE0F0 as *mut usize;
-
 pub const FLASH_BOOTCFG_R: *mut usize = 0x400FE1D0 as *mut usize;
-
 pub const FLASH_USERREG0_R: *mut usize = 0x400FE1E0 as *mut usize;
-
 pub const FLASH_USERREG1_R: *mut usize = 0x400FE1E4 as *mut usize;
-
 pub const FLASH_USERREG2_R: *mut usize = 0x400FE1E8 as *mut usize;
-
 pub const FLASH_USERREG3_R: *mut usize = 0x400FE1EC as *mut usize;
-
 pub const FLASH_FMPRE0_R: *mut usize = 0x400FE200 as *mut usize;
-
 pub const FLASH_FMPRE1_R: *mut usize = 0x400FE204 as *mut usize;
-
 pub const FLASH_FMPRE2_R: *mut usize = 0x400FE208 as *mut usize;
-
 pub const FLASH_FMPRE3_R: *mut usize = 0x400FE20C as *mut usize;
-
 pub const FLASH_FMPPE0_R: *mut usize = 0x400FE400 as *mut usize;
-
 pub const FLASH_FMPPE1_R: *mut usize = 0x400FE404 as *mut usize;
-
 pub const FLASH_FMPPE2_R: *mut usize = 0x400FE408 as *mut usize;
-
 pub const FLASH_FMPPE3_R: *mut usize = 0x400FE40C as *mut usize;
 
 // *****************************************************************************
@@ -2905,287 +1747,146 @@ pub const FLASH_FMPPE3_R: *mut usize = 0x400FE40C as *mut usize;
 // System Control registers (SYSCTL)
 //
 // *****************************************************************************
-
 pub const SYSCTL_DID0_R: *mut usize = 0x400FE000 as *mut usize;
-
 pub const SYSCTL_DID1_R: *mut usize = 0x400FE004 as *mut usize;
-
 pub const SYSCTL_DC0_R: *mut usize = 0x400FE008 as *mut usize;
-
 pub const SYSCTL_DC1_R: *mut usize = 0x400FE010 as *mut usize;
-
 pub const SYSCTL_DC2_R: *mut usize = 0x400FE014 as *mut usize;
-
 pub const SYSCTL_DC3_R: *mut usize = 0x400FE018 as *mut usize;
-
 pub const SYSCTL_DC4_R: *mut usize = 0x400FE01C as *mut usize;
-
 pub const SYSCTL_DC5_R: *mut usize = 0x400FE020 as *mut usize;
-
 pub const SYSCTL_DC6_R: *mut usize = 0x400FE024 as *mut usize;
-
 pub const SYSCTL_DC7_R: *mut usize = 0x400FE028 as *mut usize;
-
 pub const SYSCTL_DC8_R: *mut usize = 0x400FE02C as *mut usize;
-
 pub const SYSCTL_PBORCTL_R: *mut usize = 0x400FE030 as *mut usize;
-
 pub const SYSCTL_SRCR0_R: *mut usize = 0x400FE040 as *mut usize;
-
 pub const SYSCTL_SRCR1_R: *mut usize = 0x400FE044 as *mut usize;
-
 pub const SYSCTL_SRCR2_R: *mut usize = 0x400FE048 as *mut usize;
-
 pub const SYSCTL_RIS_R: *mut usize = 0x400FE050 as *mut usize;
-
 pub const SYSCTL_IMC_R: *mut usize = 0x400FE054 as *mut usize;
-
 pub const SYSCTL_MISC_R: *mut usize = 0x400FE058 as *mut usize;
-
 pub const SYSCTL_RESC_R: *mut usize = 0x400FE05C as *mut usize;
-
 pub const SYSCTL_RCC_R: *mut usize = 0x400FE060 as *mut usize;
-
 pub const SYSCTL_GPIOHBCTL_R: *mut usize = 0x400FE06C as *mut usize;
-
 pub const SYSCTL_RCC2_R: *mut usize = 0x400FE070 as *mut usize;
-
 pub const SYSCTL_MOSCCTL_R: *mut usize = 0x400FE07C as *mut usize;
-
 pub const SYSCTL_RCGC0_R: *mut usize = 0x400FE100 as *mut usize;
-
 pub const SYSCTL_RCGC1_R: *mut usize = 0x400FE104 as *mut usize;
-
 pub const SYSCTL_RCGC2_R: *mut usize = 0x400FE108 as *mut usize;
-
 pub const SYSCTL_SCGC0_R: *mut usize = 0x400FE110 as *mut usize;
-
 pub const SYSCTL_SCGC1_R: *mut usize = 0x400FE114 as *mut usize;
-
 pub const SYSCTL_SCGC2_R: *mut usize = 0x400FE118 as *mut usize;
-
 pub const SYSCTL_DCGC0_R: *mut usize = 0x400FE120 as *mut usize;
-
 pub const SYSCTL_DCGC1_R: *mut usize = 0x400FE124 as *mut usize;
-
 pub const SYSCTL_DCGC2_R: *mut usize = 0x400FE128 as *mut usize;
-
 pub const SYSCTL_DSLPCLKCFG_R: *mut usize = 0x400FE144 as *mut usize;
-
 pub const SYSCTL_SYSPROP_R: *mut usize = 0x400FE14C as *mut usize;
-
 pub const SYSCTL_PIOSCCAL_R: *mut usize = 0x400FE150 as *mut usize;
-
 pub const SYSCTL_PIOSCSTAT_R: *mut usize = 0x400FE154 as *mut usize;
-
 pub const SYSCTL_PLLFREQ0_R: *mut usize = 0x400FE160 as *mut usize;
-
 pub const SYSCTL_PLLFREQ1_R: *mut usize = 0x400FE164 as *mut usize;
-
 pub const SYSCTL_PLLSTAT_R: *mut usize = 0x400FE168 as *mut usize;
-
 pub const SYSCTL_DC9_R: *mut usize = 0x400FE190 as *mut usize;
-
 pub const SYSCTL_NVMSTAT_R: *mut usize = 0x400FE1A0 as *mut usize;
-
 pub const SYSCTL_PPWD_R: *mut usize = 0x400FE300 as *mut usize;
-
 pub const SYSCTL_PPTIMER_R: *mut usize = 0x400FE304 as *mut usize;
-
 pub const SYSCTL_PPGPIO_R: *mut usize = 0x400FE308 as *mut usize;
-
 pub const SYSCTL_PPDMA_R: *mut usize = 0x400FE30C as *mut usize;
-
 pub const SYSCTL_PPHIB_R: *mut usize = 0x400FE314 as *mut usize;
-
 pub const SYSCTL_PPUART_R: *mut usize = 0x400FE318 as *mut usize;
-
 pub const SYSCTL_PPSSI_R: *mut usize = 0x400FE31C as *mut usize;
-
 pub const SYSCTL_PPI2C_R: *mut usize = 0x400FE320 as *mut usize;
-
 pub const SYSCTL_PPUSB_R: *mut usize = 0x400FE328 as *mut usize;
-
 pub const SYSCTL_PPCAN_R: *mut usize = 0x400FE334 as *mut usize;
-
 pub const SYSCTL_PPADC_R: *mut usize = 0x400FE338 as *mut usize;
-
 pub const SYSCTL_PPACMP_R: *mut usize = 0x400FE33C as *mut usize;
-
 pub const SYSCTL_PPPWM_R: *mut usize = 0x400FE340 as *mut usize;
-
 pub const SYSCTL_PPQEI_R: *mut usize = 0x400FE344 as *mut usize;
-
 pub const SYSCTL_PPEEPROM_R: *mut usize = 0x400FE358 as *mut usize;
-
 pub const SYSCTL_PPWTIMER_R: *mut usize = 0x400FE35C as *mut usize;
-
 pub const SYSCTL_SRWD_R: *mut usize = 0x400FE500 as *mut usize;
-
 pub const SYSCTL_SRTIMER_R: *mut usize = 0x400FE504 as *mut usize;
-
 pub const SYSCTL_SRGPIO_R: *mut usize = 0x400FE508 as *mut usize;
-
 pub const SYSCTL_SRDMA_R: *mut usize = 0x400FE50C as *mut usize;
-
 pub const SYSCTL_SRHIB_R: *mut usize = 0x400FE514 as *mut usize;
-
 pub const SYSCTL_SRUART_R: *mut usize = 0x400FE518 as *mut usize;
-
 pub const SYSCTL_SRSSI_R: *mut usize = 0x400FE51C as *mut usize;
-
 pub const SYSCTL_SRI2C_R: *mut usize = 0x400FE520 as *mut usize;
-
 pub const SYSCTL_SRUSB_R: *mut usize = 0x400FE528 as *mut usize;
-
 pub const SYSCTL_SRCAN_R: *mut usize = 0x400FE534 as *mut usize;
-
 pub const SYSCTL_SRADC_R: *mut usize = 0x400FE538 as *mut usize;
-
 pub const SYSCTL_SRACMP_R: *mut usize = 0x400FE53C as *mut usize;
-
 pub const SYSCTL_SREEPROM_R: *mut usize = 0x400FE558 as *mut usize;
-
 pub const SYSCTL_SRWTIMER_R: *mut usize = 0x400FE55C as *mut usize;
-
 pub const SYSCTL_RCGCWD_R: *mut usize = 0x400FE600 as *mut usize;
-
 pub const SYSCTL_RCGCTIMER_R: *mut usize = 0x400FE604 as *mut usize;
-
 pub const SYSCTL_RCGCGPIO_R: *mut usize = 0x400FE608 as *mut usize;
-
 pub const SYSCTL_RCGCDMA_R: *mut usize = 0x400FE60C as *mut usize;
-
 pub const SYSCTL_RCGCHIB_R: *mut usize = 0x400FE614 as *mut usize;
-
 pub const SYSCTL_RCGCUART_R: *mut usize = 0x400FE618 as *mut usize;
-
 pub const SYSCTL_RCGCSSI_R: *mut usize = 0x400FE61C as *mut usize;
-
 pub const SYSCTL_RCGCI2C_R: *mut usize = 0x400FE620 as *mut usize;
-
 pub const SYSCTL_RCGCUSB_R: *mut usize = 0x400FE628 as *mut usize;
-
 pub const SYSCTL_RCGCCAN_R: *mut usize = 0x400FE634 as *mut usize;
-
 pub const SYSCTL_RCGCADC_R: *mut usize = 0x400FE638 as *mut usize;
-
 pub const SYSCTL_RCGCACMP_R: *mut usize = 0x400FE63C as *mut usize;
-
 pub const SYSCTL_RCGCEEPROM_R: *mut usize = 0x400FE658 as *mut usize;
-
 pub const SYSCTL_RCGCWTIMER_R: *mut usize = 0x400FE65C as *mut usize;
-
 pub const SYSCTL_SCGCWD_R: *mut usize = 0x400FE700 as *mut usize;
-
 pub const SYSCTL_SCGCTIMER_R: *mut usize = 0x400FE704 as *mut usize;
-
 pub const SYSCTL_SCGCGPIO_R: *mut usize = 0x400FE708 as *mut usize;
-
 pub const SYSCTL_SCGCDMA_R: *mut usize = 0x400FE70C as *mut usize;
-
 pub const SYSCTL_SCGCHIB_R: *mut usize = 0x400FE714 as *mut usize;
-
 pub const SYSCTL_SCGCUART_R: *mut usize = 0x400FE718 as *mut usize;
-
 pub const SYSCTL_SCGCSSI_R: *mut usize = 0x400FE71C as *mut usize;
-
 pub const SYSCTL_SCGCI2C_R: *mut usize = 0x400FE720 as *mut usize;
-
 pub const SYSCTL_SCGCUSB_R: *mut usize = 0x400FE728 as *mut usize;
-
 pub const SYSCTL_SCGCCAN_R: *mut usize = 0x400FE734 as *mut usize;
-
 pub const SYSCTL_SCGCADC_R: *mut usize = 0x400FE738 as *mut usize;
-
 pub const SYSCTL_SCGCACMP_R: *mut usize = 0x400FE73C as *mut usize;
-
 pub const SYSCTL_SCGCEEPROM_R: *mut usize = 0x400FE758 as *mut usize;
-
 pub const SYSCTL_SCGCWTIMER_R: *mut usize = 0x400FE75C as *mut usize;
-
 pub const SYSCTL_DCGCWD_R: *mut usize = 0x400FE800 as *mut usize;
-
 pub const SYSCTL_DCGCTIMER_R: *mut usize = 0x400FE804 as *mut usize;
-
 pub const SYSCTL_DCGCGPIO_R: *mut usize = 0x400FE808 as *mut usize;
-
 pub const SYSCTL_DCGCDMA_R: *mut usize = 0x400FE80C as *mut usize;
-
 pub const SYSCTL_DCGCHIB_R: *mut usize = 0x400FE814 as *mut usize;
-
 pub const SYSCTL_DCGCUART_R: *mut usize = 0x400FE818 as *mut usize;
-
 pub const SYSCTL_DCGCSSI_R: *mut usize = 0x400FE81C as *mut usize;
-
 pub const SYSCTL_DCGCI2C_R: *mut usize = 0x400FE820 as *mut usize;
-
 pub const SYSCTL_DCGCUSB_R: *mut usize = 0x400FE828 as *mut usize;
-
 pub const SYSCTL_DCGCCAN_R: *mut usize = 0x400FE834 as *mut usize;
-
 pub const SYSCTL_DCGCADC_R: *mut usize = 0x400FE838 as *mut usize;
-
 pub const SYSCTL_DCGCACMP_R: *mut usize = 0x400FE83C as *mut usize;
-
 pub const SYSCTL_DCGCEEPROM_R: *mut usize = 0x400FE858 as *mut usize;
-
 pub const SYSCTL_DCGCWTIMER_R: *mut usize = 0x400FE85C as *mut usize;
-
 pub const SYSCTL_PCWD_R: *mut usize = 0x400FE900 as *mut usize;
-
 pub const SYSCTL_PCTIMER_R: *mut usize = 0x400FE904 as *mut usize;
-
 pub const SYSCTL_PCGPIO_R: *mut usize = 0x400FE908 as *mut usize;
-
 pub const SYSCTL_PCDMA_R: *mut usize = 0x400FE90C as *mut usize;
-
 pub const SYSCTL_PCHIB_R: *mut usize = 0x400FE914 as *mut usize;
-
 pub const SYSCTL_PCUART_R: *mut usize = 0x400FE918 as *mut usize;
-
 pub const SYSCTL_PCSSI_R: *mut usize = 0x400FE91C as *mut usize;
-
 pub const SYSCTL_PCI2C_R: *mut usize = 0x400FE920 as *mut usize;
-
 pub const SYSCTL_PCUSB_R: *mut usize = 0x400FE928 as *mut usize;
-
 pub const SYSCTL_PCCAN_R: *mut usize = 0x400FE934 as *mut usize;
-
 pub const SYSCTL_PCADC_R: *mut usize = 0x400FE938 as *mut usize;
-
 pub const SYSCTL_PCACMP_R: *mut usize = 0x400FE93C as *mut usize;
-
 pub const SYSCTL_PCEEPROM_R: *mut usize = 0x400FE958 as *mut usize;
-
 pub const SYSCTL_PCWTIMER_R: *mut usize = 0x400FE95C as *mut usize;
-
 pub const SYSCTL_PRWD_R: *mut usize = 0x400FEA00 as *mut usize;
-
 pub const SYSCTL_PRTIMER_R: *mut usize = 0x400FEA04 as *mut usize;
-
 pub const SYSCTL_PRGPIO_R: *mut usize = 0x400FEA08 as *mut usize;
-
 pub const SYSCTL_PRDMA_R: *mut usize = 0x400FEA0C as *mut usize;
-
 pub const SYSCTL_PRHIB_R: *mut usize = 0x400FEA14 as *mut usize;
-
 pub const SYSCTL_PRUART_R: *mut usize = 0x400FEA18 as *mut usize;
-
 pub const SYSCTL_PRSSI_R: *mut usize = 0x400FEA1C as *mut usize;
-
 pub const SYSCTL_PRI2C_R: *mut usize = 0x400FEA20 as *mut usize;
-
 pub const SYSCTL_PRUSB_R: *mut usize = 0x400FEA28 as *mut usize;
-
 pub const SYSCTL_PRCAN_R: *mut usize = 0x400FEA34 as *mut usize;
-
 pub const SYSCTL_PRADC_R: *mut usize = 0x400FEA38 as *mut usize;
-
 pub const SYSCTL_PRACMP_R: *mut usize = 0x400FEA3C as *mut usize;
-
 pub const SYSCTL_PREEPROM_R: *mut usize = 0x400FEA58 as *mut usize;
-
 pub const SYSCTL_PRWTIMER_R: *mut usize = 0x400FEA5C as *mut usize;
 
 // *****************************************************************************
@@ -3193,51 +1894,28 @@ pub const SYSCTL_PRWTIMER_R: *mut usize = 0x400FEA5C as *mut usize;
 // Micro Direct Memory Access registers (UDMA)
 //
 // *****************************************************************************
-
 pub const UDMA_STAT_R: *mut usize = 0x400FF000 as *mut usize;
-
 pub const UDMA_CFG_R: *mut usize = 0x400FF004 as *mut usize;
-
 pub const UDMA_CTLBASE_R: *mut usize = 0x400FF008 as *mut usize;
-
 pub const UDMA_ALTBASE_R: *mut usize = 0x400FF00C as *mut usize;
-
 pub const UDMA_WAITSTAT_R: *mut usize = 0x400FF010 as *mut usize;
-
 pub const UDMA_SWREQ_R: *mut usize = 0x400FF014 as *mut usize;
-
 pub const UDMA_USEBURSTSET_R: *mut usize = 0x400FF018 as *mut usize;
-
 pub const UDMA_USEBURSTCLR_R: *mut usize = 0x400FF01C as *mut usize;
-
 pub const UDMA_REQMASKSET_R: *mut usize = 0x400FF020 as *mut usize;
-
 pub const UDMA_REQMASKCLR_R: *mut usize = 0x400FF024 as *mut usize;
-
 pub const UDMA_ENASET_R: *mut usize = 0x400FF028 as *mut usize;
-
 pub const UDMA_ENACLR_R: *mut usize = 0x400FF02C as *mut usize;
-
 pub const UDMA_ALTSET_R: *mut usize = 0x400FF030 as *mut usize;
-
 pub const UDMA_ALTCLR_R: *mut usize = 0x400FF034 as *mut usize;
-
 pub const UDMA_PRIOSET_R: *mut usize = 0x400FF038 as *mut usize;
-
 pub const UDMA_PRIOCLR_R: *mut usize = 0x400FF03C as *mut usize;
-
 pub const UDMA_ERRCLR_R: *mut usize = 0x400FF04C as *mut usize;
-
 pub const UDMA_CHASGN_R: *mut usize = 0x400FF500 as *mut usize;
-
 pub const UDMA_CHIS_R: *mut usize = 0x400FF504 as *mut usize;
-
 pub const UDMA_CHMAP0_R: *mut usize = 0x400FF510 as *mut usize;
-
 pub const UDMA_CHMAP1_R: *mut usize = 0x400FF514 as *mut usize;
-
 pub const UDMA_CHMAP2_R: *mut usize = 0x400FF518 as *mut usize;
-
 pub const UDMA_CHMAP3_R: *mut usize = 0x400FF51C as *mut usize;
 
 // *****************************************************************************
@@ -3248,214 +1926,6 @@ pub const UDMA_CHMAP3_R: *mut usize = 0x400FF51C as *mut usize;
 pub const UDMA_SRCENDP: usize = 0x00000000; // DMA Channel Source Address End Pointer
 pub const UDMA_DSTENDP: usize = 0x00000004; // DMA Channel Destination Address End Pointer
 pub const UDMA_CHCTL: usize = 0x00000008; // DMA Channel Control Word
-
-// *****************************************************************************
-//
-// NVIC registers (NVIC)
-//
-// *****************************************************************************
-
-pub const NVIC_INT_TYPE_R: *mut usize = 0xE000E004 as *mut usize;
-
-pub const NVIC_ACTLR_R: *mut usize = 0xE000E008 as *mut usize;
-
-pub const NVIC_ST_CTRL_R: *mut usize = 0xE000E010 as *mut usize;
-
-pub const NVIC_ST_RELOAD_R: *mut usize = 0xE000E014 as *mut usize;
-
-pub const NVIC_ST_CURRENT_R: *mut usize = 0xE000E018 as *mut usize;
-
-pub const NVIC_ST_CAL_R: *mut usize = 0xE000E01C as *mut usize;
-
-pub const NVIC_EN0_R: *mut usize = 0xE000E100 as *mut usize;
-
-pub const NVIC_EN1_R: *mut usize = 0xE000E104 as *mut usize;
-
-pub const NVIC_EN2_R: *mut usize = 0xE000E108 as *mut usize;
-
-pub const NVIC_EN3_R: *mut usize = 0xE000E10C as *mut usize;
-
-pub const NVIC_EN4_R: *mut usize = 0xE000E110 as *mut usize;
-
-pub const NVIC_DIS0_R: *mut usize = 0xE000E180 as *mut usize;
-
-pub const NVIC_DIS1_R: *mut usize = 0xE000E184 as *mut usize;
-
-pub const NVIC_DIS2_R: *mut usize = 0xE000E188 as *mut usize;
-
-pub const NVIC_DIS3_R: *mut usize = 0xE000E18C as *mut usize;
-
-pub const NVIC_DIS4_R: *mut usize = 0xE000E190 as *mut usize;
-
-pub const NVIC_PEND0_R: *mut usize = 0xE000E200 as *mut usize;
-
-pub const NVIC_PEND1_R: *mut usize = 0xE000E204 as *mut usize;
-
-pub const NVIC_PEND2_R: *mut usize = 0xE000E208 as *mut usize;
-
-pub const NVIC_PEND3_R: *mut usize = 0xE000E20C as *mut usize;
-
-pub const NVIC_PEND4_R: *mut usize = 0xE000E210 as *mut usize;
-
-pub const NVIC_UNPEND0_R: *mut usize = 0xE000E280 as *mut usize;
-
-pub const NVIC_UNPEND1_R: *mut usize = 0xE000E284 as *mut usize;
-
-pub const NVIC_UNPEND2_R: *mut usize = 0xE000E288 as *mut usize;
-
-pub const NVIC_UNPEND3_R: *mut usize = 0xE000E28C as *mut usize;
-
-pub const NVIC_UNPEND4_R: *mut usize = 0xE000E290 as *mut usize;
-
-pub const NVIC_ACTIVE0_R: *mut usize = 0xE000E300 as *mut usize;
-
-pub const NVIC_ACTIVE1_R: *mut usize = 0xE000E304 as *mut usize;
-
-pub const NVIC_ACTIVE2_R: *mut usize = 0xE000E308 as *mut usize;
-
-pub const NVIC_ACTIVE3_R: *mut usize = 0xE000E30C as *mut usize;
-
-pub const NVIC_ACTIVE4_R: *mut usize = 0xE000E310 as *mut usize;
-
-pub const NVIC_PRI0_R: *mut usize = 0xE000E400 as *mut usize;
-
-pub const NVIC_PRI1_R: *mut usize = 0xE000E404 as *mut usize;
-
-pub const NVIC_PRI2_R: *mut usize = 0xE000E408 as *mut usize;
-
-pub const NVIC_PRI3_R: *mut usize = 0xE000E40C as *mut usize;
-
-pub const NVIC_PRI4_R: *mut usize = 0xE000E410 as *mut usize;
-
-pub const NVIC_PRI5_R: *mut usize = 0xE000E414 as *mut usize;
-
-pub const NVIC_PRI6_R: *mut usize = 0xE000E418 as *mut usize;
-
-pub const NVIC_PRI7_R: *mut usize = 0xE000E41C as *mut usize;
-
-pub const NVIC_PRI8_R: *mut usize = 0xE000E420 as *mut usize;
-
-pub const NVIC_PRI9_R: *mut usize = 0xE000E424 as *mut usize;
-
-pub const NVIC_PRI10_R: *mut usize = 0xE000E428 as *mut usize;
-
-pub const NVIC_PRI11_R: *mut usize = 0xE000E42C as *mut usize;
-
-pub const NVIC_PRI12_R: *mut usize = 0xE000E430 as *mut usize;
-
-pub const NVIC_PRI13_R: *mut usize = 0xE000E434 as *mut usize;
-
-pub const NVIC_PRI14_R: *mut usize = 0xE000E438 as *mut usize;
-
-pub const NVIC_PRI15_R: *mut usize = 0xE000E43C as *mut usize;
-
-pub const NVIC_PRI16_R: *mut usize = 0xE000E440 as *mut usize;
-
-pub const NVIC_PRI17_R: *mut usize = 0xE000E444 as *mut usize;
-
-pub const NVIC_PRI18_R: *mut usize = 0xE000E448 as *mut usize;
-
-pub const NVIC_PRI19_R: *mut usize = 0xE000E44C as *mut usize;
-
-pub const NVIC_PRI20_R: *mut usize = 0xE000E450 as *mut usize;
-
-pub const NVIC_PRI21_R: *mut usize = 0xE000E454 as *mut usize;
-
-pub const NVIC_PRI22_R: *mut usize = 0xE000E458 as *mut usize;
-
-pub const NVIC_PRI23_R: *mut usize = 0xE000E45C as *mut usize;
-
-pub const NVIC_PRI24_R: *mut usize = 0xE000E460 as *mut usize;
-
-pub const NVIC_PRI25_R: *mut usize = 0xE000E464 as *mut usize;
-
-pub const NVIC_PRI26_R: *mut usize = 0xE000E468 as *mut usize;
-
-pub const NVIC_PRI27_R: *mut usize = 0xE000E46C as *mut usize;
-
-pub const NVIC_PRI28_R: *mut usize = 0xE000E470 as *mut usize;
-
-pub const NVIC_PRI29_R: *mut usize = 0xE000E474 as *mut usize;
-
-pub const NVIC_PRI30_R: *mut usize = 0xE000E478 as *mut usize;
-
-pub const NVIC_PRI31_R: *mut usize = 0xE000E47C as *mut usize;
-
-pub const NVIC_PRI32_R: *mut usize = 0xE000E480 as *mut usize;
-
-pub const NVIC_PRI33_R: *mut usize = 0xE000E484 as *mut usize;
-
-pub const NVIC_PRI34_R: *mut usize = 0xE000E488 as *mut usize;
-
-pub const NVIC_CPUID_R: *mut usize = 0xE000ED00 as *mut usize;
-
-pub const NVIC_INT_CTRL_R: *mut usize = 0xE000ED04 as *mut usize;
-
-pub const NVIC_VTABLE_R: *mut usize = 0xE000ED08 as *mut usize;
-
-pub const NVIC_APINT_R: *mut usize = 0xE000ED0C as *mut usize;
-
-pub const NVIC_SYS_CTRL_R: *mut usize = 0xE000ED10 as *mut usize;
-
-pub const NVIC_CFG_CTRL_R: *mut usize = 0xE000ED14 as *mut usize;
-
-pub const NVIC_SYS_PRI1_R: *mut usize = 0xE000ED18 as *mut usize;
-
-pub const NVIC_SYS_PRI2_R: *mut usize = 0xE000ED1C as *mut usize;
-
-pub const NVIC_SYS_PRI3_R: *mut usize = 0xE000ED20 as *mut usize;
-
-pub const NVIC_SYS_HND_CTRL_R: *mut usize = 0xE000ED24 as *mut usize;
-
-pub const NVIC_FAULT_STAT_R: *mut usize = 0xE000ED28 as *mut usize;
-
-pub const NVIC_HFAULT_STAT_R: *mut usize = 0xE000ED2C as *mut usize;
-
-pub const NVIC_DEBUG_STAT_R: *mut usize = 0xE000ED30 as *mut usize;
-
-pub const NVIC_MM_ADDR_R: *mut usize = 0xE000ED34 as *mut usize;
-
-pub const NVIC_FAULT_ADDR_R: *mut usize = 0xE000ED38 as *mut usize;
-
-pub const NVIC_CPAC_R: *mut usize = 0xE000ED88 as *mut usize;
-
-pub const NVIC_MPU_TYPE_R: *mut usize = 0xE000ED90 as *mut usize;
-
-pub const NVIC_MPU_CTRL_R: *mut usize = 0xE000ED94 as *mut usize;
-
-pub const NVIC_MPU_NUMBER_R: *mut usize = 0xE000ED98 as *mut usize;
-
-pub const NVIC_MPU_BASE_R: *mut usize = 0xE000ED9C as *mut usize;
-
-pub const NVIC_MPU_ATTR_R: *mut usize = 0xE000EDA0 as *mut usize;
-
-pub const NVIC_MPU_BASE1_R: *mut usize = 0xE000EDA4 as *mut usize;
-
-pub const NVIC_MPU_ATTR1_R: *mut usize = 0xE000EDA8 as *mut usize;
-
-pub const NVIC_MPU_BASE2_R: *mut usize = 0xE000EDAC as *mut usize;
-
-pub const NVIC_MPU_ATTR2_R: *mut usize = 0xE000EDB0 as *mut usize;
-
-pub const NVIC_MPU_BASE3_R: *mut usize = 0xE000EDB4 as *mut usize;
-
-pub const NVIC_MPU_ATTR3_R: *mut usize = 0xE000EDB8 as *mut usize;
-
-pub const NVIC_DBG_CTRL_R: *mut usize = 0xE000EDF0 as *mut usize;
-
-pub const NVIC_DBG_XFER_R: *mut usize = 0xE000EDF4 as *mut usize;
-
-pub const NVIC_DBG_DATA_R: *mut usize = 0xE000EDF8 as *mut usize;
-
-pub const NVIC_DBG_INT_R: *mut usize = 0xE000EDFC as *mut usize;
-
-pub const NVIC_SW_TRIG_R: *mut usize = 0xE000EF00 as *mut usize;
-
-pub const NVIC_FPCC_R: *mut usize = 0xE000EF34 as *mut usize;
-
-pub const NVIC_FPCA_R: *mut usize = 0xE000EF38 as *mut usize;
-
-pub const NVIC_FPDSC_R: *mut usize = 0xE000EF3C as *mut usize;
 
 // *****************************************************************************
 //
@@ -9521,1383 +7991,6 @@ pub const UDMA_CHCTL_XFERMODE_MEM_SGA: usize = 0x00000005; // Alternate Memory S
 pub const UDMA_CHCTL_XFERMODE_PER_SG: usize = 0x00000006; // Peripheral Scatter-Gather
 pub const UDMA_CHCTL_XFERMODE_PER_SGA: usize = 0x00000007; // Alternate Peripheral Scatter-Gather
 pub const UDMA_CHCTL_XFERSIZE_S: usize = 4;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_INT_TYPE register.
-//
-// *****************************************************************************
-pub const NVIC_INT_TYPE_LINES_M: usize = 0x0000001F; // Number of interrupt lines (x32)
-pub const NVIC_INT_TYPE_LINES_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTLR register.
-//
-// *****************************************************************************
-pub const NVIC_ACTLR_DISOOFP: usize = 0x00000200; // Disable Out-Of-Order Floating Point
-pub const NVIC_ACTLR_DISFPCA: usize = 0x00000100; // Disable CONTROL
-pub const NVIC_ACTLR_DISFOLD: usize = 0x00000004; // Disable IT Folding
-pub const NVIC_ACTLR_DISWBUF: usize = 0x00000002; // Disable Write Buffer
-pub const NVIC_ACTLR_DISMCYC: usize = 0x00000001; // Disable Interrupts of Multiple Cycle Instructions
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ST_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_ST_CTRL_COUNT: usize = 0x00010000; // Count Flag
-pub const NVIC_ST_CTRL_CLK_SRC: usize = 0x00000004; // Clock Source
-pub const NVIC_ST_CTRL_INTEN: usize = 0x00000002; // Interrupt Enable
-pub const NVIC_ST_CTRL_ENABLE: usize = 0x00000001; // Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ST_RELOAD register.
-//
-// *****************************************************************************
-pub const NVIC_ST_RELOAD_M: usize = 0x00FFFFFF; // Reload Value
-pub const NVIC_ST_RELOAD_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ST_CURRENT
-// register.
-//
-// *****************************************************************************
-pub const NVIC_ST_CURRENT_M: usize = 0x00FFFFFF; // Current Value
-pub const NVIC_ST_CURRENT_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ST_CAL register.
-//
-// *****************************************************************************
-pub const NVIC_ST_CAL_NOREF: usize = 0x80000000; // No reference clock
-pub const NVIC_ST_CAL_SKEW: usize = 0x40000000; // Clock skew
-pub const NVIC_ST_CAL_ONEMS_M: usize = 0x00FFFFFF; // 1ms reference value
-pub const NVIC_ST_CAL_ONEMS_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_EN0 register.
-//
-// *****************************************************************************
-pub const NVIC_EN0_INT_M: usize = 0xFFFFFFFF; // Interrupt Enable
-pub const NVIC_EN0_INT0: usize = 0x00000001; // Interrupt 0 enable
-pub const NVIC_EN0_INT1: usize = 0x00000002; // Interrupt 1 enable
-pub const NVIC_EN0_INT2: usize = 0x00000004; // Interrupt 2 enable
-pub const NVIC_EN0_INT3: usize = 0x00000008; // Interrupt 3 enable
-pub const NVIC_EN0_INT4: usize = 0x00000010; // Interrupt 4 enable
-pub const NVIC_EN0_INT5: usize = 0x00000020; // Interrupt 5 enable
-pub const NVIC_EN0_INT6: usize = 0x00000040; // Interrupt 6 enable
-pub const NVIC_EN0_INT7: usize = 0x00000080; // Interrupt 7 enable
-pub const NVIC_EN0_INT8: usize = 0x00000100; // Interrupt 8 enable
-pub const NVIC_EN0_INT9: usize = 0x00000200; // Interrupt 9 enable
-pub const NVIC_EN0_INT10: usize = 0x00000400; // Interrupt 10 enable
-pub const NVIC_EN0_INT11: usize = 0x00000800; // Interrupt 11 enable
-pub const NVIC_EN0_INT12: usize = 0x00001000; // Interrupt 12 enable
-pub const NVIC_EN0_INT13: usize = 0x00002000; // Interrupt 13 enable
-pub const NVIC_EN0_INT14: usize = 0x00004000; // Interrupt 14 enable
-pub const NVIC_EN0_INT15: usize = 0x00008000; // Interrupt 15 enable
-pub const NVIC_EN0_INT16: usize = 0x00010000; // Interrupt 16 enable
-pub const NVIC_EN0_INT17: usize = 0x00020000; // Interrupt 17 enable
-pub const NVIC_EN0_INT18: usize = 0x00040000; // Interrupt 18 enable
-pub const NVIC_EN0_INT19: usize = 0x00080000; // Interrupt 19 enable
-pub const NVIC_EN0_INT20: usize = 0x00100000; // Interrupt 20 enable
-pub const NVIC_EN0_INT21: usize = 0x00200000; // Interrupt 21 enable
-pub const NVIC_EN0_INT22: usize = 0x00400000; // Interrupt 22 enable
-pub const NVIC_EN0_INT23: usize = 0x00800000; // Interrupt 23 enable
-pub const NVIC_EN0_INT24: usize = 0x01000000; // Interrupt 24 enable
-pub const NVIC_EN0_INT25: usize = 0x02000000; // Interrupt 25 enable
-pub const NVIC_EN0_INT26: usize = 0x04000000; // Interrupt 26 enable
-pub const NVIC_EN0_INT27: usize = 0x08000000; // Interrupt 27 enable
-pub const NVIC_EN0_INT28: usize = 0x10000000; // Interrupt 28 enable
-pub const NVIC_EN0_INT29: usize = 0x20000000; // Interrupt 29 enable
-pub const NVIC_EN0_INT30: usize = 0x40000000; // Interrupt 30 enable
-pub const NVIC_EN0_INT31: usize = 0x80000000; // Interrupt 31 enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_EN1 register.
-//
-// *****************************************************************************
-pub const NVIC_EN1_INT_M: usize = 0xFFFFFFFF; // Interrupt Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_EN2 register.
-//
-// *****************************************************************************
-pub const NVIC_EN2_INT_M: usize = 0xFFFFFFFF; // Interrupt Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_EN3 register.
-//
-// *****************************************************************************
-pub const NVIC_EN3_INT_M: usize = 0xFFFFFFFF; // Interrupt Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_EN4 register.
-//
-// *****************************************************************************
-pub const NVIC_EN4_INT_M: usize = 0x000007FF; // Interrupt Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DIS0 register.
-//
-// *****************************************************************************
-pub const NVIC_DIS0_INT_M: usize = 0xFFFFFFFF; // Interrupt Disable
-pub const NVIC_DIS0_INT0: usize = 0x00000001; // Interrupt 0 disable
-pub const NVIC_DIS0_INT1: usize = 0x00000002; // Interrupt 1 disable
-pub const NVIC_DIS0_INT2: usize = 0x00000004; // Interrupt 2 disable
-pub const NVIC_DIS0_INT3: usize = 0x00000008; // Interrupt 3 disable
-pub const NVIC_DIS0_INT4: usize = 0x00000010; // Interrupt 4 disable
-pub const NVIC_DIS0_INT5: usize = 0x00000020; // Interrupt 5 disable
-pub const NVIC_DIS0_INT6: usize = 0x00000040; // Interrupt 6 disable
-pub const NVIC_DIS0_INT7: usize = 0x00000080; // Interrupt 7 disable
-pub const NVIC_DIS0_INT8: usize = 0x00000100; // Interrupt 8 disable
-pub const NVIC_DIS0_INT9: usize = 0x00000200; // Interrupt 9 disable
-pub const NVIC_DIS0_INT10: usize = 0x00000400; // Interrupt 10 disable
-pub const NVIC_DIS0_INT11: usize = 0x00000800; // Interrupt 11 disable
-pub const NVIC_DIS0_INT12: usize = 0x00001000; // Interrupt 12 disable
-pub const NVIC_DIS0_INT13: usize = 0x00002000; // Interrupt 13 disable
-pub const NVIC_DIS0_INT14: usize = 0x00004000; // Interrupt 14 disable
-pub const NVIC_DIS0_INT15: usize = 0x00008000; // Interrupt 15 disable
-pub const NVIC_DIS0_INT16: usize = 0x00010000; // Interrupt 16 disable
-pub const NVIC_DIS0_INT17: usize = 0x00020000; // Interrupt 17 disable
-pub const NVIC_DIS0_INT18: usize = 0x00040000; // Interrupt 18 disable
-pub const NVIC_DIS0_INT19: usize = 0x00080000; // Interrupt 19 disable
-pub const NVIC_DIS0_INT20: usize = 0x00100000; // Interrupt 20 disable
-pub const NVIC_DIS0_INT21: usize = 0x00200000; // Interrupt 21 disable
-pub const NVIC_DIS0_INT22: usize = 0x00400000; // Interrupt 22 disable
-pub const NVIC_DIS0_INT23: usize = 0x00800000; // Interrupt 23 disable
-pub const NVIC_DIS0_INT24: usize = 0x01000000; // Interrupt 24 disable
-pub const NVIC_DIS0_INT25: usize = 0x02000000; // Interrupt 25 disable
-pub const NVIC_DIS0_INT26: usize = 0x04000000; // Interrupt 26 disable
-pub const NVIC_DIS0_INT27: usize = 0x08000000; // Interrupt 27 disable
-pub const NVIC_DIS0_INT28: usize = 0x10000000; // Interrupt 28 disable
-pub const NVIC_DIS0_INT29: usize = 0x20000000; // Interrupt 29 disable
-pub const NVIC_DIS0_INT30: usize = 0x40000000; // Interrupt 30 disable
-pub const NVIC_DIS0_INT31: usize = 0x80000000; // Interrupt 31 disable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DIS1 register.
-//
-// *****************************************************************************
-pub const NVIC_DIS1_INT_M: usize = 0xFFFFFFFF; // Interrupt Disable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DIS2 register.
-//
-// *****************************************************************************
-pub const NVIC_DIS2_INT_M: usize = 0xFFFFFFFF; // Interrupt Disable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DIS3 register.
-//
-// *****************************************************************************
-pub const NVIC_DIS3_INT_M: usize = 0xFFFFFFFF; // Interrupt Disable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DIS4 register.
-//
-// *****************************************************************************
-pub const NVIC_DIS4_INT_M: usize = 0x000007FF; // Interrupt Disable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PEND0 register.
-//
-// *****************************************************************************
-pub const NVIC_PEND0_INT_M: usize = 0xFFFFFFFF; // Interrupt Set Pending
-pub const NVIC_PEND0_INT0: usize = 0x00000001; // Interrupt 0 pend
-pub const NVIC_PEND0_INT1: usize = 0x00000002; // Interrupt 1 pend
-pub const NVIC_PEND0_INT2: usize = 0x00000004; // Interrupt 2 pend
-pub const NVIC_PEND0_INT3: usize = 0x00000008; // Interrupt 3 pend
-pub const NVIC_PEND0_INT4: usize = 0x00000010; // Interrupt 4 pend
-pub const NVIC_PEND0_INT5: usize = 0x00000020; // Interrupt 5 pend
-pub const NVIC_PEND0_INT6: usize = 0x00000040; // Interrupt 6 pend
-pub const NVIC_PEND0_INT7: usize = 0x00000080; // Interrupt 7 pend
-pub const NVIC_PEND0_INT8: usize = 0x00000100; // Interrupt 8 pend
-pub const NVIC_PEND0_INT9: usize = 0x00000200; // Interrupt 9 pend
-pub const NVIC_PEND0_INT10: usize = 0x00000400; // Interrupt 10 pend
-pub const NVIC_PEND0_INT11: usize = 0x00000800; // Interrupt 11 pend
-pub const NVIC_PEND0_INT12: usize = 0x00001000; // Interrupt 12 pend
-pub const NVIC_PEND0_INT13: usize = 0x00002000; // Interrupt 13 pend
-pub const NVIC_PEND0_INT14: usize = 0x00004000; // Interrupt 14 pend
-pub const NVIC_PEND0_INT15: usize = 0x00008000; // Interrupt 15 pend
-pub const NVIC_PEND0_INT16: usize = 0x00010000; // Interrupt 16 pend
-pub const NVIC_PEND0_INT17: usize = 0x00020000; // Interrupt 17 pend
-pub const NVIC_PEND0_INT18: usize = 0x00040000; // Interrupt 18 pend
-pub const NVIC_PEND0_INT19: usize = 0x00080000; // Interrupt 19 pend
-pub const NVIC_PEND0_INT20: usize = 0x00100000; // Interrupt 20 pend
-pub const NVIC_PEND0_INT21: usize = 0x00200000; // Interrupt 21 pend
-pub const NVIC_PEND0_INT22: usize = 0x00400000; // Interrupt 22 pend
-pub const NVIC_PEND0_INT23: usize = 0x00800000; // Interrupt 23 pend
-pub const NVIC_PEND0_INT24: usize = 0x01000000; // Interrupt 24 pend
-pub const NVIC_PEND0_INT25: usize = 0x02000000; // Interrupt 25 pend
-pub const NVIC_PEND0_INT26: usize = 0x04000000; // Interrupt 26 pend
-pub const NVIC_PEND0_INT27: usize = 0x08000000; // Interrupt 27 pend
-pub const NVIC_PEND0_INT28: usize = 0x10000000; // Interrupt 28 pend
-pub const NVIC_PEND0_INT29: usize = 0x20000000; // Interrupt 29 pend
-pub const NVIC_PEND0_INT30: usize = 0x40000000; // Interrupt 30 pend
-pub const NVIC_PEND0_INT31: usize = 0x80000000; // Interrupt 31 pend
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PEND1 register.
-//
-// *****************************************************************************
-pub const NVIC_PEND1_INT_M: usize = 0xFFFFFFFF; // Interrupt Set Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PEND2 register.
-//
-// *****************************************************************************
-pub const NVIC_PEND2_INT_M: usize = 0xFFFFFFFF; // Interrupt Set Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PEND3 register.
-//
-// *****************************************************************************
-pub const NVIC_PEND3_INT_M: usize = 0xFFFFFFFF; // Interrupt Set Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PEND4 register.
-//
-// *****************************************************************************
-pub const NVIC_PEND4_INT_M: usize = 0x000007FF; // Interrupt Set Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_UNPEND0 register.
-//
-// *****************************************************************************
-pub const NVIC_UNPEND0_INT_M: usize = 0xFFFFFFFF; // Interrupt Clear Pending
-pub const NVIC_UNPEND0_INT0: usize = 0x00000001; // Interrupt 0 unpend
-pub const NVIC_UNPEND0_INT1: usize = 0x00000002; // Interrupt 1 unpend
-pub const NVIC_UNPEND0_INT2: usize = 0x00000004; // Interrupt 2 unpend
-pub const NVIC_UNPEND0_INT3: usize = 0x00000008; // Interrupt 3 unpend
-pub const NVIC_UNPEND0_INT4: usize = 0x00000010; // Interrupt 4 unpend
-pub const NVIC_UNPEND0_INT5: usize = 0x00000020; // Interrupt 5 unpend
-pub const NVIC_UNPEND0_INT6: usize = 0x00000040; // Interrupt 6 unpend
-pub const NVIC_UNPEND0_INT7: usize = 0x00000080; // Interrupt 7 unpend
-pub const NVIC_UNPEND0_INT8: usize = 0x00000100; // Interrupt 8 unpend
-pub const NVIC_UNPEND0_INT9: usize = 0x00000200; // Interrupt 9 unpend
-pub const NVIC_UNPEND0_INT10: usize = 0x00000400; // Interrupt 10 unpend
-pub const NVIC_UNPEND0_INT11: usize = 0x00000800; // Interrupt 11 unpend
-pub const NVIC_UNPEND0_INT12: usize = 0x00001000; // Interrupt 12 unpend
-pub const NVIC_UNPEND0_INT13: usize = 0x00002000; // Interrupt 13 unpend
-pub const NVIC_UNPEND0_INT14: usize = 0x00004000; // Interrupt 14 unpend
-pub const NVIC_UNPEND0_INT15: usize = 0x00008000; // Interrupt 15 unpend
-pub const NVIC_UNPEND0_INT16: usize = 0x00010000; // Interrupt 16 unpend
-pub const NVIC_UNPEND0_INT17: usize = 0x00020000; // Interrupt 17 unpend
-pub const NVIC_UNPEND0_INT18: usize = 0x00040000; // Interrupt 18 unpend
-pub const NVIC_UNPEND0_INT19: usize = 0x00080000; // Interrupt 19 unpend
-pub const NVIC_UNPEND0_INT20: usize = 0x00100000; // Interrupt 20 unpend
-pub const NVIC_UNPEND0_INT21: usize = 0x00200000; // Interrupt 21 unpend
-pub const NVIC_UNPEND0_INT22: usize = 0x00400000; // Interrupt 22 unpend
-pub const NVIC_UNPEND0_INT23: usize = 0x00800000; // Interrupt 23 unpend
-pub const NVIC_UNPEND0_INT24: usize = 0x01000000; // Interrupt 24 unpend
-pub const NVIC_UNPEND0_INT25: usize = 0x02000000; // Interrupt 25 unpend
-pub const NVIC_UNPEND0_INT26: usize = 0x04000000; // Interrupt 26 unpend
-pub const NVIC_UNPEND0_INT27: usize = 0x08000000; // Interrupt 27 unpend
-pub const NVIC_UNPEND0_INT28: usize = 0x10000000; // Interrupt 28 unpend
-pub const NVIC_UNPEND0_INT29: usize = 0x20000000; // Interrupt 29 unpend
-pub const NVIC_UNPEND0_INT30: usize = 0x40000000; // Interrupt 30 unpend
-pub const NVIC_UNPEND0_INT31: usize = 0x80000000; // Interrupt 31 unpend
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_UNPEND1 register.
-//
-// *****************************************************************************
-pub const NVIC_UNPEND1_INT_M: usize = 0xFFFFFFFF; // Interrupt Clear Pending
-pub const NVIC_UNPEND1_INT32: usize = 0x00000001; // Interrupt 32 unpend
-pub const NVIC_UNPEND1_INT33: usize = 0x00000002; // Interrupt 33 unpend
-pub const NVIC_UNPEND1_INT34: usize = 0x00000004; // Interrupt 34 unpend
-pub const NVIC_UNPEND1_INT35: usize = 0x00000008; // Interrupt 35 unpend
-pub const NVIC_UNPEND1_INT36: usize = 0x00000010; // Interrupt 36 unpend
-pub const NVIC_UNPEND1_INT37: usize = 0x00000020; // Interrupt 37 unpend
-pub const NVIC_UNPEND1_INT38: usize = 0x00000040; // Interrupt 38 unpend
-pub const NVIC_UNPEND1_INT39: usize = 0x00000080; // Interrupt 39 unpend
-pub const NVIC_UNPEND1_INT40: usize = 0x00000100; // Interrupt 40 unpend
-pub const NVIC_UNPEND1_INT41: usize = 0x00000200; // Interrupt 41 unpend
-pub const NVIC_UNPEND1_INT42: usize = 0x00000400; // Interrupt 42 unpend
-pub const NVIC_UNPEND1_INT43: usize = 0x00000800; // Interrupt 43 unpend
-pub const NVIC_UNPEND1_INT44: usize = 0x00001000; // Interrupt 44 unpend
-pub const NVIC_UNPEND1_INT45: usize = 0x00002000; // Interrupt 45 unpend
-pub const NVIC_UNPEND1_INT46: usize = 0x00004000; // Interrupt 46 unpend
-pub const NVIC_UNPEND1_INT47: usize = 0x00008000; // Interrupt 47 unpend
-pub const NVIC_UNPEND1_INT48: usize = 0x00010000; // Interrupt 48 unpend
-pub const NVIC_UNPEND1_INT49: usize = 0x00020000; // Interrupt 49 unpend
-pub const NVIC_UNPEND1_INT50: usize = 0x00040000; // Interrupt 50 unpend
-pub const NVIC_UNPEND1_INT51: usize = 0x00080000; // Interrupt 51 unpend
-pub const NVIC_UNPEND1_INT52: usize = 0x00100000; // Interrupt 52 unpend
-pub const NVIC_UNPEND1_INT53: usize = 0x00200000; // Interrupt 53 unpend
-pub const NVIC_UNPEND1_INT54: usize = 0x00400000; // Interrupt 54 unpend
-pub const NVIC_UNPEND1_INT55: usize = 0x00800000; // Interrupt 55 unpend
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_UNPEND2 register.
-//
-// *****************************************************************************
-pub const NVIC_UNPEND2_INT_M: usize = 0xFFFFFFFF; // Interrupt Clear Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_UNPEND3 register.
-//
-// *****************************************************************************
-pub const NVIC_UNPEND3_INT_M: usize = 0xFFFFFFFF; // Interrupt Clear Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_UNPEND4 register.
-//
-// *****************************************************************************
-pub const NVIC_UNPEND4_INT_M: usize = 0x000007FF; // Interrupt Clear Pending
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTIVE0 register.
-//
-// *****************************************************************************
-pub const NVIC_ACTIVE0_INT_M: usize = 0xFFFFFFFF; // Interrupt Active
-pub const NVIC_ACTIVE0_INT0: usize = 0x00000001; // Interrupt 0 active
-pub const NVIC_ACTIVE0_INT1: usize = 0x00000002; // Interrupt 1 active
-pub const NVIC_ACTIVE0_INT2: usize = 0x00000004; // Interrupt 2 active
-pub const NVIC_ACTIVE0_INT3: usize = 0x00000008; // Interrupt 3 active
-pub const NVIC_ACTIVE0_INT4: usize = 0x00000010; // Interrupt 4 active
-pub const NVIC_ACTIVE0_INT5: usize = 0x00000020; // Interrupt 5 active
-pub const NVIC_ACTIVE0_INT6: usize = 0x00000040; // Interrupt 6 active
-pub const NVIC_ACTIVE0_INT7: usize = 0x00000080; // Interrupt 7 active
-pub const NVIC_ACTIVE0_INT8: usize = 0x00000100; // Interrupt 8 active
-pub const NVIC_ACTIVE0_INT9: usize = 0x00000200; // Interrupt 9 active
-pub const NVIC_ACTIVE0_INT10: usize = 0x00000400; // Interrupt 10 active
-pub const NVIC_ACTIVE0_INT11: usize = 0x00000800; // Interrupt 11 active
-pub const NVIC_ACTIVE0_INT12: usize = 0x00001000; // Interrupt 12 active
-pub const NVIC_ACTIVE0_INT13: usize = 0x00002000; // Interrupt 13 active
-pub const NVIC_ACTIVE0_INT14: usize = 0x00004000; // Interrupt 14 active
-pub const NVIC_ACTIVE0_INT15: usize = 0x00008000; // Interrupt 15 active
-pub const NVIC_ACTIVE0_INT16: usize = 0x00010000; // Interrupt 16 active
-pub const NVIC_ACTIVE0_INT17: usize = 0x00020000; // Interrupt 17 active
-pub const NVIC_ACTIVE0_INT18: usize = 0x00040000; // Interrupt 18 active
-pub const NVIC_ACTIVE0_INT19: usize = 0x00080000; // Interrupt 19 active
-pub const NVIC_ACTIVE0_INT20: usize = 0x00100000; // Interrupt 20 active
-pub const NVIC_ACTIVE0_INT21: usize = 0x00200000; // Interrupt 21 active
-pub const NVIC_ACTIVE0_INT22: usize = 0x00400000; // Interrupt 22 active
-pub const NVIC_ACTIVE0_INT23: usize = 0x00800000; // Interrupt 23 active
-pub const NVIC_ACTIVE0_INT24: usize = 0x01000000; // Interrupt 24 active
-pub const NVIC_ACTIVE0_INT25: usize = 0x02000000; // Interrupt 25 active
-pub const NVIC_ACTIVE0_INT26: usize = 0x04000000; // Interrupt 26 active
-pub const NVIC_ACTIVE0_INT27: usize = 0x08000000; // Interrupt 27 active
-pub const NVIC_ACTIVE0_INT28: usize = 0x10000000; // Interrupt 28 active
-pub const NVIC_ACTIVE0_INT29: usize = 0x20000000; // Interrupt 29 active
-pub const NVIC_ACTIVE0_INT30: usize = 0x40000000; // Interrupt 30 active
-pub const NVIC_ACTIVE0_INT31: usize = 0x80000000; // Interrupt 31 active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTIVE1 register.
-//
-// *****************************************************************************
-pub const NVIC_ACTIVE1_INT_M: usize = 0xFFFFFFFF; // Interrupt Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTIVE2 register.
-//
-// *****************************************************************************
-pub const NVIC_ACTIVE2_INT_M: usize = 0xFFFFFFFF; // Interrupt Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTIVE3 register.
-//
-// *****************************************************************************
-pub const NVIC_ACTIVE3_INT_M: usize = 0xFFFFFFFF; // Interrupt Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_ACTIVE4 register.
-//
-// *****************************************************************************
-pub const NVIC_ACTIVE4_INT_M: usize = 0x000007FF; // Interrupt Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI0 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI0_INT3_M: usize = 0xE0000000; // Interrupt 3 Priority Mask
-pub const NVIC_PRI0_INT2_M: usize = 0x00E00000; // Interrupt 2 Priority Mask
-pub const NVIC_PRI0_INT1_M: usize = 0x0000E000; // Interrupt 1 Priority Mask
-pub const NVIC_PRI0_INT0_M: usize = 0x000000E0; // Interrupt 0 Priority Mask
-pub const NVIC_PRI0_INT3_S: usize = 29;
-pub const NVIC_PRI0_INT2_S: usize = 21;
-pub const NVIC_PRI0_INT1_S: usize = 13;
-pub const NVIC_PRI0_INT0_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI1 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI1_INT7_M: usize = 0xE0000000; // Interrupt 7 Priority Mask
-pub const NVIC_PRI1_INT6_M: usize = 0x00E00000; // Interrupt 6 Priority Mask
-pub const NVIC_PRI1_INT5_M: usize = 0x0000E000; // Interrupt 5 Priority Mask
-pub const NVIC_PRI1_INT4_M: usize = 0x000000E0; // Interrupt 4 Priority Mask
-pub const NVIC_PRI1_INT7_S: usize = 29;
-pub const NVIC_PRI1_INT6_S: usize = 21;
-pub const NVIC_PRI1_INT5_S: usize = 13;
-pub const NVIC_PRI1_INT4_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI2 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI2_INT11_M: usize = 0xE0000000; // Interrupt 11 Priority Mask
-pub const NVIC_PRI2_INT10_M: usize = 0x00E00000; // Interrupt 10 Priority Mask
-pub const NVIC_PRI2_INT9_M: usize = 0x0000E000; // Interrupt 9 Priority Mask
-pub const NVIC_PRI2_INT8_M: usize = 0x000000E0; // Interrupt 8 Priority Mask
-pub const NVIC_PRI2_INT11_S: usize = 29;
-pub const NVIC_PRI2_INT10_S: usize = 21;
-pub const NVIC_PRI2_INT9_S: usize = 13;
-pub const NVIC_PRI2_INT8_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI3 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI3_INT15_M: usize = 0xE0000000; // Interrupt 15 Priority Mask
-pub const NVIC_PRI3_INT14_M: usize = 0x00E00000; // Interrupt 14 Priority Mask
-pub const NVIC_PRI3_INT13_M: usize = 0x0000E000; // Interrupt 13 Priority Mask
-pub const NVIC_PRI3_INT12_M: usize = 0x000000E0; // Interrupt 12 Priority Mask
-pub const NVIC_PRI3_INT15_S: usize = 29;
-pub const NVIC_PRI3_INT14_S: usize = 21;
-pub const NVIC_PRI3_INT13_S: usize = 13;
-pub const NVIC_PRI3_INT12_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI4 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI4_INT19_M: usize = 0xE0000000; // Interrupt 19 Priority Mask
-pub const NVIC_PRI4_INT18_M: usize = 0x00E00000; // Interrupt 18 Priority Mask
-pub const NVIC_PRI4_INT17_M: usize = 0x0000E000; // Interrupt 17 Priority Mask
-pub const NVIC_PRI4_INT16_M: usize = 0x000000E0; // Interrupt 16 Priority Mask
-pub const NVIC_PRI4_INT19_S: usize = 29;
-pub const NVIC_PRI4_INT18_S: usize = 21;
-pub const NVIC_PRI4_INT17_S: usize = 13;
-pub const NVIC_PRI4_INT16_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI5 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI5_INT23_M: usize = 0xE0000000; // Interrupt 23 Priority Mask
-pub const NVIC_PRI5_INT22_M: usize = 0x00E00000; // Interrupt 22 Priority Mask
-pub const NVIC_PRI5_INT21_M: usize = 0x0000E000; // Interrupt 21 Priority Mask
-pub const NVIC_PRI5_INT20_M: usize = 0x000000E0; // Interrupt 20 Priority Mask
-pub const NVIC_PRI5_INT23_S: usize = 29;
-pub const NVIC_PRI5_INT22_S: usize = 21;
-pub const NVIC_PRI5_INT21_S: usize = 13;
-pub const NVIC_PRI5_INT20_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI6 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI6_INT27_M: usize = 0xE0000000; // Interrupt 27 Priority Mask
-pub const NVIC_PRI6_INT26_M: usize = 0x00E00000; // Interrupt 26 Priority Mask
-pub const NVIC_PRI6_INT25_M: usize = 0x0000E000; // Interrupt 25 Priority Mask
-pub const NVIC_PRI6_INT24_M: usize = 0x000000E0; // Interrupt 24 Priority Mask
-pub const NVIC_PRI6_INT27_S: usize = 29;
-pub const NVIC_PRI6_INT26_S: usize = 21;
-pub const NVIC_PRI6_INT25_S: usize = 13;
-pub const NVIC_PRI6_INT24_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI7 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI7_INT31_M: usize = 0xE0000000; // Interrupt 31 Priority Mask
-pub const NVIC_PRI7_INT30_M: usize = 0x00E00000; // Interrupt 30 Priority Mask
-pub const NVIC_PRI7_INT29_M: usize = 0x0000E000; // Interrupt 29 Priority Mask
-pub const NVIC_PRI7_INT28_M: usize = 0x000000E0; // Interrupt 28 Priority Mask
-pub const NVIC_PRI7_INT31_S: usize = 29;
-pub const NVIC_PRI7_INT30_S: usize = 21;
-pub const NVIC_PRI7_INT29_S: usize = 13;
-pub const NVIC_PRI7_INT28_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI8 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI8_INT35_M: usize = 0xE0000000; // Interrupt 35 Priority Mask
-pub const NVIC_PRI8_INT34_M: usize = 0x00E00000; // Interrupt 34 Priority Mask
-pub const NVIC_PRI8_INT33_M: usize = 0x0000E000; // Interrupt 33 Priority Mask
-pub const NVIC_PRI8_INT32_M: usize = 0x000000E0; // Interrupt 32 Priority Mask
-pub const NVIC_PRI8_INT35_S: usize = 29;
-pub const NVIC_PRI8_INT34_S: usize = 21;
-pub const NVIC_PRI8_INT33_S: usize = 13;
-pub const NVIC_PRI8_INT32_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI9 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI9_INT39_M: usize = 0xE0000000; // Interrupt 39 Priority Mask
-pub const NVIC_PRI9_INT38_M: usize = 0x00E00000; // Interrupt 38 Priority Mask
-pub const NVIC_PRI9_INT37_M: usize = 0x0000E000; // Interrupt 37 Priority Mask
-pub const NVIC_PRI9_INT36_M: usize = 0x000000E0; // Interrupt 36 Priority Mask
-pub const NVIC_PRI9_INT39_S: usize = 29;
-pub const NVIC_PRI9_INT38_S: usize = 21;
-pub const NVIC_PRI9_INT37_S: usize = 13;
-pub const NVIC_PRI9_INT36_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI10 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI10_INT43_M: usize = 0xE0000000; // Interrupt 43 Priority Mask
-pub const NVIC_PRI10_INT42_M: usize = 0x00E00000; // Interrupt 42 Priority Mask
-pub const NVIC_PRI10_INT41_M: usize = 0x0000E000; // Interrupt 41 Priority Mask
-pub const NVIC_PRI10_INT40_M: usize = 0x000000E0; // Interrupt 40 Priority Mask
-pub const NVIC_PRI10_INT43_S: usize = 29;
-pub const NVIC_PRI10_INT42_S: usize = 21;
-pub const NVIC_PRI10_INT41_S: usize = 13;
-pub const NVIC_PRI10_INT40_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI11 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI11_INT47_M: usize = 0xE0000000; // Interrupt 47 Priority Mask
-pub const NVIC_PRI11_INT46_M: usize = 0x00E00000; // Interrupt 46 Priority Mask
-pub const NVIC_PRI11_INT45_M: usize = 0x0000E000; // Interrupt 45 Priority Mask
-pub const NVIC_PRI11_INT44_M: usize = 0x000000E0; // Interrupt 44 Priority Mask
-pub const NVIC_PRI11_INT47_S: usize = 29;
-pub const NVIC_PRI11_INT46_S: usize = 21;
-pub const NVIC_PRI11_INT45_S: usize = 13;
-pub const NVIC_PRI11_INT44_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI12 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI12_INT51_M: usize = 0xE0000000; // Interrupt 51 Priority Mask
-pub const NVIC_PRI12_INT50_M: usize = 0x00E00000; // Interrupt 50 Priority Mask
-pub const NVIC_PRI12_INT49_M: usize = 0x0000E000; // Interrupt 49 Priority Mask
-pub const NVIC_PRI12_INT48_M: usize = 0x000000E0; // Interrupt 48 Priority Mask
-pub const NVIC_PRI12_INT51_S: usize = 29;
-pub const NVIC_PRI12_INT50_S: usize = 21;
-pub const NVIC_PRI12_INT49_S: usize = 13;
-pub const NVIC_PRI12_INT48_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI13 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI13_INT55_M: usize = 0xE0000000; // Interrupt 55 Priority Mask
-pub const NVIC_PRI13_INT54_M: usize = 0x00E00000; // Interrupt 54 Priority Mask
-pub const NVIC_PRI13_INT53_M: usize = 0x0000E000; // Interrupt 53 Priority Mask
-pub const NVIC_PRI13_INT52_M: usize = 0x000000E0; // Interrupt 52 Priority Mask
-pub const NVIC_PRI13_INT55_S: usize = 29;
-pub const NVIC_PRI13_INT54_S: usize = 21;
-pub const NVIC_PRI13_INT53_S: usize = 13;
-pub const NVIC_PRI13_INT52_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI14 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI14_INTD_M: usize = 0xE0000000; // Interrupt 59 Priority Mask
-pub const NVIC_PRI14_INTC_M: usize = 0x00E00000; // Interrupt 58 Priority Mask
-pub const NVIC_PRI14_INTB_M: usize = 0x0000E000; // Interrupt 57 Priority Mask
-pub const NVIC_PRI14_INTA_M: usize = 0x000000E0; // Interrupt 56 Priority Mask
-pub const NVIC_PRI14_INTD_S: usize = 29;
-pub const NVIC_PRI14_INTC_S: usize = 21;
-pub const NVIC_PRI14_INTB_S: usize = 13;
-pub const NVIC_PRI14_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI15 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI15_INTD_M: usize = 0xE0000000; // Interrupt 63 Priority Mask
-pub const NVIC_PRI15_INTC_M: usize = 0x00E00000; // Interrupt 62 Priority Mask
-pub const NVIC_PRI15_INTB_M: usize = 0x0000E000; // Interrupt 61 Priority Mask
-pub const NVIC_PRI15_INTA_M: usize = 0x000000E0; // Interrupt 60 Priority Mask
-pub const NVIC_PRI15_INTD_S: usize = 29;
-pub const NVIC_PRI15_INTC_S: usize = 21;
-pub const NVIC_PRI15_INTB_S: usize = 13;
-pub const NVIC_PRI15_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI16 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI16_INTD_M: usize = 0xE0000000; // Interrupt 67 Priority Mask
-pub const NVIC_PRI16_INTC_M: usize = 0x00E00000; // Interrupt 66 Priority Mask
-pub const NVIC_PRI16_INTB_M: usize = 0x0000E000; // Interrupt 65 Priority Mask
-pub const NVIC_PRI16_INTA_M: usize = 0x000000E0; // Interrupt 64 Priority Mask
-pub const NVIC_PRI16_INTD_S: usize = 29;
-pub const NVIC_PRI16_INTC_S: usize = 21;
-pub const NVIC_PRI16_INTB_S: usize = 13;
-pub const NVIC_PRI16_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI17 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI17_INTD_M: usize = 0xE0000000; // Interrupt 71 Priority Mask
-pub const NVIC_PRI17_INTC_M: usize = 0x00E00000; // Interrupt 70 Priority Mask
-pub const NVIC_PRI17_INTB_M: usize = 0x0000E000; // Interrupt 69 Priority Mask
-pub const NVIC_PRI17_INTA_M: usize = 0x000000E0; // Interrupt 68 Priority Mask
-pub const NVIC_PRI17_INTD_S: usize = 29;
-pub const NVIC_PRI17_INTC_S: usize = 21;
-pub const NVIC_PRI17_INTB_S: usize = 13;
-pub const NVIC_PRI17_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI18 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI18_INTD_M: usize = 0xE0000000; // Interrupt 75 Priority Mask
-pub const NVIC_PRI18_INTC_M: usize = 0x00E00000; // Interrupt 74 Priority Mask
-pub const NVIC_PRI18_INTB_M: usize = 0x0000E000; // Interrupt 73 Priority Mask
-pub const NVIC_PRI18_INTA_M: usize = 0x000000E0; // Interrupt 72 Priority Mask
-pub const NVIC_PRI18_INTD_S: usize = 29;
-pub const NVIC_PRI18_INTC_S: usize = 21;
-pub const NVIC_PRI18_INTB_S: usize = 13;
-pub const NVIC_PRI18_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI19 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI19_INTD_M: usize = 0xE0000000; // Interrupt 79 Priority Mask
-pub const NVIC_PRI19_INTC_M: usize = 0x00E00000; // Interrupt 78 Priority Mask
-pub const NVIC_PRI19_INTB_M: usize = 0x0000E000; // Interrupt 77 Priority Mask
-pub const NVIC_PRI19_INTA_M: usize = 0x000000E0; // Interrupt 76 Priority Mask
-pub const NVIC_PRI19_INTD_S: usize = 29;
-pub const NVIC_PRI19_INTC_S: usize = 21;
-pub const NVIC_PRI19_INTB_S: usize = 13;
-pub const NVIC_PRI19_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI20 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI20_INTD_M: usize = 0xE0000000; // Interrupt 83 Priority Mask
-pub const NVIC_PRI20_INTC_M: usize = 0x00E00000; // Interrupt 82 Priority Mask
-pub const NVIC_PRI20_INTB_M: usize = 0x0000E000; // Interrupt 81 Priority Mask
-pub const NVIC_PRI20_INTA_M: usize = 0x000000E0; // Interrupt 80 Priority Mask
-pub const NVIC_PRI20_INTD_S: usize = 29;
-pub const NVIC_PRI20_INTC_S: usize = 21;
-pub const NVIC_PRI20_INTB_S: usize = 13;
-pub const NVIC_PRI20_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI21 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI21_INTD_M: usize = 0xE0000000; // Interrupt 87 Priority Mask
-pub const NVIC_PRI21_INTC_M: usize = 0x00E00000; // Interrupt 86 Priority Mask
-pub const NVIC_PRI21_INTB_M: usize = 0x0000E000; // Interrupt 85 Priority Mask
-pub const NVIC_PRI21_INTA_M: usize = 0x000000E0; // Interrupt 84 Priority Mask
-pub const NVIC_PRI21_INTD_S: usize = 29;
-pub const NVIC_PRI21_INTC_S: usize = 21;
-pub const NVIC_PRI21_INTB_S: usize = 13;
-pub const NVIC_PRI21_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI22 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI22_INTD_M: usize = 0xE0000000; // Interrupt 91 Priority Mask
-pub const NVIC_PRI22_INTC_M: usize = 0x00E00000; // Interrupt 90 Priority Mask
-pub const NVIC_PRI22_INTB_M: usize = 0x0000E000; // Interrupt 89 Priority Mask
-pub const NVIC_PRI22_INTA_M: usize = 0x000000E0; // Interrupt 88 Priority Mask
-pub const NVIC_PRI22_INTD_S: usize = 29;
-pub const NVIC_PRI22_INTC_S: usize = 21;
-pub const NVIC_PRI22_INTB_S: usize = 13;
-pub const NVIC_PRI22_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI23 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI23_INTD_M: usize = 0xE0000000; // Interrupt 95 Priority Mask
-pub const NVIC_PRI23_INTC_M: usize = 0x00E00000; // Interrupt 94 Priority Mask
-pub const NVIC_PRI23_INTB_M: usize = 0x0000E000; // Interrupt 93 Priority Mask
-pub const NVIC_PRI23_INTA_M: usize = 0x000000E0; // Interrupt 92 Priority Mask
-pub const NVIC_PRI23_INTD_S: usize = 29;
-pub const NVIC_PRI23_INTC_S: usize = 21;
-pub const NVIC_PRI23_INTB_S: usize = 13;
-pub const NVIC_PRI23_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI24 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI24_INTD_M: usize = 0xE0000000; // Interrupt 99 Priority Mask
-pub const NVIC_PRI24_INTC_M: usize = 0x00E00000; // Interrupt 98 Priority Mask
-pub const NVIC_PRI24_INTB_M: usize = 0x0000E000; // Interrupt 97 Priority Mask
-pub const NVIC_PRI24_INTA_M: usize = 0x000000E0; // Interrupt 96 Priority Mask
-pub const NVIC_PRI24_INTD_S: usize = 29;
-pub const NVIC_PRI24_INTC_S: usize = 21;
-pub const NVIC_PRI24_INTB_S: usize = 13;
-pub const NVIC_PRI24_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI25 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI25_INTD_M: usize = 0xE0000000; // Interrupt 103 Priority Mask
-pub const NVIC_PRI25_INTC_M: usize = 0x00E00000; // Interrupt 102 Priority Mask
-pub const NVIC_PRI25_INTB_M: usize = 0x0000E000; // Interrupt 101 Priority Mask
-pub const NVIC_PRI25_INTA_M: usize = 0x000000E0; // Interrupt 100 Priority Mask
-pub const NVIC_PRI25_INTD_S: usize = 29;
-pub const NVIC_PRI25_INTC_S: usize = 21;
-pub const NVIC_PRI25_INTB_S: usize = 13;
-pub const NVIC_PRI25_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI26 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI26_INTD_M: usize = 0xE0000000; // Interrupt 107 Priority Mask
-pub const NVIC_PRI26_INTC_M: usize = 0x00E00000; // Interrupt 106 Priority Mask
-pub const NVIC_PRI26_INTB_M: usize = 0x0000E000; // Interrupt 105 Priority Mask
-pub const NVIC_PRI26_INTA_M: usize = 0x000000E0; // Interrupt 104 Priority Mask
-pub const NVIC_PRI26_INTD_S: usize = 29;
-pub const NVIC_PRI26_INTC_S: usize = 21;
-pub const NVIC_PRI26_INTB_S: usize = 13;
-pub const NVIC_PRI26_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI27 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI27_INTD_M: usize = 0xE0000000; // Interrupt 111 Priority Mask
-pub const NVIC_PRI27_INTC_M: usize = 0x00E00000; // Interrupt 110 Priority Mask
-pub const NVIC_PRI27_INTB_M: usize = 0x0000E000; // Interrupt 109 Priority Mask
-pub const NVIC_PRI27_INTA_M: usize = 0x000000E0; // Interrupt 108 Priority Mask
-pub const NVIC_PRI27_INTD_S: usize = 29;
-pub const NVIC_PRI27_INTC_S: usize = 21;
-pub const NVIC_PRI27_INTB_S: usize = 13;
-pub const NVIC_PRI27_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI28 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI28_INTD_M: usize = 0xE0000000; // Interrupt 115 Priority Mask
-pub const NVIC_PRI28_INTC_M: usize = 0x00E00000; // Interrupt 114 Priority Mask
-pub const NVIC_PRI28_INTB_M: usize = 0x0000E000; // Interrupt 113 Priority Mask
-pub const NVIC_PRI28_INTA_M: usize = 0x000000E0; // Interrupt 112 Priority Mask
-pub const NVIC_PRI28_INTD_S: usize = 29;
-pub const NVIC_PRI28_INTC_S: usize = 21;
-pub const NVIC_PRI28_INTB_S: usize = 13;
-pub const NVIC_PRI28_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI29 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI29_INTD_M: usize = 0xE0000000; // Interrupt 119 Priority Mask
-pub const NVIC_PRI29_INTC_M: usize = 0x00E00000; // Interrupt 118 Priority Mask
-pub const NVIC_PRI29_INTB_M: usize = 0x0000E000; // Interrupt 117 Priority Mask
-pub const NVIC_PRI29_INTA_M: usize = 0x000000E0; // Interrupt 116 Priority Mask
-pub const NVIC_PRI29_INTD_S: usize = 29;
-pub const NVIC_PRI29_INTC_S: usize = 21;
-pub const NVIC_PRI29_INTB_S: usize = 13;
-pub const NVIC_PRI29_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI30 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI30_INTD_M: usize = 0xE0000000; // Interrupt 123 Priority Mask
-pub const NVIC_PRI30_INTC_M: usize = 0x00E00000; // Interrupt 122 Priority Mask
-pub const NVIC_PRI30_INTB_M: usize = 0x0000E000; // Interrupt 121 Priority Mask
-pub const NVIC_PRI30_INTA_M: usize = 0x000000E0; // Interrupt 120 Priority Mask
-pub const NVIC_PRI30_INTD_S: usize = 29;
-pub const NVIC_PRI30_INTC_S: usize = 21;
-pub const NVIC_PRI30_INTB_S: usize = 13;
-pub const NVIC_PRI30_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI31 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI31_INTD_M: usize = 0xE0000000; // Interrupt 127 Priority Mask
-pub const NVIC_PRI31_INTC_M: usize = 0x00E00000; // Interrupt 126 Priority Mask
-pub const NVIC_PRI31_INTB_M: usize = 0x0000E000; // Interrupt 125 Priority Mask
-pub const NVIC_PRI31_INTA_M: usize = 0x000000E0; // Interrupt 124 Priority Mask
-pub const NVIC_PRI31_INTD_S: usize = 29;
-pub const NVIC_PRI31_INTC_S: usize = 21;
-pub const NVIC_PRI31_INTB_S: usize = 13;
-pub const NVIC_PRI31_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI32 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI32_INTD_M: usize = 0xE0000000; // Interrupt 131 Priority Mask
-pub const NVIC_PRI32_INTC_M: usize = 0x00E00000; // Interrupt 130 Priority Mask
-pub const NVIC_PRI32_INTB_M: usize = 0x0000E000; // Interrupt 129 Priority Mask
-pub const NVIC_PRI32_INTA_M: usize = 0x000000E0; // Interrupt 128 Priority Mask
-pub const NVIC_PRI32_INTD_S: usize = 29;
-pub const NVIC_PRI32_INTC_S: usize = 21;
-pub const NVIC_PRI32_INTB_S: usize = 13;
-pub const NVIC_PRI32_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI33 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI33_INTD_M: usize = 0xE0000000; // Interrupt Priority for Interrupt [4n+3]
-pub const NVIC_PRI33_INTC_M: usize = 0x00E00000; // Interrupt Priority for Interrupt [4n+2]
-pub const NVIC_PRI33_INTB_M: usize = 0x0000E000; // Interrupt Priority for Interrupt [4n+1]
-pub const NVIC_PRI33_INTA_M: usize = 0x000000E0; // Interrupt Priority for Interrupt [4n]
-pub const NVIC_PRI33_INTD_S: usize = 29;
-pub const NVIC_PRI33_INTC_S: usize = 21;
-pub const NVIC_PRI33_INTB_S: usize = 13;
-pub const NVIC_PRI33_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_PRI34 register.
-//
-// *****************************************************************************
-pub const NVIC_PRI34_INTD_M: usize = 0xE0000000; // Interrupt Priority for Interrupt [4n+3]
-pub const NVIC_PRI34_INTC_M: usize = 0x00E00000; // Interrupt Priority for Interrupt [4n+2]
-pub const NVIC_PRI34_INTB_M: usize = 0x0000E000; // Interrupt Priority for Interrupt [4n+1]
-pub const NVIC_PRI34_INTA_M: usize = 0x000000E0; // Interrupt Priority for Interrupt [4n]
-pub const NVIC_PRI34_INTD_S: usize = 29;
-pub const NVIC_PRI34_INTC_S: usize = 21;
-pub const NVIC_PRI34_INTB_S: usize = 13;
-pub const NVIC_PRI34_INTA_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_CPUID register.
-//
-// *****************************************************************************
-pub const NVIC_CPUID_IMP_M: usize = 0xFF000000; // Implementer Code
-pub const NVIC_CPUID_IMP_ARM: usize = 0x41000000; // ARM
-pub const NVIC_CPUID_VAR_M: usize = 0x00F00000; // Variant Number
-pub const NVIC_CPUID_CON_M: usize = 0x000F0000; // Constant
-pub const NVIC_CPUID_PARTNO_M: usize = 0x0000FFF0; // Part Number
-pub const NVIC_CPUID_PARTNO_CM4: usize = 0x0000C240; // Cortex-M4 processor
-pub const NVIC_CPUID_REV_M: usize = 0x0000000F; // Revision Number
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_INT_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_INT_CTRL_NMI_SET: usize = 0x80000000; // NMI Set Pending
-pub const NVIC_INT_CTRL_PEND_SV: usize = 0x10000000; // PendSV Set Pending
-pub const NVIC_INT_CTRL_UNPEND_SV: usize = 0x08000000; // PendSV Clear Pending
-pub const NVIC_INT_CTRL_PENDSTSET: usize = 0x04000000; // SysTick Set Pending
-pub const NVIC_INT_CTRL_PENDSTCLR: usize = 0x02000000; // SysTick Clear Pending
-pub const NVIC_INT_CTRL_ISR_PRE: usize = 0x00800000; // Debug Interrupt Handling
-pub const NVIC_INT_CTRL_ISR_PEND: usize = 0x00400000; // Interrupt Pending
-pub const NVIC_INT_CTRL_VEC_PEN_M: usize = 0x000FF000; // Interrupt Pending Vector Number
-pub const NVIC_INT_CTRL_VEC_PEN_NMI: usize = 0x00002000; // NMI
-pub const NVIC_INT_CTRL_VEC_PEN_HARD: usize = 0x00003000; // Hard fault
-pub const NVIC_INT_CTRL_VEC_PEN_MEM: usize = 0x00004000; // Memory management fault
-pub const NVIC_INT_CTRL_VEC_PEN_BUS: usize = 0x00005000; // Bus fault
-pub const NVIC_INT_CTRL_VEC_PEN_USG: usize = 0x00006000; // Usage fault
-pub const NVIC_INT_CTRL_VEC_PEN_SVC: usize = 0x0000B000; // SVCall
-pub const NVIC_INT_CTRL_VEC_PEN_PNDSV: usize = 0x0000E000; // PendSV
-pub const NVIC_INT_CTRL_VEC_PEN_TICK: usize = 0x0000F000; // SysTick
-pub const NVIC_INT_CTRL_RET_BASE: usize = 0x00000800; // Return to Base
-pub const NVIC_INT_CTRL_VEC_ACT_M: usize = 0x000000FF; // Interrupt Pending Vector Number
-pub const NVIC_INT_CTRL_VEC_ACT_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_VTABLE register.
-//
-// *****************************************************************************
-pub const NVIC_VTABLE_BASE: usize = 0x20000000; // Vector Table Base
-pub const NVIC_VTABLE_OFFSET_M: usize = 0x1FFFFC00; // Vector Table Offset
-pub const NVIC_VTABLE_OFFSET_S: usize = 10;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_APINT register.
-//
-// *****************************************************************************
-pub const NVIC_APINT_VECTKEY_M: usize = 0xFFFF0000; // Register Key
-pub const NVIC_APINT_VECTKEY: usize = 0x05FA0000; // Vector key
-pub const NVIC_APINT_ENDIANESS: usize = 0x00008000; // Data Endianess
-pub const NVIC_APINT_PRIGROUP_M: usize = 0x00000700; // Interrupt Priority Grouping
-pub const NVIC_APINT_PRIGROUP_7_1: usize = 0x00000000; // Priority group 7.1 split
-pub const NVIC_APINT_PRIGROUP_6_2: usize = 0x00000100; // Priority group 6.2 split
-pub const NVIC_APINT_PRIGROUP_5_3: usize = 0x00000200; // Priority group 5.3 split
-pub const NVIC_APINT_PRIGROUP_4_4: usize = 0x00000300; // Priority group 4.4 split
-pub const NVIC_APINT_PRIGROUP_3_5: usize = 0x00000400; // Priority group 3.5 split
-pub const NVIC_APINT_PRIGROUP_2_6: usize = 0x00000500; // Priority group 2.6 split
-pub const NVIC_APINT_PRIGROUP_1_7: usize = 0x00000600; // Priority group 1.7 split
-pub const NVIC_APINT_PRIGROUP_0_8: usize = 0x00000700; // Priority group 0.8 split
-pub const NVIC_APINT_SYSRESETREQ: usize = 0x00000004; // System Reset Request
-pub const NVIC_APINT_VECT_CLR_ACT: usize = 0x00000002; // Clear Active NMI / Fault
-pub const NVIC_APINT_VECT_RESET: usize = 0x00000001; // System Reset
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SYS_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_SYS_CTRL_SEVONPEND: usize = 0x00000010; // Wake Up on Pending
-pub const NVIC_SYS_CTRL_SLEEPDEEP: usize = 0x00000004; // Deep Sleep Enable
-pub const NVIC_SYS_CTRL_SLEEPEXIT: usize = 0x00000002; // Sleep on ISR Exit
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_CFG_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_CFG_CTRL_STKALIGN: usize = 0x00000200; // Stack Alignment on Exception Entry
-pub const NVIC_CFG_CTRL_BFHFNMIGN: usize = 0x00000100; // Ignore Bus Fault in NMI and Fault
-pub const NVIC_CFG_CTRL_DIV0: usize = 0x00000010; // Trap on Divide by 0
-pub const NVIC_CFG_CTRL_UNALIGNED: usize = 0x00000008; // Trap on Unaligned Access
-pub const NVIC_CFG_CTRL_MAIN_PEND: usize = 0x00000002; // Allow Main Interrupt Trigger
-pub const NVIC_CFG_CTRL_BASE_THR: usize = 0x00000001; // Thread State Control
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SYS_PRI1 register.
-//
-// *****************************************************************************
-pub const NVIC_SYS_PRI1_USAGE_M: usize = 0x00E00000; // Usage Fault Priority
-pub const NVIC_SYS_PRI1_BUS_M: usize = 0x0000E000; // Bus Fault Priority
-pub const NVIC_SYS_PRI1_MEM_M: usize = 0x000000E0; // Memory Management Fault Priority
-pub const NVIC_SYS_PRI1_USAGE_S: usize = 21;
-pub const NVIC_SYS_PRI1_BUS_S: usize = 13;
-pub const NVIC_SYS_PRI1_MEM_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SYS_PRI2 register.
-//
-// *****************************************************************************
-pub const NVIC_SYS_PRI2_SVC_M: usize = 0xE0000000; // SVCall Priority
-pub const NVIC_SYS_PRI2_SVC_S: usize = 29;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SYS_PRI3 register.
-//
-// *****************************************************************************
-pub const NVIC_SYS_PRI3_TICK_M: usize = 0xE0000000; // SysTick Exception Priority
-pub const NVIC_SYS_PRI3_PENDSV_M: usize = 0x00E00000; // PendSV Priority
-pub const NVIC_SYS_PRI3_DEBUG_M: usize = 0x000000E0; // Debug Priority
-pub const NVIC_SYS_PRI3_TICK_S: usize = 29;
-pub const NVIC_SYS_PRI3_PENDSV_S: usize = 21;
-pub const NVIC_SYS_PRI3_DEBUG_S: usize = 5;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SYS_HND_CTRL
-// register.
-//
-// *****************************************************************************
-pub const NVIC_SYS_HND_CTRL_USAGE: usize = 0x00040000; // Usage Fault Enable
-pub const NVIC_SYS_HND_CTRL_BUS: usize = 0x00020000; // Bus Fault Enable
-pub const NVIC_SYS_HND_CTRL_MEM: usize = 0x00010000; // Memory Management Fault Enable
-pub const NVIC_SYS_HND_CTRL_SVC: usize = 0x00008000; // SVC Call Pending
-pub const NVIC_SYS_HND_CTRL_BUSP: usize = 0x00004000; // Bus Fault Pending
-pub const NVIC_SYS_HND_CTRL_MEMP: usize = 0x00002000; // Memory Management Fault Pending
-pub const NVIC_SYS_HND_CTRL_USAGEP: usize = 0x00001000; // Usage Fault Pending
-pub const NVIC_SYS_HND_CTRL_TICK: usize = 0x00000800; // SysTick Exception Active
-pub const NVIC_SYS_HND_CTRL_PNDSV: usize = 0x00000400; // PendSV Exception Active
-pub const NVIC_SYS_HND_CTRL_MON: usize = 0x00000100; // Debug Monitor Active
-pub const NVIC_SYS_HND_CTRL_SVCA: usize = 0x00000080; // SVC Call Active
-pub const NVIC_SYS_HND_CTRL_USGA: usize = 0x00000008; // Usage Fault Active
-pub const NVIC_SYS_HND_CTRL_BUSA: usize = 0x00000002; // Bus Fault Active
-pub const NVIC_SYS_HND_CTRL_MEMA: usize = 0x00000001; // Memory Management Fault Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_FAULT_STAT
-// register.
-//
-// *****************************************************************************
-pub const NVIC_FAULT_STAT_DIV0: usize = 0x02000000; // Divide-by-Zero Usage Fault
-pub const NVIC_FAULT_STAT_UNALIGN: usize = 0x01000000; // Unaligned Access Usage Fault
-pub const NVIC_FAULT_STAT_NOCP: usize = 0x00080000; // No Coprocessor Usage Fault
-pub const NVIC_FAULT_STAT_INVPC: usize = 0x00040000; // Invalid PC Load Usage Fault
-pub const NVIC_FAULT_STAT_INVSTAT: usize = 0x00020000; // Invalid State Usage Fault
-pub const NVIC_FAULT_STAT_UNDEF: usize = 0x00010000; // Undefined Instruction Usage Fault
-pub const NVIC_FAULT_STAT_BFARV: usize = 0x00008000; // Bus Fault Address Register Valid
-pub const NVIC_FAULT_STAT_BLSPERR: usize = 0x00002000; // Bus Fault on Floating-Point Lazy State Preservation
-pub const NVIC_FAULT_STAT_BSTKE: usize = 0x00001000; // Stack Bus Fault
-pub const NVIC_FAULT_STAT_BUSTKE: usize = 0x00000800; // Unstack Bus Fault
-pub const NVIC_FAULT_STAT_IMPRE: usize = 0x00000400; // Imprecise Data Bus Error
-pub const NVIC_FAULT_STAT_PRECISE: usize = 0x00000200; // Precise Data Bus Error
-pub const NVIC_FAULT_STAT_IBUS: usize = 0x00000100; // Instruction Bus Error
-pub const NVIC_FAULT_STAT_MMARV: usize = 0x00000080; // Memory Management Fault Address Register Valid
-pub const NVIC_FAULT_STAT_MLSPERR: usize = 0x00000020; // Memory Management Fault on Floating-Point Lazy State Preservation
-pub const NVIC_FAULT_STAT_MSTKE: usize = 0x00000010; // Stack Access Violation
-pub const NVIC_FAULT_STAT_MUSTKE: usize = 0x00000008; // Unstack Access Violation
-pub const NVIC_FAULT_STAT_DERR: usize = 0x00000002; // Data Access Violation
-pub const NVIC_FAULT_STAT_IERR: usize = 0x00000001; // Instruction Access Violation
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_HFAULT_STAT
-// register.
-//
-// *****************************************************************************
-pub const NVIC_HFAULT_STAT_DBG: usize = 0x80000000; // Debug Event
-pub const NVIC_HFAULT_STAT_FORCED: usize = 0x40000000; // Forced Hard Fault
-pub const NVIC_HFAULT_STAT_VECT: usize = 0x00000002; // Vector Table Read Fault
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DEBUG_STAT
-// register.
-//
-// *****************************************************************************
-pub const NVIC_DEBUG_STAT_EXTRNL: usize = 0x00000010; // EDBGRQ asserted
-pub const NVIC_DEBUG_STAT_VCATCH: usize = 0x00000008; // Vector catch
-pub const NVIC_DEBUG_STAT_DWTTRAP: usize = 0x00000004; // DWT match
-pub const NVIC_DEBUG_STAT_BKPT: usize = 0x00000002; // Breakpoint instruction
-pub const NVIC_DEBUG_STAT_HALTED: usize = 0x00000001; // Halt request
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MM_ADDR register.
-//
-// *****************************************************************************
-pub const NVIC_MM_ADDR_M: usize = 0xFFFFFFFF; // Fault Address
-pub const NVIC_MM_ADDR_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_FAULT_ADDR
-// register.
-//
-// *****************************************************************************
-pub const NVIC_FAULT_ADDR_M: usize = 0xFFFFFFFF; // Fault Address
-pub const NVIC_FAULT_ADDR_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_CPAC register.
-//
-// *****************************************************************************
-pub const NVIC_CPAC_CP11_M: usize = 0x00C00000; // CP11 Coprocessor Access Privilege
-pub const NVIC_CPAC_CP11_DIS: usize = 0x00000000; // Access Denied
-pub const NVIC_CPAC_CP11_PRIV: usize = 0x00400000; // Privileged Access Only
-pub const NVIC_CPAC_CP11_FULL: usize = 0x00C00000; // Full Access
-pub const NVIC_CPAC_CP10_M: usize = 0x00300000; // CP10 Coprocessor Access Privilege
-pub const NVIC_CPAC_CP10_DIS: usize = 0x00000000; // Access Denied
-pub const NVIC_CPAC_CP10_PRIV: usize = 0x00100000; // Privileged Access Only
-pub const NVIC_CPAC_CP10_FULL: usize = 0x00300000; // Full Access
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_TYPE register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_TYPE_IREGION_M: usize = 0x00FF0000; // Number of I Regions
-pub const NVIC_MPU_TYPE_DREGION_M: usize = 0x0000FF00; // Number of D Regions
-pub const NVIC_MPU_TYPE_SEPARATE: usize = 0x00000001; // Separate or Unified MPU
-pub const NVIC_MPU_TYPE_IREGION_S: usize = 16;
-pub const NVIC_MPU_TYPE_DREGION_S: usize = 8;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_CTRL_PRIVDEFEN: usize = 0x00000004; // MPU Default Region
-pub const NVIC_MPU_CTRL_HFNMIENA: usize = 0x00000002; // MPU Enabled During Faults
-pub const NVIC_MPU_CTRL_ENABLE: usize = 0x00000001; // MPU Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_NUMBER
-// register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_NUMBER_M: usize = 0x00000007; // MPU Region to Access
-pub const NVIC_MPU_NUMBER_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_BASE register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_BASE_ADDR_M: usize = 0xFFFFFFE0; // Base Address Mask
-pub const NVIC_MPU_BASE_VALID: usize = 0x00000010; // Region Number Valid
-pub const NVIC_MPU_BASE_REGION_M: usize = 0x00000007; // Region Number
-pub const NVIC_MPU_BASE_ADDR_S: usize = 5;
-pub const NVIC_MPU_BASE_REGION_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_ATTR register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_ATTR_XN: usize = 0x10000000; // Instruction Access Disable
-pub const NVIC_MPU_ATTR_AP_M: usize = 0x07000000; // Access Privilege
-pub const NVIC_MPU_ATTR_TEX_M: usize = 0x00380000; // Type Extension Mask
-pub const NVIC_MPU_ATTR_SHAREABLE: usize = 0x00040000; // Shareable
-pub const NVIC_MPU_ATTR_CACHEABLE: usize = 0x00020000; // Cacheable
-pub const NVIC_MPU_ATTR_BUFFRABLE: usize = 0x00010000; // Bufferable
-pub const NVIC_MPU_ATTR_SRD_M: usize = 0x0000FF00; // Subregion Disable Bits
-pub const NVIC_MPU_ATTR_SIZE_M: usize = 0x0000003E; // Region Size Mask
-pub const NVIC_MPU_ATTR_ENABLE: usize = 0x00000001; // Region Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_BASE1 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_BASE1_ADDR_M: usize = 0xFFFFFFE0; // Base Address Mask
-pub const NVIC_MPU_BASE1_VALID: usize = 0x00000010; // Region Number Valid
-pub const NVIC_MPU_BASE1_REGION_M: usize = 0x00000007; // Region Number
-pub const NVIC_MPU_BASE1_ADDR_S: usize = 5;
-pub const NVIC_MPU_BASE1_REGION_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_ATTR1 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_ATTR1_XN: usize = 0x10000000; // Instruction Access Disable
-pub const NVIC_MPU_ATTR1_AP_M: usize = 0x07000000; // Access Privilege
-pub const NVIC_MPU_ATTR1_TEX_M: usize = 0x00380000; // Type Extension Mask
-pub const NVIC_MPU_ATTR1_SHAREABLE: usize = 0x00040000; // Shareable
-pub const NVIC_MPU_ATTR1_CACHEABLE: usize = 0x00020000; // Cacheable
-pub const NVIC_MPU_ATTR1_BUFFRABLE: usize = 0x00010000; // Bufferable
-pub const NVIC_MPU_ATTR1_SRD_M: usize = 0x0000FF00; // Subregion Disable Bits
-pub const NVIC_MPU_ATTR1_SIZE_M: usize = 0x0000003E; // Region Size Mask
-pub const NVIC_MPU_ATTR1_ENABLE: usize = 0x00000001; // Region Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_BASE2 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_BASE2_ADDR_M: usize = 0xFFFFFFE0; // Base Address Mask
-pub const NVIC_MPU_BASE2_VALID: usize = 0x00000010; // Region Number Valid
-pub const NVIC_MPU_BASE2_REGION_M: usize = 0x00000007; // Region Number
-pub const NVIC_MPU_BASE2_ADDR_S: usize = 5;
-pub const NVIC_MPU_BASE2_REGION_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_ATTR2 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_ATTR2_XN: usize = 0x10000000; // Instruction Access Disable
-pub const NVIC_MPU_ATTR2_AP_M: usize = 0x07000000; // Access Privilege
-pub const NVIC_MPU_ATTR2_TEX_M: usize = 0x00380000; // Type Extension Mask
-pub const NVIC_MPU_ATTR2_SHAREABLE: usize = 0x00040000; // Shareable
-pub const NVIC_MPU_ATTR2_CACHEABLE: usize = 0x00020000; // Cacheable
-pub const NVIC_MPU_ATTR2_BUFFRABLE: usize = 0x00010000; // Bufferable
-pub const NVIC_MPU_ATTR2_SRD_M: usize = 0x0000FF00; // Subregion Disable Bits
-pub const NVIC_MPU_ATTR2_SIZE_M: usize = 0x0000003E; // Region Size Mask
-pub const NVIC_MPU_ATTR2_ENABLE: usize = 0x00000001; // Region Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_BASE3 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_BASE3_ADDR_M: usize = 0xFFFFFFE0; // Base Address Mask
-pub const NVIC_MPU_BASE3_VALID: usize = 0x00000010; // Region Number Valid
-pub const NVIC_MPU_BASE3_REGION_M: usize = 0x00000007; // Region Number
-pub const NVIC_MPU_BASE3_ADDR_S: usize = 5;
-pub const NVIC_MPU_BASE3_REGION_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_MPU_ATTR3 register.
-//
-// *****************************************************************************
-pub const NVIC_MPU_ATTR3_XN: usize = 0x10000000; // Instruction Access Disable
-pub const NVIC_MPU_ATTR3_AP_M: usize = 0x07000000; // Access Privilege
-pub const NVIC_MPU_ATTR3_TEX_M: usize = 0x00380000; // Type Extension Mask
-pub const NVIC_MPU_ATTR3_SHAREABLE: usize = 0x00040000; // Shareable
-pub const NVIC_MPU_ATTR3_CACHEABLE: usize = 0x00020000; // Cacheable
-pub const NVIC_MPU_ATTR3_BUFFRABLE: usize = 0x00010000; // Bufferable
-pub const NVIC_MPU_ATTR3_SRD_M: usize = 0x0000FF00; // Subregion Disable Bits
-pub const NVIC_MPU_ATTR3_SIZE_M: usize = 0x0000003E; // Region Size Mask
-pub const NVIC_MPU_ATTR3_ENABLE: usize = 0x00000001; // Region Enable
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DBG_CTRL register.
-//
-// *****************************************************************************
-pub const NVIC_DBG_CTRL_DBGKEY_M: usize = 0xFFFF0000; // Debug key mask
-pub const NVIC_DBG_CTRL_DBGKEY: usize = 0xA05F0000; // Debug key
-pub const NVIC_DBG_CTRL_S_RESET_ST: usize = 0x02000000; // Core has reset since last read
-pub const NVIC_DBG_CTRL_S_RETIRE_ST: usize = 0x01000000; // Core has executed insruction since last read
-pub const NVIC_DBG_CTRL_S_LOCKUP: usize = 0x00080000; // Core is locked up
-pub const NVIC_DBG_CTRL_S_SLEEP: usize = 0x00040000; // Core is sleeping
-pub const NVIC_DBG_CTRL_S_HALT: usize = 0x00020000; // Core status on halt
-pub const NVIC_DBG_CTRL_S_REGRDY: usize = 0x00010000; // Register read/write available
-pub const NVIC_DBG_CTRL_C_SNAPSTALL: usize = 0x00000020; // Breaks a stalled load/store
-pub const NVIC_DBG_CTRL_C_MASKINT: usize = 0x00000008; // Mask interrupts when stepping
-pub const NVIC_DBG_CTRL_C_STEP: usize = 0x00000004; // Step the core
-pub const NVIC_DBG_CTRL_C_HALT: usize = 0x00000002; // Halt the core
-pub const NVIC_DBG_CTRL_C_DEBUGEN: usize = 0x00000001; // Enable debug
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DBG_XFER register.
-//
-// *****************************************************************************
-pub const NVIC_DBG_XFER_REG_WNR: usize = 0x00010000; // Write or not read
-pub const NVIC_DBG_XFER_REG_SEL_M: usize = 0x0000001F; // Register
-pub const NVIC_DBG_XFER_REG_R0: usize = 0x00000000; // Register R0
-pub const NVIC_DBG_XFER_REG_R1: usize = 0x00000001; // Register R1
-pub const NVIC_DBG_XFER_REG_R2: usize = 0x00000002; // Register R2
-pub const NVIC_DBG_XFER_REG_R3: usize = 0x00000003; // Register R3
-pub const NVIC_DBG_XFER_REG_R4: usize = 0x00000004; // Register R4
-pub const NVIC_DBG_XFER_REG_R5: usize = 0x00000005; // Register R5
-pub const NVIC_DBG_XFER_REG_R6: usize = 0x00000006; // Register R6
-pub const NVIC_DBG_XFER_REG_R7: usize = 0x00000007; // Register R7
-pub const NVIC_DBG_XFER_REG_R8: usize = 0x00000008; // Register R8
-pub const NVIC_DBG_XFER_REG_R9: usize = 0x00000009; // Register R9
-pub const NVIC_DBG_XFER_REG_R10: usize = 0x0000000A; // Register R10
-pub const NVIC_DBG_XFER_REG_R11: usize = 0x0000000B; // Register R11
-pub const NVIC_DBG_XFER_REG_R12: usize = 0x0000000C; // Register R12
-pub const NVIC_DBG_XFER_REG_R13: usize = 0x0000000D; // Register R13
-pub const NVIC_DBG_XFER_REG_R14: usize = 0x0000000E; // Register R14
-pub const NVIC_DBG_XFER_REG_R15: usize = 0x0000000F; // Register R15
-pub const NVIC_DBG_XFER_REG_FLAGS: usize = 0x00000010; // xPSR/Flags register
-pub const NVIC_DBG_XFER_REG_MSP: usize = 0x00000011; // Main SP
-pub const NVIC_DBG_XFER_REG_PSP: usize = 0x00000012; // Process SP
-pub const NVIC_DBG_XFER_REG_DSP: usize = 0x00000013; // Deep SP
-pub const NVIC_DBG_XFER_REG_CFBP: usize = 0x00000014; // Control/Fault/BasePri/PriMask
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DBG_DATA register.
-//
-// *****************************************************************************
-pub const NVIC_DBG_DATA_M: usize = 0xFFFFFFFF; // Data temporary cache
-pub const NVIC_DBG_DATA_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_DBG_INT register.
-//
-// *****************************************************************************
-pub const NVIC_DBG_INT_HARDERR: usize = 0x00000400; // Debug trap on hard fault
-pub const NVIC_DBG_INT_INTERR: usize = 0x00000200; // Debug trap on interrupt errors
-pub const NVIC_DBG_INT_BUSERR: usize = 0x00000100; // Debug trap on bus error
-pub const NVIC_DBG_INT_STATERR: usize = 0x00000080; // Debug trap on usage fault state
-pub const NVIC_DBG_INT_CHKERR: usize = 0x00000040; // Debug trap on usage fault check
-pub const NVIC_DBG_INT_NOCPERR: usize = 0x00000020; // Debug trap on coprocessor error
-pub const NVIC_DBG_INT_MMERR: usize = 0x00000010; // Debug trap on mem manage fault
-pub const NVIC_DBG_INT_RESET: usize = 0x00000008; // Core reset status
-pub const NVIC_DBG_INT_RSTPENDCLR: usize = 0x00000004; // Clear pending core reset
-pub const NVIC_DBG_INT_RSTPENDING: usize = 0x00000002; // Core reset is pending
-pub const NVIC_DBG_INT_RSTVCATCH: usize = 0x00000001; // Reset vector catch
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_SW_TRIG register.
-//
-// *****************************************************************************
-pub const NVIC_SW_TRIG_INTID_M: usize = 0x000000FF; // Interrupt ID
-pub const NVIC_SW_TRIG_INTID_S: usize = 0;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_FPCC register.
-//
-// *****************************************************************************
-pub const NVIC_FPCC_ASPEN: usize = 0x80000000; // Automatic State Preservation Enable
-pub const NVIC_FPCC_LSPEN: usize = 0x40000000; // Lazy State Preservation Enable
-pub const NVIC_FPCC_MONRDY: usize = 0x00000100; // Monitor Ready
-pub const NVIC_FPCC_BFRDY: usize = 0x00000040; // Bus Fault Ready
-pub const NVIC_FPCC_MMRDY: usize = 0x00000020; // Memory Management Fault Ready
-pub const NVIC_FPCC_HFRDY: usize = 0x00000010; // Hard Fault Ready
-pub const NVIC_FPCC_THREAD: usize = 0x00000008; // Thread Mode
-pub const NVIC_FPCC_USER: usize = 0x00000002; // User Privilege Level
-pub const NVIC_FPCC_LSPACT: usize = 0x00000001; // Lazy State Preservation Active
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_FPCA register.
-//
-// *****************************************************************************
-pub const NVIC_FPCA_ADDRESS_M: usize = 0xFFFFFFF8; // Address
-pub const NVIC_FPCA_ADDRESS_S: usize = 3;
-
-// *****************************************************************************
-//
-// The following are defines for the bit fields in the NVIC_FPDSC register.
-//
-// *****************************************************************************
-pub const NVIC_FPDSC_AHP: usize = 0x04000000; // AHP Bit Default
-pub const NVIC_FPDSC_DN: usize = 0x02000000; // DN Bit Default
-pub const NVIC_FPDSC_FZ: usize = 0x01000000; // FZ Bit Default
-pub const NVIC_FPDSC_RMODE_M: usize = 0x00C00000; // RMODE Bit Default
-pub const NVIC_FPDSC_RMODE_RN: usize = 0x00000000; // Round to Nearest (RN) mode
-pub const NVIC_FPDSC_RMODE_RP: usize = 0x00400000; // Round towards Plus Infinity (RP) mode
-pub const NVIC_FPDSC_RMODE_RM: usize = 0x00800000; // Round towards Minus Infinity (RM) mode
-pub const NVIC_FPDSC_RMODE_RZ: usize = 0x00C00000; // Round towards Zero (RZ) mode
 
 // *****************************************************************************
 //

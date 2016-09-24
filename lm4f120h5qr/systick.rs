@@ -1,6 +1,5 @@
 //! # Timers for the LM4F120
 //!
-
 //! The Stellaris core has six 16/32-bit timers and six 32/64-bit wide timers.
 //! Each timer provides two timers that can operate independently, or be
 //! chained together to form a single double-width timer. The Cortex-M4 core
@@ -15,7 +14,7 @@
 
 use core::intrinsics::{volatile_store, volatile_load};
 use core::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
-use super::registers;
+use cpu::cortex_m4f::registers::*;
 
 // ****************************************************************************
 //
@@ -72,11 +71,11 @@ lazy_static! {
 pub fn init() {
     unsafe {
         // SysTick counts down from max to zero
-        volatile_store(registers::NVIC_ST_RELOAD_R, SYSTICK_MAX as usize);
+        volatile_store(NVIC_ST_RELOAD_R, SYSTICK_MAX as usize);
         // A write to current resets the timer
-        volatile_store(registers::NVIC_ST_CURRENT_R, 0);
+        volatile_store(NVIC_ST_CURRENT_R, 0);
         // Set to multi-shot mode, with interrupts on and on the PIOSC / 4
-        volatile_store(registers::NVIC_ST_CTRL_R, registers::NVIC_ST_CTRL_ENABLE | registers::NVIC_ST_CTRL_INTEN);
+        volatile_store(NVIC_ST_CTRL_R, NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_INTEN);
     }
 }
 
@@ -104,7 +103,7 @@ pub fn get_overflows() -> usize {
 /// Gets the current SysTick value
 pub fn get_ticks() -> usize {
     let result = unsafe {
-        volatile_load(registers::NVIC_ST_CURRENT_R)
+        volatile_load(NVIC_ST_CURRENT_R)
     };
     result
 }

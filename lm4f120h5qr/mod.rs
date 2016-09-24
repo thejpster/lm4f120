@@ -1,4 +1,4 @@
-//! Modules specific to the TI LM4F120H5QR Cortex-M4 microcontroller
+//! Modules specific to the TI LM4F120H5QR Cortex-M4F microcontroller
 
 // ****************************************************************************
 //
@@ -12,13 +12,14 @@ pub mod registers;
 pub mod uart;
 pub mod timer;
 pub mod systick;
-pub mod fpu;
 
 extern "C" {
     fn _stack_top();
 }
 
 use board::launchpad as board;
+
+pub use cpu::cortex_m4f::fpu as fpu;
 
 // ****************************************************************************
 //

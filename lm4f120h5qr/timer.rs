@@ -1,6 +1,5 @@
-//! # Timers for the LM4F120
+//! # Timers for the LM4F120H5QR
 //!
-
 //! The Stellaris core has six 16/32-bit timers and six 32/64-bit wide timers.
 //! Each timer provides two timers that can operate independently, or be
 //! chained together to form a single double-width timer. The Cortex-M4 core

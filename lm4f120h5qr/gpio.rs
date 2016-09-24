@@ -1,4 +1,4 @@
-//! A GPIO library for the TI LM4F120H5QR
+//! # GPIO for the TI LM4F120H5QR
 
 #![allow(dead_code)]
 

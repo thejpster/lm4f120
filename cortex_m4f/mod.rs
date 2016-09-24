@@ -1,4 +1,4 @@
-//! This is a template file.
+//! Modules specific to the TI LM4F120H5QR Cortex-M4F microcontroller
 
 // ****************************************************************************
 //
@@ -6,20 +6,12 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::{volatile_store, volatile_load};
-use super::registers;
+pub mod fpu;
+pub mod registers;
 
 // ****************************************************************************
 //
 // Public Types
-//
-// ****************************************************************************
-
-// None
-
-// ****************************************************************************
-//
-// Public Data
 //
 // ****************************************************************************
 
@@ -35,7 +27,7 @@ use super::registers;
 
 // ****************************************************************************
 //
-// Private Data
+// Public Data
 //
 // ****************************************************************************
 
@@ -47,23 +39,7 @@ use super::registers;
 //
 // ****************************************************************************
 
-pub fn init() {
-    // Enable full access to the FPU
-    unsafe {
-        let mut reg = volatile_load(registers::NVIC_CPAC_R);
-        reg &= !(registers::NVIC_CPAC_CP11_M | registers::NVIC_CPAC_CP10_M);
-        reg |= registers::NVIC_CPAC_CP11_FULL | registers::NVIC_CPAC_CP10_FULL;
-        volatile_store(registers::NVIC_CPAC_R, reg);
-    }
-
-    // Enable lazy-stacking of FPU registers
-    // Stack space is allocated, but they aren't pushed until the first FPU operation
-    unsafe {
-        let mut reg = volatile_load(registers::NVIC_FPCC_R);
-        reg |= registers::NVIC_FPCC_ASPEN | registers::NVIC_FPCC_LSPEN;
-        volatile_store(registers::NVIC_FPCC_R, reg);
-    }
-}
+// None
 
 // ****************************************************************************
 //
