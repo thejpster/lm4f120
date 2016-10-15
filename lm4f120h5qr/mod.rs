@@ -402,7 +402,7 @@ pub unsafe extern "C" fn isr_hardfault() {
 
      // Todo see https://community.arm.com/servlet/JiveServlet/previewBody/7835-102-2-12371/Developing%20a%20Generic%20Hard%20Fault%20handler%20for%20ARM.pdf
      // Use ITM to emit serial chars and then bkpt into debugger
-     asm!("bkpt");
+     bkpt!();
      board::panic();
 }
 
