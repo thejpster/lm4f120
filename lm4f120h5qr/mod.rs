@@ -18,7 +18,8 @@ extern "C" {
 }
 
 use board;
-
+use cortex_m::Handler;
+use cortex_m::asm::nop;
 pub use cpu::cortex_m4f::fpu;
 
 // ****************************************************************************
@@ -45,7 +46,7 @@ pub use cpu::cortex_m4f::fpu;
 
 #[link_section=".nvic_table"]
 #[no_mangle]
-pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] =
+pub static ISR_VECTORS: [Option<Handler>; 155] =
     [// Stack pointer
      Some(_stack_top),
      // Reset
@@ -371,9 +372,7 @@ pub static ISR_VECTORS: [Option<unsafe extern "C" fn()>; 155] =
 /// * `ms` - The period to wait, in milliseconds
 pub fn delay(ms: i32) {
     for _ in 0..ms * 250 {
-        unsafe {
-            asm!("NOP");
-        }
+       nop();
     }
 }
 

@@ -11,6 +11,7 @@ use super::gpio;
 use super::pll;
 use common;
 use core;
+use cortex_m::asm::nop;
 
 // ****************************************************************************
 //
@@ -131,12 +132,10 @@ impl Uart {
 
     /// Emit a single octet, busy-waiting if the FIFO is full
     pub fn putc(&mut self, value: u8) {
-        unsafe {
-            while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
-                asm!("NOP");
-            }
-            self.reg.data.write(value as usize);
+        while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
+            nop();
         }
+        self.reg.data.write(value as usize);
     }
 
     /// Attempts to read from the UART. Returns 'None'

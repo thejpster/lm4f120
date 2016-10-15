@@ -7,6 +7,7 @@
 // ****************************************************************************
 
 use core::intrinsics::{volatile_store, volatile_load};
+use cortex_m::asm::nop;
 use super::registers;
 
 // ****************************************************************************
@@ -92,7 +93,7 @@ pub fn init(speed: ClockSpeed) {
 
             // Wait for PLL to lock
             while (volatile_load(registers::SYSCTL_RIS_R) & registers::SYSCTL_MISC_PLLLMIS) == 0 {
-                asm!("NOP");
+                nop();
             }
 
             // Set up a /3 divider (by putting 0x02 in the bitfield)
