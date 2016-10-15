@@ -69,7 +69,7 @@ pub fn init() {
         // A write to current resets the timer
         syst.cvr.write(0);
         // Set to multi-shot mode, with interrupts on and on the PIOSC / 4
-        syst.csr.write(NVIC_ST_CTRL_ENABLE as u32 | NVIC_ST_CTRL_INTEN as u32);
+        syst.csr.write((NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_INTEN) as u32);
     }
 }
 

@@ -49,11 +49,11 @@ use cortex_m;
 
 pub fn init() {
     // Enable full access to the FPU
-    let mut t = cortex_m::peripheral::scb().cpacr.read();
     unsafe {
-        t &= !(registers::NVIC_CPAC_CP11_M as u32 | registers::NVIC_CPAC_CP10_M as u32);
-        t |= registers::NVIC_CPAC_CP11_FULL as u32 | registers::NVIC_CPAC_CP10_FULL as u32;
-        cortex_m::peripheral::scb_mut().cpacr.write(t);
+        cortex_m::peripheral::scb_mut().cpacr.modify(|r| {
+            (r & !(registers::NVIC_CPAC_CP11_M as u32 | registers::NVIC_CPAC_CP10_M as u32)) |
+            (registers::NVIC_CPAC_CP11_FULL as u32 | registers::NVIC_CPAC_CP10_FULL as u32)
+        });
     }
 }
 
