@@ -9,7 +9,6 @@
 use super::registers as reg;
 use super::gpio;
 use super::pll;
-use common::volatile::VolatileStruct;
 use common;
 use core;
 
@@ -111,23 +110,23 @@ impl Uart {
             // Clear the flags
             self.reg.rf.write(0);
             // Enable
-            self.reg.ctl.write(reg::UART_CTL_RXE | reg::UART_CTL_TXE |
-                           reg::UART_CTL_UARTEN);
+            self.reg.ctl.write(reg::UART_CTL_RXE | reg::UART_CTL_TXE | reg::UART_CTL_UARTEN);
         }
     }
 
     /// Enable the module in the real-time clock gating registers.
     unsafe fn enable_clock(&mut self) {
-        common::read_set_write_settle(reg::SYSCTL_RCGCUART_R, match self.id {
-            UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
-            UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
-            UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
-            UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
-            UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
-            UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
-            UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
-            UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
-        });
+        common::read_set_write_settle(reg::SYSCTL_RCGCUART_R,
+                                      match self.id {
+                                          UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
+                                          UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
+                                          UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
+                                          UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
+                                          UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
+                                          UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
+                                          UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
+                                          UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
+                                      });
     }
 
     /// Emit a single octet, busy-waiting if the FIFO is full
@@ -175,9 +174,7 @@ impl core::fmt::Write for Uart {
 }
 
 /// Called when UART 0 interrupt fires
-pub unsafe extern "C" fn uart0_isr() {
-
-}
+pub unsafe extern "C" fn uart0_isr() {}
 
 // ****************************************************************************
 //
@@ -187,15 +184,17 @@ pub unsafe extern "C" fn uart0_isr() {
 
 /// Get a reference to the UART control register struct in the chip.
 fn get_uart_registers(uart_id: UartId) -> &'static mut reg::UartRegisters {
-    match uart_id {
-        UartId::Uart0 => unsafe { reg::UartRegisters::from_ptr(reg::UART0_DR_R as *mut _) },
-        UartId::Uart1 => unsafe { reg::UartRegisters::from_ptr(reg::UART1_DR_R as *mut _) },
-        UartId::Uart2 => unsafe { reg::UartRegisters::from_ptr(reg::UART2_DR_R as *mut _) },
-        UartId::Uart3 => unsafe { reg::UartRegisters::from_ptr(reg::UART3_DR_R as *mut _) },
-        UartId::Uart4 => unsafe { reg::UartRegisters::from_ptr(reg::UART4_DR_R as *mut _) },
-        UartId::Uart5 => unsafe { reg::UartRegisters::from_ptr(reg::UART5_DR_R as *mut _) },
-        UartId::Uart6 => unsafe { reg::UartRegisters::from_ptr(reg::UART6_DR_R as *mut _) },
-        UartId::Uart7 => unsafe { reg::UartRegisters::from_ptr(reg::UART7_DR_R as *mut _) },
+    unsafe {
+        match uart_id {
+            UartId::Uart0 => &mut *(reg::UART0_DR_R as *mut reg::UartRegisters),
+            UartId::Uart1 => &mut *(reg::UART1_DR_R as *mut reg::UartRegisters),
+            UartId::Uart2 => &mut *(reg::UART2_DR_R as *mut reg::UartRegisters),
+            UartId::Uart3 => &mut *(reg::UART3_DR_R as *mut reg::UartRegisters),
+            UartId::Uart4 => &mut *(reg::UART4_DR_R as *mut reg::UartRegisters),
+            UartId::Uart5 => &mut *(reg::UART5_DR_R as *mut reg::UartRegisters),
+            UartId::Uart6 => &mut *(reg::UART6_DR_R as *mut reg::UartRegisters),
+            UartId::Uart7 => &mut *(reg::UART7_DR_R as *mut reg::UartRegisters),
+        }
     }
 }
 

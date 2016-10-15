@@ -41,7 +41,7 @@
 
 #![allow(dead_code)]
 
-use ::common::volatile::{Volatile, VolatileStruct};
+use volatile_register::{RO, RW};
 
 // *****************************************************************************
 //
@@ -7999,130 +7999,124 @@ pub const UDMA_CHCTL_XFERSIZE_S: usize = 4;
 // *****************************************************************************
 #[repr(C, packed)]
 pub struct GpioRegisters {
-    pub data_mask: [Volatile<usize>; 255], // Data - offset sets pin mask
-    pub data: Volatile<usize>, // Data register - sets all pins
-    pub dir: Volatile<usize>, // Direction
-    pub is: Volatile<usize>, // Interrupt Sense
-    pub ibe: Volatile<usize>, // Interrupt Both Edges
-    pub iev: Volatile<usize>, // Interrupt Event
-    pub im: Volatile<usize>, // Interrupt Mask
-    pub ris: Volatile<usize>, // Raw Interrupt Status
-    pub mis: Volatile<usize>, // Masked Interrupt Status
-    pub icr: Volatile<usize>, // Interrupt Clear
-    pub afsel: Volatile<usize>, // Alternate function Select
+    pub data_mask: [RW<usize>; 255], // Data - offset sets pin mask
+    pub data: RW<usize>, // Data register - sets all pins
+    pub dir: RW<usize>, // Direction
+    pub is: RW<usize>, // Interrupt Sense
+    pub ibe: RW<usize>, // Interrupt Both Edges
+    pub iev: RW<usize>, // Interrupt Event
+    pub im: RW<usize>, // Interrupt Mask
+    pub ris: RO<usize>, // Raw Interrupt Status
+    pub mis: RW<usize>, // Masked Interrupt Status
+    pub icr: RW<usize>, // Interrupt Clear
+    pub afsel: RW<usize>, // Alternate function Select
     pub _padding: [usize; 55],
-    pub dr2r: Volatile<usize>, // 2mA drive select
-    pub dr4r: Volatile<usize>, // 4mA drive select
-    pub dr8r: Volatile<usize>, // 8mA drive select
-    pub odr: Volatile<usize>, // Open-drain select
-    pub pur: Volatile<usize>, // Pull-up select
-    pub pdr: Volatile<usize>, // Pull-down select
-    pub slr: Volatile<usize>, // Slew-rate control
-    pub den: Volatile<usize>, // Digital enable
-    pub lock: Volatile<usize>, // Lock
-    pub cr: Volatile<usize>, // Commit
-    pub amsel: Volatile<usize>, // Analog mode select
-    pub pctl: Volatile<usize>, // Port Control
-    pub adcctl: Volatile<usize>, // ADC Control
-    pub dmactl: Volatile<usize>, // DMA Control
+    pub dr2r: RW<usize>, // 2mA drive select
+    pub dr4r: RW<usize>, // 4mA drive select
+    pub dr8r: RW<usize>, // 8mA drive select
+    pub odr: RW<usize>, // Open-drain select
+    pub pur: RW<usize>, // Pull-up select
+    pub pdr: RW<usize>, // Pull-down select
+    pub slr: RW<usize>, // Slew-rate control
+    pub den: RW<usize>, // Digital enable
+    pub lock: RW<usize>, // Lock
+    pub cr: RW<usize>, // Commit
+    pub amsel: RW<usize>, // Analog mode select
+    pub pctl: RW<usize>, // Port Control
+    pub adcctl: RW<usize>, // ADC Control
+    pub dmactl: RW<usize>, // DMA Control
     pub _padding2: [usize; 678],
-    pub periphid4: Volatile<usize>, // Peripheral ID 4
-    pub periphid5: Volatile<usize>, // Peripheral ID 5
-    pub periphid6: Volatile<usize>, // Peripheral ID 6
-    pub periphid7: Volatile<usize>, // Peripheral ID 7
-    pub periphid0: Volatile<usize>, // Peripheral ID 0
-    pub periphid1: Volatile<usize>, // Peripheral ID 1
-    pub periphid2: Volatile<usize>, // Peripheral ID 2
-    pub periphid3: Volatile<usize>, // Peripheral ID 3
-    pub pcelld0: Volatile<usize>, // PrimeCell ID 0
-    pub pcelld1: Volatile<usize>, // PrimeCell ID 1
-    pub pcelld2: Volatile<usize>, // PrimeCell ID 2
-    pub pcelld3: Volatile<usize>, // PrimeCell ID 3
+    pub periphid4: RW<usize>, // Peripheral ID 4
+    pub periphid5: RW<usize>, // Peripheral ID 5
+    pub periphid6: RW<usize>, // Peripheral ID 6
+    pub periphid7: RW<usize>, // Peripheral ID 7
+    pub periphid0: RW<usize>, // Peripheral ID 0
+    pub periphid1: RW<usize>, // Peripheral ID 1
+    pub periphid2: RW<usize>, // Peripheral ID 2
+    pub periphid3: RW<usize>, // Peripheral ID 3
+    pub pcelld0: RW<usize>, // PrimeCell ID 0
+    pub pcelld1: RW<usize>, // PrimeCell ID 1
+    pub pcelld2: RW<usize>, // PrimeCell ID 2
+    pub pcelld3: RW<usize>, // PrimeCell ID 3
 }
-
-impl VolatileStruct for GpioRegisters {}
 
 #[repr(C, packed)]
 pub struct UartRegisters {
-    pub data: Volatile<usize>, // Data Register
-    pub rsr: Volatile<usize>, // Receive Status
+    pub data: RW<usize>, // Data Register
+    pub rsr: RW<usize>, // Receive Status
     pub _padding: [usize; 4],
-    pub rf: Volatile<usize>, // Flags
+    pub rf: RW<usize>, // Flags
     pub _padding2: usize,
-    pub ilpr: Volatile<usize>, // IrDA Low-Power Register
-    pub ibrd: Volatile<usize>, // Integer Baud-Rate Divisor
-    pub fbrd: Volatile<usize>, // Fractional Baud-Rate Divisor
-    pub lcrh: Volatile<usize>, // Line Control
-    pub ctl: Volatile<usize>, // Control
-    pub ifls: Volatile<usize>, // Interrupt FIFO Level Select
-    pub im: Volatile<usize>, // Interrupt Mask
-    pub ris: Volatile<usize>, // UARTx_RIS_R
-    pub mis: Volatile<usize>, // UARTx_MIS_R
-    pub icr: Volatile<usize>, // UARTx_ICR_R
-    pub dmactl: Volatile<usize>, // UARTx_DMACTL_R
+    pub ilpr: RW<usize>, // IrDA Low-Power Register
+    pub ibrd: RW<usize>, // Integer Baud-Rate Divisor
+    pub fbrd: RW<usize>, // Fractional Baud-Rate Divisor
+    pub lcrh: RW<usize>, // Line Control
+    pub ctl: RW<usize>, // Control
+    pub ifls: RW<usize>, // Interrupt FIFO Level Select
+    pub im: RW<usize>, // Interrupt Mask
+    pub ris: RW<usize>, // UARTx_RIS_R
+    pub mis: RW<usize>, // UARTx_MIS_R
+    pub icr: RW<usize>, // UARTx_ICR_R
+    pub dmactl: RW<usize>, // UARTx_DMACTL_R
 }
-
-impl VolatileStruct for UartRegisters {}
 
 #[repr(C, packed)]
 pub struct TimerRegisters {
     // 0x000 GPTMCFG R/W 0x0000.0000 GPTM Configuration 688
-    pub cfg: Volatile<usize>,
+    pub cfg: RW<usize>,
     // 0x004 GPTMTAMR R/W 0x0000.0000 GPTM Timer A Mode 690
-    pub tamr: Volatile<usize>,
+    pub tamr: RW<usize>,
     // 0x008 GPTMTBMR R/W 0x0000.0000 GPTM Timer B Mode 694
-    pub tbmr: Volatile<usize>,
+    pub tbmr: RW<usize>,
     // 0x00C GPTMCTL R/W 0x0000.0000 GPTM Control 698
-    pub ctl: Volatile<usize>,
+    pub ctl: RW<usize>,
     // 0x010 GPTMSYNC R/W 0x0000.0000 GPTM Synchronize 702
-    pub sync: Volatile<usize>,
+    pub sync: RW<usize>,
     // 0x014
     pub _pad: usize,
     // 0x018 GPTMIMR R/W 0x0000.0000 GPTM Interrupt Mask 706
-    pub imr: Volatile<usize>,
+    pub imr: RW<usize>,
     // 0x01C GPTMRIS RO 0x0000.0000 GPTM Raw Interrupt Status 709
-    pub ris: Volatile<usize>,
+    pub ris: RW<usize>,
     // 0x020 GPTMMIS RO 0x0000.0000 GPTM Masked Interrupt Status 712
-    pub mis: Volatile<usize>,
+    pub mis: RW<usize>,
     // 0x024 GPTMICR W1C 0x0000.0000 GPTM Interrupt Clear 715
-    pub icr: Volatile<usize>,
+    pub icr: RW<usize>,
     // 0x028 GPTMTAILR R/W 0xFFFF.FFFF GPTM Timer A Interval Load 717
-    pub tailr: Volatile<usize>,
+    pub tailr: RW<usize>,
     // 0x02C GPTMTBILR R/W - GPTM Timer B Interval Load 718
-    pub tbilr: Volatile<usize>,
+    pub tbilr: RW<usize>,
     // 0x030 GPTMTAMATCHR R/W 0xFFFF.FFFF GPTM Timer A Match 719
-    pub tamatchr: Volatile<usize>,
+    pub tamatchr: RW<usize>,
     // 0x034 GPTMTBMATCHR R/W - GPTM Timer B Match 720
-    pub tbmatchr: Volatile<usize>,
+    pub tbmatchr: RW<usize>,
     // 0x038 GPTMTAPR R/W 0x0000.0000 GPTM Timer A Prescale 721
-    pub tapr: Volatile<usize>,
+    pub tapr: RW<usize>,
     // 0x03C GPTMTBPR R/W 0x0000.0000 GPTM Timer B Prescale 722
-    pub tbpr: Volatile<usize>,
+    pub tbpr: RW<usize>,
     // 0x040 GPTMTAPMR R/W 0x0000.0000 GPTM TimerA Prescale Match 723
-    pub tapmr: Volatile<usize>,
+    pub tapmr: RW<usize>,
     // 0x044 GPTMTBPMR R/W 0x0000.0000 GPTM TimerB Prescale Match 724
-    pub tbpmr: Volatile<usize>,
+    pub tbpmr: RW<usize>,
     // 0x048 GPTMTAR RO 0xFFFF.FFFF GPTM Timer A 725
-    pub tar: Volatile<usize>,
+    pub tar: RW<usize>,
     // 0x04C GPTMTBR RO - GPTM Timer B 726
-    pub tbr: Volatile<usize>,
+    pub tbr: RW<usize>,
     // 0x050 GPTMTAV RW 0xFFFF.FFFF GPTM Timer A Value 727
-    pub tav: Volatile<usize>,
+    pub tav: RW<usize>,
     // 0x054 GPTMTBV RW - GPTM Timer B Value 728
-    pub tbv: Volatile<usize>,
+    pub tbv: RW<usize>,
     // 0x058 GPTMRTCPD RO 0x0000.7FFF GPTM RTC Predivide 729
-    pub rtcpd: Volatile<usize>,
+    pub rtcpd: RW<usize>,
     // 0x05C GPTMTAPS RO 0x0000.0000 GPTM Timer A Prescale Snapshot 730
-    pub taps: Volatile<usize>,
+    pub taps: RW<usize>,
     // 0x060 GPTMTBPS RO 0x0000.0000 GPTM Timer B Prescale Snapshot 731
-    pub tbps: Volatile<usize>,
+    pub tbps: RW<usize>,
     // 0x064 GPTMTAPV RO 0x0000.0000 GPTM Timer A Prescale Value 732
-    pub tapv: Volatile<usize>,
+    pub tapv: RW<usize>,
     // 0x068 GPTMTBPV RO 0x0000.0000 GPTM Timer B Prescale Value 733
-    pub tbpv: Volatile<usize>,
+    pub tbpv: RW<usize>,
 }
-
-impl VolatileStruct for TimerRegisters {}
 
 // ****************************************************************************
 //

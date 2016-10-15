@@ -31,7 +31,7 @@ use cortex_m::peripheral as cm_periph;
 // ****************************************************************************
 
 /// SysTick is a 24-bit timer
-pub const SYSTICK_MAX:usize = (1 << 24) - 1;
+pub const SYSTICK_MAX: usize = (1 << 24) - 1;
 
 lazy_static! {
     pub static ref SYSTICK_WRAP_COUNT:AtomicUsize = ATOMIC_USIZE_INIT;
@@ -116,7 +116,7 @@ pub fn get_since(start: usize) -> usize {
 /// The u64 is good for 584,000 years.
 pub fn run_time_ticks() -> u64 {
     let (overflows, ticks) = get_overflows_ticks();
-    let mut result:u64;
+    let mut result: u64;
     result = overflows as u64;
     result *= (SYSTICK_MAX + 1) as u64;
     result += (SYSTICK_MAX - ticks) as u64;

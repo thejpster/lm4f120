@@ -14,7 +14,6 @@
 
 use super::registers as reg;
 use common;
-use common::volatile::VolatileStruct;
 
 // ****************************************************************************
 //
@@ -111,7 +110,7 @@ impl Timer {
         let mut t = Timer {
             id: id,
             reg: get_timer_registers(id),
-            period: 0
+            period: 0,
         };
         t.init();
         t
@@ -122,67 +121,76 @@ impl Timer {
     }
 
     unsafe fn enable_clock(&mut self) {
-        common::read_set_write_settle(reg::SYSCTL_RCGCTIMER_R, match self.id {
-            TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => reg::SYSCTL_RCGCTIMER_R0,
-            TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => reg::SYSCTL_RCGCTIMER_R1,
-            TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => reg::SYSCTL_RCGCTIMER_R2,
-            TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => reg::SYSCTL_RCGCTIMER_R3,
-            TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => reg::SYSCTL_RCGCTIMER_R4,
-            TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => reg::SYSCTL_RCGCTIMER_R5,
-        });
+        common::read_set_write_settle(reg::SYSCTL_RCGCTIMER_R,
+                                      match self.id {
+                                          TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => {
+                                              reg::SYSCTL_RCGCTIMER_R0
+                                          }
+                                          TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => {
+                                              reg::SYSCTL_RCGCTIMER_R1
+                                          }
+                                          TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => {
+                                              reg::SYSCTL_RCGCTIMER_R2
+                                          }
+                                          TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => {
+                                              reg::SYSCTL_RCGCTIMER_R3
+                                          }
+                                          TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => {
+                                              reg::SYSCTL_RCGCTIMER_R4
+                                          }
+                                          TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => {
+                                              reg::SYSCTL_RCGCTIMER_R5
+                                          }
+                                      });
     }
 
     pub fn enable_pwm(&mut self, period: u32) {
         self.period = period;
 
-        if self.use_timer_a()
-        {
-            self.reg.ctl &= !reg::TIMER_CTL_TAEN;
+        if self.use_timer_a() {
+            self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TAEN);
             if self.is_double_width() {
                 self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
-            }
-            else {
+            } else {
                 self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
             }
-            let mut tamr = self.reg.tamr.read();
-            tamr |= reg::TIMER_TAMR_TAAMS;
-            tamr &= !reg::TIMER_TAMR_TACMR;
-            tamr &= !reg::TIMER_TAMR_TAMR_M;
-            tamr |= reg::TIMER_TAMR_TAMR_PERIOD;
-            tamr |= reg::TIMER_TAMR_TAPWMIE;
-            tamr |= reg::TIMER_TAMR_TAMRSU;
-            self.reg.tamr.write(tamr);
+            self.reg.tamr.modify(|mut r| {
+                r |= reg::TIMER_TAMR_TAAMS;
+                r &= !reg::TIMER_TAMR_TACMR;
+                r &= !reg::TIMER_TAMR_TAMR_M;
+                r |= reg::TIMER_TAMR_TAMR_PERIOD;
+                r |= reg::TIMER_TAMR_TAPWMIE;
+                r |= reg::TIMER_TAMR_TAMRSU;
+                r
+            });
             self.set_pwm(period);
-            self.reg.ctl |= reg::TIMER_CTL_TAEN;
-        }
-        else {
-            self.reg.ctl &= !reg::TIMER_CTL_TBEN;
+            self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TAEN);
+        } else {
+            self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TBEN);
             if self.is_double_width() {
                 self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
-            }
-            else {
+            } else {
                 self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
             }
-            let mut tbmr = self.reg.tbmr.read();
-            tbmr |= reg::TIMER_TBMR_TBAMS;
-            tbmr &= !reg::TIMER_TBMR_TBCMR;
-            tbmr &= !reg::TIMER_TBMR_TBMR_M;
-            tbmr |= reg::TIMER_TBMR_TBMR_PERIOD;
-            tbmr |= reg::TIMER_TBMR_TBPWMIE;
-            tbmr |= reg::TIMER_TBMR_TBMRSU;
-            self.reg.tbmr.write(tbmr);
+            self.reg.tbmr.modify(|mut r| {
+                r |= reg::TIMER_TBMR_TBAMS;
+                r &= !reg::TIMER_TBMR_TBCMR;
+                r &= !reg::TIMER_TBMR_TBMR_M;
+                r |= reg::TIMER_TBMR_TBMR_PERIOD;
+                r |= reg::TIMER_TBMR_TBPWMIE;
+                r |= reg::TIMER_TBMR_TBMRSU;
+                r
+            });
             self.set_pwm(period);
-            self.reg.ctl |= reg::TIMER_CTL_TBEN;
+            self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TBEN);
         }
     }
 
     pub fn set_pwm(&mut self, on_time: u32) {
-        if self.use_timer_a()
-        {
+        if self.use_timer_a() {
             self.reg.tamatchr.write((self.period - on_time) as usize);
             self.reg.tailr.write(self.period as usize);
-        }
-        else {
+        } else {
             self.reg.tbmatchr.write((self.period - on_time) as usize);
             self.reg.tbilr.write(self.period as usize);
         }
@@ -196,7 +204,7 @@ impl Timer {
             TimerId::Timer3 => true,
             TimerId::Timer4 => true,
             TimerId::Timer5 => true,
-            _ => false
+            _ => false,
         }
     }
 
@@ -213,10 +221,9 @@ impl Timer {
     }
 
     pub fn get_timer(&self) -> u32 {
-        if ! self.use_timer_a() {
+        if !self.use_timer_a() {
             self.reg.tar.read() as u32
-        }
-        else {
+        } else {
             self.reg.tbr.read() as u32
         }
     }
@@ -230,13 +237,27 @@ impl Timer {
 
 /// Get a reference to the UART control register struct in the chip.
 fn get_timer_registers(timer_id: TimerId) -> &'static mut reg::TimerRegisters {
-    match timer_id {
-        TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER0_CFG_R as *mut _) },
-        TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER1_CFG_R as *mut _) },
-        TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER2_CFG_R as *mut _) },
-        TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER3_CFG_R as *mut _) },
-        TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER4_CFG_R as *mut _) },
-        TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => unsafe { reg::TimerRegisters::from_ptr(reg::TIMER5_CFG_R as *mut _) },
+    unsafe {
+        match timer_id {
+            TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => {
+                &mut *(reg::TIMER0_CFG_R as *mut reg::TimerRegisters)
+            }
+            TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => {
+                &mut *(reg::TIMER1_CFG_R as *mut reg::TimerRegisters)
+            }
+            TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => {
+                &mut *(reg::TIMER2_CFG_R as *mut reg::TimerRegisters)
+            }
+            TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => {
+                &mut *(reg::TIMER3_CFG_R as *mut reg::TimerRegisters)
+            }
+            TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => {
+                &mut *(reg::TIMER4_CFG_R as *mut reg::TimerRegisters)
+            }
+            TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => {
+                &mut *(reg::TIMER5_CFG_R as *mut reg::TimerRegisters)
+            }
+        }
     }
 }
 

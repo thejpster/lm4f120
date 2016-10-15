@@ -27,10 +27,10 @@ use super::pll;
 // ****************************************************************************
 
 /// SysTick runs at / 4, so at 16MHz that's 4MHz
-pub const SYSTICK_CLOCK:usize = pll::PLL_CLOCK_HZ / 4;
+pub const SYSTICK_CLOCK: usize = pll::PLL_CLOCK_HZ / 4;
 
 /// At 4MHz, four ticks per microseconds.
-pub const SYSTICK_CLOCK_PER_US:usize = SYSTICK_CLOCK / 1_000_000;
+pub const SYSTICK_CLOCK_PER_US: usize = SYSTICK_CLOCK / 1_000_000;
 
 // ****************************************************************************
 //
@@ -83,13 +83,12 @@ pub fn delay(ms: u32) {
 /// Busy-waits a specified number of microseconds.
 /// `usec` must be less than 2**22 otherwise SysTick
 /// will overflow.
-pub fn delay_usec(usec: u32)
-{
+pub fn delay_usec(usec: u32) {
     let start = get_ticks();
     let ticks = usecs_to_ticks(usec as usize);
     loop {
         if get_since(start) >= ticks {
-            break
+            break;
         }
     }
 }
