@@ -12,9 +12,9 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::{volatile_store, volatile_load};
 use core::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
 use super::registers::*;
+use cortex_m::peripheral as cm_periph;
 
 // ****************************************************************************
 //
@@ -64,12 +64,12 @@ lazy_static! {
 /// We configure SysTick to run at PIOSC / 4, with the full 24 bit range.
 pub fn init() {
     unsafe {
-        // SysTick counts down from max to zero
-        volatile_store(NVIC_ST_RELOAD_R, SYSTICK_MAX as usize);
+        let syst = cm_periph::syst_mut();
+        syst.rvr.write(SYSTICK_MAX as u32);
         // A write to current resets the timer
-        volatile_store(NVIC_ST_CURRENT_R, 0);
+        syst.cvr.write(0);
         // Set to multi-shot mode, with interrupts on and on the PIOSC / 4
-        volatile_store(NVIC_ST_CTRL_R, NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_INTEN);
+        syst.csr.write(NVIC_ST_CTRL_ENABLE as u32 | NVIC_ST_CTRL_INTEN as u32);
     }
 }
 
@@ -86,10 +86,7 @@ pub fn get_overflows() -> usize {
 
 /// Gets the current SysTick value
 pub fn get_ticks() -> usize {
-    let result = unsafe {
-        volatile_load(NVIC_ST_CURRENT_R)
-    };
-    result
+    cm_periph::syst().cvr.read() as usize
 }
 
 pub fn get_overflows_ticks() -> (usize, usize) {
