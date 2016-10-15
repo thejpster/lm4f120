@@ -17,7 +17,7 @@ extern "C" {
     fn _stack_top();
 }
 
-use board::launchpad as board;
+use board;
 
 pub use cpu::cortex_m4f::fpu as fpu;
 
