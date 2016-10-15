@@ -6,7 +6,6 @@
 //
 // ****************************************************************************
 
-use super::registers;
 use cortex_m;
 
 // ****************************************************************************
@@ -39,7 +38,15 @@ use cortex_m;
 //
 // ****************************************************************************
 
-// None
+// *****************************************************************************
+//
+// The following are defines for the bit fields in the NVIC_CPAC register.
+//
+// *****************************************************************************
+const NVIC_CPAC_CP11_M: usize = 0x00C00000; // CP11 Coprocessor Access Privilege
+const NVIC_CPAC_CP11_FULL: usize = 0x00C00000; // Full Access
+const NVIC_CPAC_CP10_M: usize = 0x00300000; // CP10 Coprocessor Access Privilege
+const NVIC_CPAC_CP10_FULL: usize = 0x00300000; // Full Access
 
 // ****************************************************************************
 //
@@ -51,8 +58,8 @@ pub fn init() {
     // Enable full access to the FPU
     unsafe {
         cortex_m::peripheral::scb_mut().cpacr.modify(|r| {
-            (r & !(registers::NVIC_CPAC_CP11_M as u32 | registers::NVIC_CPAC_CP10_M as u32)) |
-            (registers::NVIC_CPAC_CP11_FULL as u32 | registers::NVIC_CPAC_CP10_FULL as u32)
+            (r & !(NVIC_CPAC_CP11_M as u32 | NVIC_CPAC_CP10_M as u32)) |
+            (NVIC_CPAC_CP11_FULL as u32 | NVIC_CPAC_CP10_FULL as u32)
         });
     }
 }
