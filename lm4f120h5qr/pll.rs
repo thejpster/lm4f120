@@ -17,8 +17,11 @@ use super::registers;
 // ****************************************************************************
 
 #[derive(PartialEq, Clone)]
+/// The supported clock speeds for the LM4F120 on the Launchpad.
 pub enum ClockSpeed {
+    /// 1:6 off a 400MHz PLL
     Speed66MHz,
+    /// 1:1 off a 16MHz PLL
     Speed16MHz,
 }
 
@@ -28,7 +31,8 @@ pub enum ClockSpeed {
 //
 // ****************************************************************************
 
-pub const PLL_CLOCK_HZ: usize = 16_000_000;
+/// We have a 16MHz crystal on board
+pub const CRYSTAL_CLOCK_HZ: usize = 16_000_000;
 
 // ****************************************************************************
 //
@@ -50,8 +54,7 @@ static mut g_clockspeed: ClockSpeed = ClockSpeed::Speed16MHz;
 //
 // Public Functions
 //
-// ****************************************************************************
-
+// ****************************************************************************6
 
 /// Sets the clock speed to the given clock speed.
 pub fn init(speed: ClockSpeed) {
@@ -110,6 +113,7 @@ pub fn init(speed: ClockSpeed) {
     }
 }
 
+/// Get the current clock speed in Hertz
 pub fn get_clock_hz() -> u32 {
     match unsafe { &g_clockspeed } {
         &ClockSpeed::Speed16MHz => 16_000_000,
@@ -117,6 +121,8 @@ pub fn get_clock_hz() -> u32 {
     }
 }
 
+/// Convert clock cycles to microseconds (which depends on the current
+/// clockspeed)
 pub fn ticks_to_usecs(ticks: usize) -> usize {
     let clock_rate = get_clock_hz() as usize;
     // let result: f32 = (ticks as f32) / (clock_rate as f32);

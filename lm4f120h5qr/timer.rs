@@ -23,6 +23,7 @@ use common;
 
 /// This chip has 6 16/32bit Timers
 #[derive(PartialEq, Clone, Copy)]
+#[allow(missing_docs)]
 pub enum TimerId {
     Timer0A,
     Timer1A,
@@ -44,7 +45,9 @@ pub enum TimerId {
     Timer5,
 }
 
-/// This chip has 6 32/64bit Wide Timers
+/// This chip has 6 32/64bit Wide Timers, but they are currently not
+/// supported.
+#[allow(missing_docs)]
 pub enum WideTimerId {
     Timer0A,
     Timer1A,
@@ -144,6 +147,7 @@ impl Timer {
                                       });
     }
 
+    /// Activate the PWM output, with the specified period (in clock ticks)
     pub fn enable_pwm(&mut self, period: u32) {
         self.period = period;
 
@@ -186,6 +190,7 @@ impl Timer {
         }
     }
 
+    /// Set the PWM period for the timer (in clock ticks)
     pub fn set_pwm(&mut self, on_time: u32) {
         if self.use_timer_a() {
             self.reg.tamatchr.write((self.period - on_time) as usize);
@@ -196,6 +201,17 @@ impl Timer {
         }
     }
 
+    /// Read the current timer value
+    pub fn get_timer(&self) -> u32 {
+        if !self.use_timer_a() {
+            self.reg.tar.read() as u32
+        } else {
+            self.reg.tbr.read() as u32
+        }
+    }
+
+    /// Check if we are using a timer in double-width mode (as they need
+    /// handling differently to the two single-width timers).
     fn is_double_width(&self) -> bool {
         match self.id {
             TimerId::Timer0 => true,
@@ -208,6 +224,7 @@ impl Timer {
         }
     }
 
+    /// Check if we should use Timer A registers, or the Timer B registers.
     fn use_timer_a(&self) -> bool {
         match self.id {
             TimerId::Timer0B => false,
@@ -217,14 +234,6 @@ impl Timer {
             TimerId::Timer4B => false,
             TimerId::Timer5B => false,
             _ => true,
-        }
-    }
-
-    pub fn get_timer(&self) -> u32 {
-        if !self.use_timer_a() {
-            self.reg.tar.read() as u32
-        } else {
-            self.reg.tbr.read() as u32
         }
     }
 }

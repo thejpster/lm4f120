@@ -44,6 +44,8 @@ pub use cpu::cortex_m4f::fpu;
 //
 // ****************************************************************************
 
+/// Contains exception handlers, interrupt service routine vectors and a magic value
+/// that marks the start of the stack.
 #[link_section=".nvic_table"]
 #[no_mangle]
 pub static ISR_VECTORS: [Option<Handler>; 155] =

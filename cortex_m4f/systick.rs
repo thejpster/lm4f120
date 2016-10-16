@@ -1,10 +1,9 @@
-//! # Timers for the LM4F120
+//! # SysTick for the LM4F120
 //!
-//! The Stellaris core has six 16/32-bit timers and six 32/64-bit wide timers.
-//! Each timer provides two timers that can operate independently, or be
-//! chained together to form a single double-width timer. The Cortex-M4 core
-//! also its own separate SysTick timer. This is a 24-bit timer with its own
-//! ISR.
+//! Each Cortex-M4 has a timer peripheral typically used for OS scheduling tick.
+//! Here we configure it as a countdown timer that overflows every 2**24 ticks
+//! (so about once a second at 16MHz), and maintain a separate atomic overflow
+//! count to accurately track time since power-up.
 
 // ****************************************************************************
 //
@@ -33,6 +32,7 @@ use cortex_m::peripheral as cm_periph;
 pub const SYSTICK_MAX: usize = (1 << 24) - 1;
 
 lazy_static! {
+    /// total number of times SysTick has wrapped
     pub static ref SYSTICK_WRAP_COUNT:AtomicUsize = ATOMIC_USIZE_INIT;
 }
 
@@ -94,6 +94,8 @@ pub fn get_ticks() -> usize {
     cm_periph::syst().cvr.read() as usize
 }
 
+/// Returns (overflows, ticks), correctly handling the case that it overflowed
+/// between the two separate reads that are required.
 pub fn get_overflows_ticks() -> (usize, usize) {
     let overflow1 = get_overflows();
     let ticks = get_ticks();

@@ -39,6 +39,7 @@
 //
 // *****************************************************************************
 
+#![allow(missing_docs)]
 #![allow(dead_code)]
 
 use volatile_register::{RO, RW};

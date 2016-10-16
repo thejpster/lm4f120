@@ -27,7 +27,7 @@ use super::pll;
 // ****************************************************************************
 
 /// SysTick runs at / 4, so at 16MHz that's 4MHz
-pub const SYSTICK_CLOCK: usize = pll::PLL_CLOCK_HZ / 4;
+pub const SYSTICK_CLOCK: usize = pll::CRYSTAL_CLOCK_HZ / 4;
 
 /// At 4MHz, four ticks per microseconds.
 pub const SYSTICK_CLOCK_PER_US: usize = SYSTICK_CLOCK / 1_000_000;

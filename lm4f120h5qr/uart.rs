@@ -21,6 +21,7 @@ use cortex_m::asm::nop;
 
 /// This chip has 8 UARTs
 #[derive(PartialEq, Clone, Copy)]
+#[allow(missing_docs)]
 pub enum UartId {
     Uart0,
     Uart1,
@@ -45,7 +46,9 @@ pub struct Uart {
 /// if you're writing text with your UART
 #[derive(PartialEq, Clone, Copy)]
 pub enum NewlineMode {
+    /// Emit octets as received
     Binary,
+    /// Emit an extra CR before every LF
     SwapLFtoCRLF,
 }
 
@@ -71,6 +74,7 @@ pub enum NewlineMode {
 //
 // ****************************************************************************
 
+/// Represents a single UART on the LM4F120
 impl Uart {
     /// Create a new Uart object. The caller is responsible for ensuring
     /// that only one object exists per UartId. The UART is set to

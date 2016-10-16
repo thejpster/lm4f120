@@ -54,8 +54,8 @@ const NVIC_CPAC_CP10_FULL: usize = 0x00300000; // Full Access
 //
 // ****************************************************************************
 
+/// Enable full access to the FPU
 pub fn init() {
-    // Enable full access to the FPU
     unsafe {
         cortex_m::peripheral::scb_mut().cpacr.modify(|r| {
             (r & !(NVIC_CPAC_CP11_M as u32 | NVIC_CPAC_CP10_M as u32)) |

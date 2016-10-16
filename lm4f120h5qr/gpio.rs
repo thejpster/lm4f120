@@ -1,6 +1,6 @@
 //! # GPIO for the TI LM4F120H5QR
-
-#![allow(dead_code)]
+//!
+//! Supports GPIO, mapping in a UART and putting pins in Timer mode.
 
 // ****************************************************************************
 //
@@ -21,6 +21,7 @@ use common;
 /// Describes a pin within a port
 /// This chip has 8 pins per port.
 #[derive(PartialEq, Clone, Copy)]
+#[allow(missing_docs)]
 pub enum Pin {
     Pin0,
     Pin1,
@@ -34,6 +35,7 @@ pub enum Pin {
 
 /// Describes a Port and a single pin within it
 #[derive(PartialEq, Clone, Copy)]
+#[allow(missing_docs)]
 pub enum PinPort {
     PortA(Pin),
     PortB(Pin),
@@ -46,16 +48,22 @@ pub enum PinPort {
 /// Describes a pin's direction
 #[derive(PartialEq, Clone, Copy)]
 pub enum PinMode {
+    /// An input with a pull-up or pull-down
     InputPull(Level),
+    /// An input with no pull
     Input,
+    /// A totem-pole output
     Output,
+    /// Pin is driven by a peripheral (i.e. is no longer a GPIO)
     Peripheral,
 }
 
 /// Describes what a pin can be set to
 #[derive(PartialEq, Clone, Copy)]
 pub enum Level {
+    /// A logic high (i.e. 3.3v)
     High,
+    /// A logic low (i.e. 0v)
     Low,
 }
 
@@ -108,6 +116,11 @@ pub fn read(pinport: PinPort) -> Level {
     }
 }
 
+/// Re-configure the pinmuxing so that the given Uart appears
+/// on its normal set of pins.
+///
+/// Only Uart0 is supported at the moment, and it appears on
+/// A0 and A1.
 pub fn enable_uart(id: UartId) {
     match id {
         UartId::Uart0 => {
@@ -144,7 +157,9 @@ pub fn enable_uart(id: UartId) {
     }
 }
 
-/// We assume you've already set it as PinMode::Peripheral
+/// Enable a pin as a Timer Compare pin (e.g. if you want to use it as
+/// a PWM output). We assume you've already set it as `PinMode::Peripheral`
+/// using `set_direction()`.
 pub fn enable_ccp(pinport: PinPort) {
     let gpio_reg = get_port_registers(pinport);
     enable_port(pinport);
