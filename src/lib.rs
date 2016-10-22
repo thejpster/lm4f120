@@ -16,8 +16,17 @@ extern crate cortex_m;
 extern crate lazy_static;
 extern crate volatile_register;
 
-pub mod lm4f120h5qr;
+pub mod gpio;
+pub mod pll;
+pub mod registers;
+pub mod uart;
+pub mod timer;
+pub mod systick;
 pub mod cortex_m4f;
+
+pub use cortex_m4f::fpu;
+
+use cortex_m::asm::nop;
 
 // ****************************************************************************
 //
@@ -57,7 +66,17 @@ pub mod cortex_m4f;
 //
 // ****************************************************************************
 
-// None
+/// Busy-waits for the given period.
+///
+/// Currently this function spins with a empirical number
+/// of NOPS per millisecond. It should really use a timer.
+///
+/// * `ms` - The period to wait, in milliseconds
+pub fn delay(ms: i32) {
+    for _ in 0..ms * 250 {
+        nop();
+    }
+}
 
 // ****************************************************************************
 //
