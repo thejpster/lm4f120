@@ -1,10 +1,20 @@
-//! CPU definitions for primer.
+//! CPU definitions for the LM4F120
+
+#![feature(asm)]
+#![feature(core_intrinsics)]
+#![no_std]
 
 // ****************************************************************************
 //
 // Imports
 //
 // ****************************************************************************
+
+#[macro_use]
+extern crate cortex_m;
+#[macro_use]
+extern crate lazy_static;
+extern crate volatile_register;
 
 pub mod lm4f120h5qr;
 pub mod cortex_m4f;
