@@ -5,10 +5,12 @@ authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"Marc Brinkmann"
 ]
+description = "A set of drivers for writing bare-metal code for the Texas Instruments LM4F120."
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
 version = "0.1.0"
+
 
 # The development profile, used for `cargo build`.
 [profile.dev]
