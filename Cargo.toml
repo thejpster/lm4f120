@@ -6,6 +6,7 @@ authors = [
 	"Marc Brinkmann"
 ]
 description = "A set of drivers for writing bare-metal code for the Texas Instruments LM4F120."
+url = "https://github.com/thejpster/lm4f120"
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
