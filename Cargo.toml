@@ -10,7 +10,7 @@ url = "https://github.com/thejpster/lm4f120"
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
-version = "0.1.0"
+version = "0.1.1"
 
 
 # The development profile, used for `cargo build`.

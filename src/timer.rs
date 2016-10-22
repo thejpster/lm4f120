@@ -138,8 +138,9 @@ impl Timer {
     }
 
     unsafe fn enable_clock(&mut self) {
-        volatile_store(reg::SYSCTL_RCGCTIMER_R, self.get_clock_gating_mask());
-        while volatile_load(reg::SYSCTL_RCGCTIMER_R) != self.get_clock_gating_mask() {
+        let r = volatile_load(reg::SYSCTL_RCGCTIMER_R) | self.get_clock_gating_mask();
+        volatile_store(reg::SYSCTL_RCGCTIMER_R, r);
+        while volatile_load(reg::SYSCTL_RCGCTIMER_R) != r {
             nop();
         }
     }
@@ -188,7 +189,10 @@ impl Timer {
     }
 
     /// Set the PWM period for the timer (in clock ticks)
-    pub fn set_pwm(&mut self, on_time: u32) {
+    pub fn set_pwm(&mut self, mut on_time: u32) {
+        if on_time == 0 {
+            on_time = 1;
+        }
         if self.use_timer_a() {
             self.reg.tamatchr.write((self.period - on_time) as usize);
             self.reg.tailr.write(self.period as usize);
