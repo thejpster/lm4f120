@@ -1,4 +1,4 @@
-//! # SysTick for the LM4F120
+//! # SysTick for the Cortex-M4F
 //!
 //! Each Cortex-M4 has a timer peripheral typically used for OS scheduling tick.
 //! Here we configure it as a countdown timer that overflows every 2**24 ticks
