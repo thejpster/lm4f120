@@ -8,7 +8,7 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::volatile_store;
+use core::intrinsics::{volatile_load, volatile_store};
 
 use cortex_m::asm::nop;
 
@@ -288,10 +288,10 @@ fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
         volatile_store(reg::SYSCTL_RCGCGPIO_R, mask);
+        while volatile_load(reg::SYSCTL_RCGCGPIO_R) != mask {
+            nop();
+        }
     }
-    nop();
-    nop();
-    nop();
 }
 
 fn force_gpio_periph(pinport: PinPort, gpio_reg: &mut reg::GpioRegisters) {

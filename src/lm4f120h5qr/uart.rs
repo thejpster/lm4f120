@@ -7,7 +7,7 @@
 // ****************************************************************************
 
 use core::fmt;
-use core::intrinsics::volatile_store;
+use core::intrinsics::{volatile_load, volatile_store};
 
 use cortex_m::asm::nop;
 
@@ -139,9 +139,9 @@ impl Uart {
     /// Enable the module in the real-time clock gating registers.
     unsafe fn enable_clock(&mut self) {
         volatile_store(reg::SYSCTL_RCGCUART_R, self.get_clock_gating_mask());
-        nop();
-        nop();
-        nop();
+        while volatile_load(reg::SYSCTL_RCGCUART_R) != self.get_clock_gating_mask() {
+            nop();
+        }
     }
 
     /// Emit a single octet, busy-waiting if the FIFO is full

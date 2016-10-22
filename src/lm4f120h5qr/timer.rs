@@ -12,7 +12,7 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::volatile_store;
+use core::intrinsics::{volatile_load, volatile_store};
 
 use cortex_m::asm::nop;
 
@@ -139,9 +139,9 @@ impl Timer {
 
     unsafe fn enable_clock(&mut self) {
         volatile_store(reg::SYSCTL_RCGCTIMER_R, self.get_clock_gating_mask());
-        nop();
-        nop();
-        nop();
+        while volatile_load(reg::SYSCTL_RCGCTIMER_R) != self.get_clock_gating_mask() {
+            nop();
+        }
     }
 
     /// Activate the PWM output, with the specified period (in clock ticks)
