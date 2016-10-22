@@ -12,8 +12,11 @@
 //
 // ****************************************************************************
 
+use core::intrinsics::volatile_store;
+
+use cortex_m::asm::nop;
+
 use super::registers as reg;
-use common;
 
 // ****************************************************************************
 //
@@ -123,28 +126,22 @@ impl Timer {
         unsafe { self.enable_clock() }
     }
 
+    fn get_clock_gating_mask(&self) -> usize {
+        match self.id {
+            TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => reg::SYSCTL_RCGCTIMER_R0,
+            TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => reg::SYSCTL_RCGCTIMER_R1,
+            TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => reg::SYSCTL_RCGCTIMER_R2,
+            TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => reg::SYSCTL_RCGCTIMER_R3,
+            TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => reg::SYSCTL_RCGCTIMER_R4,
+            TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => reg::SYSCTL_RCGCTIMER_R5,
+        }
+    }
+
     unsafe fn enable_clock(&mut self) {
-        common::read_set_write_settle(reg::SYSCTL_RCGCTIMER_R,
-                                      match self.id {
-                                          TimerId::Timer0A | TimerId::Timer0B | TimerId::Timer0 => {
-                                              reg::SYSCTL_RCGCTIMER_R0
-                                          }
-                                          TimerId::Timer1A | TimerId::Timer1B | TimerId::Timer1 => {
-                                              reg::SYSCTL_RCGCTIMER_R1
-                                          }
-                                          TimerId::Timer2A | TimerId::Timer2B | TimerId::Timer2 => {
-                                              reg::SYSCTL_RCGCTIMER_R2
-                                          }
-                                          TimerId::Timer3A | TimerId::Timer3B | TimerId::Timer3 => {
-                                              reg::SYSCTL_RCGCTIMER_R3
-                                          }
-                                          TimerId::Timer4A | TimerId::Timer4B | TimerId::Timer4 => {
-                                              reg::SYSCTL_RCGCTIMER_R4
-                                          }
-                                          TimerId::Timer5A | TimerId::Timer5B | TimerId::Timer5 => {
-                                              reg::SYSCTL_RCGCTIMER_R5
-                                          }
-                                      });
+        volatile_store(reg::SYSCTL_RCGCTIMER_R, self.get_clock_gating_mask());
+        nop();
+        nop();
+        nop();
     }
 
     /// Activate the PWM output, with the specified period (in clock ticks)

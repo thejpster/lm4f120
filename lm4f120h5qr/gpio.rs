@@ -8,9 +8,12 @@
 //
 // ****************************************************************************
 
+use core::intrinsics::volatile_store;
+
+use cortex_m::asm::nop;
+
 use super::registers as reg;
 use super::uart::UartId;
-use common;
 
 // ****************************************************************************
 //
@@ -284,8 +287,11 @@ fn get_pctl_mask(pinport: PinPort) -> usize {
 fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
-        common::read_set_write_settle(reg::SYSCTL_RCGCGPIO_R, mask);
+        volatile_store(reg::SYSCTL_RCGCGPIO_R, mask);
     }
+    nop();
+    nop();
+    nop();
 }
 
 fn force_gpio_periph(pinport: PinPort, gpio_reg: &mut reg::GpioRegisters) {

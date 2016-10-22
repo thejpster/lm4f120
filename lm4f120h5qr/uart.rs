@@ -6,12 +6,15 @@
 //
 // ****************************************************************************
 
-use super::registers as reg;
+use core::fmt;
+use core::intrinsics::volatile_store;
+
+use cortex_m::asm::nop;
+
 use super::gpio;
 use super::pll;
-use common;
-use core;
-use cortex_m::asm::nop;
+use super::registers as reg;
+
 
 // ****************************************************************************
 //
@@ -119,19 +122,26 @@ impl Uart {
         }
     }
 
+    /// Select which bits to enable in the clock gating register
+    fn get_clock_gating_mask(&self) -> usize {
+        match self.id {
+            UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
+            UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
+            UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
+            UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
+            UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
+            UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
+            UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
+            UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
+        }
+    }
+
     /// Enable the module in the real-time clock gating registers.
     unsafe fn enable_clock(&mut self) {
-        common::read_set_write_settle(reg::SYSCTL_RCGCUART_R,
-                                      match self.id {
-                                          UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
-                                          UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
-                                          UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
-                                          UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
-                                          UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
-                                          UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
-                                          UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
-                                          UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
-                                      });
+        volatile_store(reg::SYSCTL_RCGCUART_R, self.get_clock_gating_mask());
+        nop();
+        nop();
+        nop();
     }
 
     /// Emit a single octet, busy-waiting if the FIFO is full
@@ -154,8 +164,8 @@ impl Uart {
 }
 
 /// Allows the Uart to be passed to 'write!()' and friends.
-impl core::fmt::Write for Uart {
-    fn write_str(&mut self, s: &str) -> core::fmt::Result {
+impl fmt::Write for Uart {
+    fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.nl_mode {
             NewlineMode::Binary => {
                 for byte in s.bytes() {
