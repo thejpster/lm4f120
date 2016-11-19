@@ -2,6 +2,7 @@
 
 #![feature(asm)]
 #![feature(core_intrinsics)]
+#![feature(never_type)]
 #![no_std]
 
 // ****************************************************************************
@@ -15,6 +16,7 @@ extern crate cortex_m;
 #[macro_use]
 extern crate lazy_static;
 extern crate volatile_register;
+extern crate embedded_serial;
 
 pub mod gpio;
 pub mod pll;

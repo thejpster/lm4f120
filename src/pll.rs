@@ -48,7 +48,7 @@ pub const CRYSTAL_CLOCK_HZ: usize = 16_000_000;
 //
 // ****************************************************************************
 
-static mut g_clockspeed: ClockSpeed = ClockSpeed::Speed16MHz;
+static mut CURRENT_CLOCKSPEED: ClockSpeed = ClockSpeed::Speed16MHz;
 
 // ****************************************************************************
 //
@@ -109,13 +109,13 @@ pub fn init(speed: ClockSpeed) {
             volatile_store(registers::SYSCTL_RCC_R, rcc);
         }
 
-        g_clockspeed = speed;
+        CURRENT_CLOCKSPEED = speed;
     }
 }
 
 /// Get the current clock speed in Hertz
 pub fn get_clock_hz() -> u32 {
-    match unsafe { &g_clockspeed } {
+    match unsafe { &CURRENT_CLOCKSPEED } {
         &ClockSpeed::Speed16MHz => 16_000_000,
         &ClockSpeed::Speed66MHz => 400_000_000 / 6,
     }

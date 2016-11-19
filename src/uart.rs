@@ -9,6 +9,7 @@
 use core::fmt;
 use core::intrinsics::{volatile_load, volatile_store};
 
+use embedded_serial::{self, BlockingTx, NonBlockingRx};
 use cortex_m::asm::nop;
 
 use super::gpio;
@@ -144,21 +145,36 @@ impl Uart {
         }
     }
 
-    /// Emit a single octet, busy-waiting if the FIFO is full
-    pub fn putc(&mut self, value: u8) {
+    #[deprecated]
+    pub fn read_single(&mut self) -> Option<u8> {
+        self.getc_try().ok()
+    }
+}
+
+impl embedded_serial::BlockingTx for Uart {
+    type Error = !;
+
+    /// Emit a single octet, busy-waiting if the FIFO is full.
+    /// Never returns `Err`.
+    fn putc(&mut self, value: u8) -> Result<(), Self::Error>{
         while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
             nop();
         }
         self.reg.data.write(value as usize);
+        Ok(())
     }
+}
 
-    /// Attempts to read from the UART. Returns 'None'
-    /// if the FIFO is empty, or 'Some(octet)'.
-    pub fn read_single(&mut self) -> Option<u8> {
+impl embedded_serial::NonBlockingRx for Uart {
+    type Error = ();
+
+    /// Attempts to read from the UART. Returns `Err(())`
+    /// if the FIFO is empty, or `Ok(octet)`.
+    fn getc_try(&mut self) -> Result<u8, Self::Error> {
         if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
-            None
+            Err(())
         } else {
-            Some(self.reg.data.read() as u8)
+            Ok(self.reg.data.read() as u8)
         }
     }
 }
@@ -169,16 +185,16 @@ impl fmt::Write for Uart {
         match self.nl_mode {
             NewlineMode::Binary => {
                 for byte in s.bytes() {
-                    self.putc(byte)
+                    self.putc(byte).unwrap()
                 }
             }
             NewlineMode::SwapLFtoCRLF => {
                 for byte in s.bytes() {
                     if byte == 0x0A {
                         // Prefix every \n with a \r
-                        self.putc(0x0D)
+                        self.putc(0x0D).unwrap()
                     }
-                    self.putc(byte)
+                    self.putc(byte).unwrap()
                 }
             }
         }

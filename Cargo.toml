@@ -10,8 +10,7 @@ url = "https://github.com/thejpster/lm4f120"
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
-version = "0.1.1"
-
+version = "0.2.0"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
@@ -24,8 +23,9 @@ debug = true
 lto = true
 
 [dependencies]
-cortex-m = "^0.1.4"
-volatile-register = "^0.1.2"
+cortex-m = "0.1.4"
+volatile-register = "0.1.2"
+embedded-serial = "0.3.0"
 
 [dependencies.lazy_static]
 version = "^0.2"
