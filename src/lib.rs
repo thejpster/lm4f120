@@ -1,4 +1,4 @@
-//! CPU definitions for the LM4F120
+//! CPU definitions for the Freescale Kinetis KE06Z
 
 #![feature(asm)]
 #![feature(core_intrinsics)]
@@ -13,8 +13,6 @@
 
 #[macro_use]
 extern crate cortex_m;
-#[macro_use]
-extern crate lazy_static;
 extern crate volatile_register;
 extern crate embedded_serial;
 

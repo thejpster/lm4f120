@@ -11,7 +11,6 @@
 //
 // ****************************************************************************
 
-use core::sync::atomic::{AtomicUsize, Ordering, ATOMIC_USIZE_INIT};
 use cortex_m::peripheral as cm_periph;
 
 // ****************************************************************************
@@ -31,10 +30,8 @@ use cortex_m::peripheral as cm_periph;
 /// SysTick is a 24-bit timer
 pub const SYSTICK_MAX: usize = (1 << 24) - 1;
 
-lazy_static! {
-    /// total number of times SysTick has wrapped
-    pub static ref SYSTICK_WRAP_COUNT:AtomicUsize = ATOMIC_USIZE_INIT;
-}
+/// total number of times SysTick has wrapped
+pub static mut SYSTICK_WRAP_COUNT:usize = 0;
 
 // ****************************************************************************
 //
@@ -81,12 +78,16 @@ pub fn init() {
 /// Should be attached to the SysTick vector in the interrupt vector table.
 /// Called when SysTick hits zero. Increments an overflow counter atomically.
 pub fn isr() {
-    SYSTICK_WRAP_COUNT.fetch_add(1, Ordering::Relaxed);
+    unsafe {
+        SYSTICK_WRAP_COUNT = SYSTICK_WRAP_COUNT + 1;
+    }
 }
 
 /// Returns how many times SysTick has overflowed.
 pub fn get_overflows() -> usize {
-    SYSTICK_WRAP_COUNT.load(Ordering::Relaxed)
+    unsafe {
+        SYSTICK_WRAP_COUNT
+    }
 }
 
 /// Gets the current SysTick value

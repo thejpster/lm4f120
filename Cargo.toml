@@ -5,12 +5,12 @@ authors = [
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
 	"Marc Brinkmann"
 ]
-description = "A set of drivers for writing bare-metal code for the Texas Instruments LM4F120."
+description = "A set of drivers for writing bare-metal code for the Freescale Kinetis KE06Z."
 homepage = "https://github.com/thejpster/lm4f120"
-keywords = ["arm", "bare-metal", "blink", "lm4f120"]
+keywords = ["arm", "bare-metal", "blink", "ke06z"]
 license = "MIT"
-name = "lm4f120"
-version = "0.2.0"
+name = "ke06z"
+version = "0.1.0"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
@@ -26,7 +26,3 @@ lto = true
 cortex-m = "0.1.4"
 volatile-register = "0.1.2"
 embedded-serial = "0.3.0"
-
-[dependencies.lazy_static]
-version = "^0.2"
-features = ["spin_no_std"]
