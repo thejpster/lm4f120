@@ -30,11 +30,6 @@ pub enum UartId {
     Uart0,
     Uart1,
     Uart2,
-    Uart3,
-    Uart4,
-    Uart5,
-    Uart6,
-    Uart7,
 }
 
 /// Controls a single UART
@@ -129,11 +124,6 @@ impl Uart {
             UartId::Uart0 => reg::SYSCTL_RCGCUART_R0,
             UartId::Uart1 => reg::SYSCTL_RCGCUART_R1,
             UartId::Uart2 => reg::SYSCTL_RCGCUART_R2,
-            UartId::Uart3 => reg::SYSCTL_RCGCUART_R3,
-            UartId::Uart4 => reg::SYSCTL_RCGCUART_R4,
-            UartId::Uart5 => reg::SYSCTL_RCGCUART_R5,
-            UartId::Uart6 => reg::SYSCTL_RCGCUART_R6,
-            UartId::Uart7 => reg::SYSCTL_RCGCUART_R7,
         }
     }
 
@@ -218,11 +208,6 @@ fn get_uart_registers(uart_id: UartId) -> &'static mut reg::UartRegisters {
             UartId::Uart0 => &mut *(reg::UART0_DR_R as *mut reg::UartRegisters),
             UartId::Uart1 => &mut *(reg::UART1_DR_R as *mut reg::UartRegisters),
             UartId::Uart2 => &mut *(reg::UART2_DR_R as *mut reg::UartRegisters),
-            UartId::Uart3 => &mut *(reg::UART3_DR_R as *mut reg::UartRegisters),
-            UartId::Uart4 => &mut *(reg::UART4_DR_R as *mut reg::UartRegisters),
-            UartId::Uart5 => &mut *(reg::UART5_DR_R as *mut reg::UartRegisters),
-            UartId::Uart6 => &mut *(reg::UART6_DR_R as *mut reg::UartRegisters),
-            UartId::Uart7 => &mut *(reg::UART7_DR_R as *mut reg::UartRegisters),
         }
     }
 }

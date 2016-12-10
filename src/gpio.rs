@@ -1,4 +1,4 @@
-//! # GPIO for the TI LM4F120H5QR
+//! # GPIO for the Freescale KE06Z
 //!
 //! Supports GPIO, mapping in a UART and putting pins in Timer mode.
 
@@ -46,6 +46,9 @@ pub enum PinPort {
     PortD(Pin),
     PortE(Pin),
     PortF(Pin),
+    PortG(Pin),
+    PortH(Pin),
+    PortI(Pin),
 }
 
 /// Describes a pin's direction
@@ -142,21 +145,6 @@ pub fn enable_uart(id: UartId) {
         UartId::Uart2 => {
             unimplemented!();
         }
-        UartId::Uart3 => {
-            unimplemented!();
-        }
-        UartId::Uart4 => {
-            unimplemented!();
-        }
-        UartId::Uart5 => {
-            unimplemented!();
-        }
-        UartId::Uart6 => {
-            unimplemented!();
-        }
-        UartId::Uart7 => {
-            unimplemented!();
-        }
     }
 }
 
@@ -237,6 +225,9 @@ fn get_port_mask(port: PinPort) -> usize {
         PinPort::PortD(_) => 1 << 3,
         PinPort::PortE(_) => 1 << 4,
         PinPort::PortF(_) => 1 << 5,
+        PinPort::PortG(_) => 1 << 6,
+        PinPort::PortH(_) => 1 << 7,
+        PinPort::PortI(_) => 1 << 8,
     }
 }
 
@@ -250,16 +241,19 @@ fn get_pin_mask(pinport: PinPort) -> usize {
         PinPort::PortD(ref x) => x,
         PinPort::PortE(ref x) => x,
         PinPort::PortF(ref x) => x,
+        PinPort::PortG(ref x) => x,
+        PinPort::PortH(ref x) => x,
+        PinPort::PortI(ref x) => x,
     };
     match *pin {
-        Pin::Pin0 => 1 << 0 as usize,
-        Pin::Pin1 => 1 << 1 as usize,
-        Pin::Pin2 => 1 << 2 as usize,
-        Pin::Pin3 => 1 << 3 as usize,
-        Pin::Pin4 => 1 << 4 as usize,
-        Pin::Pin5 => 1 << 5 as usize,
-        Pin::Pin6 => 1 << 6 as usize,
-        Pin::Pin7 => 1 << 7 as usize,
+        Pin::Pin0 => 1 << 0,
+        Pin::Pin1 => 1 << 1,
+        Pin::Pin2 => 1 << 2,
+        Pin::Pin3 => 1 << 3,
+        Pin::Pin4 => 1 << 4,
+        Pin::Pin5 => 1 << 5,
+        Pin::Pin6 => 1 << 6,
+        Pin::Pin7 => 1 << 7,
     }
 }
 
@@ -271,6 +265,9 @@ fn get_pctl_mask(pinport: PinPort) -> usize {
         PinPort::PortD(ref x) => x,
         PinPort::PortE(ref x) => x,
         PinPort::PortF(ref x) => x,
+        PinPort::PortG(ref x) => x,
+        PinPort::PortH(ref x) => x,
+        PinPort::PortI(ref x) => x,
     };
     match *pin {
         Pin::Pin0 => 7 << 0 as usize,
@@ -365,6 +362,9 @@ fn get_port_registers(port: PinPort) -> &'static mut reg::GpioRegisters {
             PinPort::PortD(_) => &mut *(reg::GPIO_PORTD_DATA_BITS_R as *mut reg::GpioRegisters),
             PinPort::PortE(_) => &mut *(reg::GPIO_PORTE_DATA_BITS_R as *mut reg::GpioRegisters),
             PinPort::PortF(_) => &mut *(reg::GPIO_PORTF_DATA_BITS_R as *mut reg::GpioRegisters),
+            PinPort::PortG(_) => &mut *(reg::GPIO_PORTF_DATA_BITS_R as *mut reg::GpioRegisters),
+            PinPort::PortH(_) => &mut *(reg::GPIO_PORTF_DATA_BITS_R as *mut reg::GpioRegisters),
+            PinPort::PortI(_) => &mut *(reg::GPIO_PORTF_DATA_BITS_R as *mut reg::GpioRegisters),
         }
     }
 }
