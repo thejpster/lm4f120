@@ -165,6 +165,34 @@ impl embedded_serial::BlockingTx for Uart {
     }
 }
 
+impl embedded_serial::NonBlockingTx for Uart {
+    type Error = ();
+
+    /// Attempts to write to the UART. Returns `Err(())`
+    /// if the transmit not ready, or `Ok(())`.
+    fn putc_try(&mut self, value: u8) -> Result<(), Self::Error>{
+        if (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
+            Err(())
+        } else {
+            self.reg.data.write(value as usize);
+            Ok(())
+        }
+    }
+}
+
+impl embedded_serial::BlockingRx for Uart {
+    type Error = !;
+
+    /// Attempts to read from the UART. Returns `Err(())`
+    /// if the FIFO is empty, or `Ok(octet)`.
+    fn getc(&mut self) -> Result<u8, Self::Error> {
+        while (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
+            nop();
+        }
+        Ok(self.reg.data.read() as u8)
+    }
+}
+
 impl embedded_serial::NonBlockingRx for Uart {
     type Error = ();
 
