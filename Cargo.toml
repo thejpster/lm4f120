@@ -3,6 +3,7 @@ authors = [
 	"Michael Daffin <michael@daffin.io>",
 	"Philipp Oppermann <dev@phil-opp.com>",
 	"Jonathan 'theJPster' Pallant <github@thejpster.org.uk>",
+	"Andrew Straw <strawman@astraw.com>",
 	"Marc Brinkmann"
 ]
 description = "A set of drivers for writing bare-metal code for the Texas Instruments LM4F120."
@@ -10,7 +11,7 @@ homepage = "https://github.com/thejpster/lm4f120"
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
-version = "0.2.0"
+version = "0.3.0"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
