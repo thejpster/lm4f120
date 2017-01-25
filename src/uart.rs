@@ -183,8 +183,7 @@ impl embedded_serial::NonBlockingTx for Uart {
 impl embedded_serial::BlockingRx for Uart {
     type Error = !;
 
-    /// Attempts to read from the UART. Returns `Err(())`
-    /// if the FIFO is empty, or `Ok(octet)`.
+    /// Reads from the UART. Never returns `Err`.
     fn getc(&mut self) -> Result<u8, Self::Error> {
         while (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
             nop();
