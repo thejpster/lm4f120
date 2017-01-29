@@ -7,11 +7,12 @@ authors = [
 	"Marc Brinkmann"
 ]
 description = "A set of drivers for writing bare-metal code for the Texas Instruments LM4F120."
-homepage = "https://github.com/thejpster/lm4f120"
+repository = "https://github.com/thejpster/lm4f120"
 keywords = ["arm", "bare-metal", "blink", "lm4f120"]
 license = "MIT"
 name = "lm4f120"
-version = "0.3.0"
+version = "0.4.0"
+homepage = "https://www.thejpster.org.uk"
 
 # The development profile, used for `cargo build`.
 [profile.dev]
@@ -26,7 +27,7 @@ lto = true
 [dependencies]
 cortex-m = "0.1.4"
 volatile-register = "0.1.2"
-embedded-serial = "0.3.0"
+embedded-serial = "0.4.0"
 
 [dependencies.lazy_static]
 version = "^0.2"

@@ -11,7 +11,6 @@
 //
 // ****************************************************************************
 
-#[macro_use]
 extern crate cortex_m;
 #[macro_use]
 extern crate lazy_static;

@@ -147,7 +147,7 @@ impl Uart {
 
     #[deprecated]
     pub fn read_single(&mut self) -> Option<u8> {
-        self.getc_try().ok()
+        self.getc_try().unwrap()
     }
 }
 
@@ -166,16 +166,16 @@ impl embedded_serial::BlockingTx for Uart {
 }
 
 impl embedded_serial::NonBlockingTx for Uart {
-    type Error = ();
+    type Error = !;
 
     /// Attempts to write to the UART. Returns `Err(())`
     /// if the transmit not ready, or `Ok(())`.
-    fn putc_try(&mut self, value: u8) -> Result<(), Self::Error>{
+    fn putc_try(&mut self, value: u8) -> Result<Option<()>, Self::Error>{
         if (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
-            Err(())
+            Ok(None)
         } else {
             self.reg.data.write(value as usize);
-            Ok(())
+            Ok(Some(()))
         }
     }
 }
@@ -193,15 +193,15 @@ impl embedded_serial::BlockingRx for Uart {
 }
 
 impl embedded_serial::NonBlockingRx for Uart {
-    type Error = ();
+    type Error = !;
 
     /// Attempts to read from the UART. Returns `Err(())`
     /// if the FIFO is empty, or `Ok(octet)`.
-    fn getc_try(&mut self) -> Result<u8, Self::Error> {
+    fn getc_try(&mut self) -> Result<Option<u8>, Self::Error> {
         if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
-            Err(())
+            Ok(None)
         } else {
-            Ok(self.reg.data.read() as u8)
+            Ok(Some(self.reg.data.read() as u8))
         }
     }
 }
