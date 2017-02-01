@@ -147,7 +147,7 @@ impl Uart {
 
     #[deprecated]
     pub fn read_single(&mut self) -> Option<u8> {
-        self.getc_try().unwrap()
+        self.getc().unwrap()
     }
 }
 
@@ -168,14 +168,14 @@ impl embedded_serial::BlockingTx for Uart {
 impl embedded_serial::NonBlockingTx for Uart {
     type Error = !;
 
-    /// Attempts to write to the UART. Returns `Err(())`
-    /// if the transmit not ready, or `Ok(())`.
-    fn putc_try(&mut self, value: u8) -> Result<Option<()>, Self::Error>{
+    /// Attempts to write to the UART. Returns `Ok(None)` if the transmiter
+    /// not ready, or `Ok(Some(value))`. Never returns `Err`.
+    fn putc(&mut self, value: u8) -> Result<Option<u8>, Self::Error>{
         if (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
             Ok(None)
         } else {
             self.reg.data.write(value as usize);
-            Ok(Some(()))
+            Ok(Some(value))
         }
     }
 }
@@ -183,7 +183,8 @@ impl embedded_serial::NonBlockingTx for Uart {
 impl embedded_serial::BlockingRx for Uart {
     type Error = !;
 
-    /// Reads from the UART. Never returns `Err`.
+    /// Read a single octet, busy-waiting if the FIFO is empty.
+    /// Never returns `Err`.
     fn getc(&mut self) -> Result<u8, Self::Error> {
         while (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
             nop();
@@ -195,9 +196,9 @@ impl embedded_serial::BlockingRx for Uart {
 impl embedded_serial::NonBlockingRx for Uart {
     type Error = !;
 
-    /// Attempts to read from the UART. Returns `Err(())`
-    /// if the FIFO is empty, or `Ok(octet)`.
-    fn getc_try(&mut self) -> Result<Option<u8>, Self::Error> {
+    /// Attempts to read from the UART. Returns `Ok(None)` if the FIFO is
+    /// empty, or `Ok(octet)`. Never returns `Err`.
+    fn getc(&mut self) -> Result<Option<u8>, Self::Error> {
         if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
             Ok(None)
         } else {
