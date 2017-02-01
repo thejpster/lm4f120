@@ -147,7 +147,7 @@ impl Uart {
 
     #[deprecated]
     pub fn read_single(&mut self) -> Option<u8> {
-        self.getc().unwrap()
+        self.getc_try().unwrap()
     }
 }
 
@@ -170,7 +170,7 @@ impl embedded_serial::NonBlockingTx for Uart {
 
     /// Attempts to write to the UART. Returns `Ok(None)` if the transmiter
     /// not ready, or `Ok(Some(value))`. Never returns `Err`.
-    fn putc(&mut self, value: u8) -> Result<Option<u8>, Self::Error>{
+    fn putc_try(&mut self, value: u8) -> Result<Option<u8>, Self::Error>{
         if (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
             Ok(None)
         } else {
@@ -198,7 +198,7 @@ impl embedded_serial::NonBlockingRx for Uart {
 
     /// Attempts to read from the UART. Returns `Ok(None)` if the FIFO is
     /// empty, or `Ok(octet)`. Never returns `Err`.
-    fn getc(&mut self) -> Result<Option<u8>, Self::Error> {
+    fn getc_try(&mut self) -> Result<Option<u8>, Self::Error> {
         if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
             Ok(None)
         } else {
@@ -212,9 +212,7 @@ impl fmt::Write for Uart {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.nl_mode {
             NewlineMode::Binary => {
-                for byte in s.bytes() {
-                    self.putc(byte).unwrap()
-                }
+                self.puts(s).unwrap()
             }
             NewlineMode::SwapLFtoCRLF => {
                 for byte in s.bytes() {
