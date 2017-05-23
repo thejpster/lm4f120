@@ -16,6 +16,7 @@ use super::gpio;
 use super::pll;
 use super::registers as reg;
 
+use tm4c123x::uart0;
 
 // ****************************************************************************
 //
@@ -43,7 +44,7 @@ pub struct Uart {
     id: UartId,
     baud: u32,
     nl_mode: NewlineMode,
-    reg: &'static mut reg::UartRegisters,
+    reg: &'static uart0::RegisterBlock,
 }
 
 /// writeln!() emits LF chars, so this is useful
@@ -105,21 +106,25 @@ impl Uart {
             self.enable_clock();
 
             // Disable UART and all features
-            self.reg.ctl.write(0);
+            self.reg.ctl.reset();
             // Calculate the baud rate values
             // baud_div = CLOCK_RATE / (16 * baud_rate);
             // baud_int = round(baud_div * 64)
             let baud_int: u32 = (((pll::get_clock_hz() * 8) / self.baud) + 1) / 2;
             // Store the upper and lower parts of the divider
-            self.reg.ibrd.write((baud_int / 64) as usize);
-            self.reg.fbrd.write((baud_int % 64) as usize);
+            self.reg
+                .ibrd
+                .write(|w| w.divint().bits((baud_int / 64) as u16));
+            self.reg
+                .fbrd
+                .write(|w| w.divfrac().bits((baud_int % 64) as u8));
             // Set the UART Line Control register value
             // 8N1 + FIFO enabled
-            self.reg.lcrh.write(reg::UART_LCRH_WLEN_8 | reg::UART_LCRH_FEN);
-            // Clear the flags
-            self.reg.rf.write(0);
+            self.reg.lcrh.write(|w| w.wlen()._8().fen().bit(true));
             // Enable
-            self.reg.ctl.write(reg::UART_CTL_RXE | reg::UART_CTL_TXE | reg::UART_CTL_UARTEN);
+            self.reg
+                .ctl
+                .write(|w| w.rxe().bit(true).txe().bit(true).uarten().bit(true));
         }
     }
 
@@ -156,11 +161,11 @@ impl embedded_serial::BlockingTx for Uart {
 
     /// Emit a single octet, busy-waiting if the FIFO is full.
     /// Never returns `Err`.
-    fn putc(&mut self, value: u8) -> Result<(), Self::Error>{
-        while (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
+    fn putc(&mut self, value: u8) -> Result<(), Self::Error> {
+        while self.reg.fr.read().txff().bit() {
             nop();
         }
-        self.reg.data.write(value as usize);
+        self.reg.dr.write(|w| unsafe { w.data().bits(value) });
         Ok(())
     }
 }
@@ -170,11 +175,11 @@ impl embedded_serial::NonBlockingTx for Uart {
 
     /// Attempts to write to the UART. Returns `Ok(None)` if the transmiter
     /// not ready, or `Ok(Some(value))`. Never returns `Err`.
-    fn putc_try(&mut self, value: u8) -> Result<Option<u8>, Self::Error>{
-        if (self.reg.rf.read() & reg::UART_FR_TXFF) != 0 {
+    fn putc_try(&mut self, value: u8) -> Result<Option<u8>, Self::Error> {
+        if self.reg.fr.read().txff().bit() {
             Ok(None)
         } else {
-            self.reg.data.write(value as usize);
+            self.reg.dr.write(|w| unsafe { w.data().bits(value) });
             Ok(Some(value))
         }
     }
@@ -186,10 +191,10 @@ impl embedded_serial::BlockingRx for Uart {
     /// Read a single octet, busy-waiting if the FIFO is empty.
     /// Never returns `Err`.
     fn getc(&mut self) -> Result<u8, Self::Error> {
-        while (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
+        while self.reg.fr.read().rxfe().bit() {
             nop();
         }
-        Ok(self.reg.data.read() as u8)
+        Ok(self.reg.dr.read().data().bits())
     }
 }
 
@@ -199,10 +204,10 @@ impl embedded_serial::NonBlockingRx for Uart {
     /// Attempts to read from the UART. Returns `Ok(None)` if the FIFO is
     /// empty, or `Ok(octet)`. Never returns `Err`.
     fn getc_try(&mut self) -> Result<Option<u8>, Self::Error> {
-        if (self.reg.rf.read() & reg::UART_FR_RXFE) != 0 {
+        if self.reg.fr.read().rxfe().bit() {
             Ok(None)
         } else {
-            Ok(Some(self.reg.data.read() as u8))
+            Ok(Some(self.reg.dr.read().data().bits()))
         }
     }
 }
@@ -211,9 +216,7 @@ impl embedded_serial::NonBlockingRx for Uart {
 impl fmt::Write for Uart {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.nl_mode {
-            NewlineMode::Binary => {
-                self.puts(s).unwrap()
-            }
+            NewlineMode::Binary => self.puts(s).unwrap(),
             NewlineMode::SwapLFtoCRLF => {
                 for byte in s.bytes() {
                     if byte == 0x0A {
@@ -238,17 +241,18 @@ pub unsafe extern "C" fn uart0_isr() {}
 // ****************************************************************************
 
 /// Get a reference to the UART control register struct in the chip.
-fn get_uart_registers(uart_id: UartId) -> &'static mut reg::UartRegisters {
+fn get_uart_registers(uart_id: UartId) -> &'static uart0::RegisterBlock {
+    use tm4c123x::{UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7};
     unsafe {
         match uart_id {
-            UartId::Uart0 => &mut *(reg::UART0_DR_R as *mut reg::UartRegisters),
-            UartId::Uart1 => &mut *(reg::UART1_DR_R as *mut reg::UartRegisters),
-            UartId::Uart2 => &mut *(reg::UART2_DR_R as *mut reg::UartRegisters),
-            UartId::Uart3 => &mut *(reg::UART3_DR_R as *mut reg::UartRegisters),
-            UartId::Uart4 => &mut *(reg::UART4_DR_R as *mut reg::UartRegisters),
-            UartId::Uart5 => &mut *(reg::UART5_DR_R as *mut reg::UartRegisters),
-            UartId::Uart6 => &mut *(reg::UART6_DR_R as *mut reg::UartRegisters),
-            UartId::Uart7 => &mut *(reg::UART7_DR_R as *mut reg::UartRegisters),
+            UartId::Uart0 => &*UART0.get(),
+            UartId::Uart1 => &*UART1.get(),
+            UartId::Uart2 => &*UART2.get(),
+            UartId::Uart3 => &*UART3.get(),
+            UartId::Uart4 => &*UART4.get(),
+            UartId::Uart5 => &*UART5.get(),
+            UartId::Uart6 => &*UART6.get(),
+            UartId::Uart7 => &*UART7.get(),
         }
     }
 }

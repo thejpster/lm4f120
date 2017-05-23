@@ -28,6 +28,7 @@ lto = true
 cortex-m = "0.1.4"
 volatile-register = "0.1.2"
 embedded-serial = "0.5.0"
+tm4c123x = "0.4.0"
 
 [dependencies.lazy_static]
 version = "^0.2"

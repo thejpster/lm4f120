@@ -16,6 +16,7 @@ extern crate cortex_m;
 extern crate lazy_static;
 extern crate volatile_register;
 extern crate embedded_serial;
+extern crate tm4c123x;
 
 pub mod gpio;
 pub mod pll;
