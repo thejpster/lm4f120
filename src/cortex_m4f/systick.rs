@@ -69,7 +69,7 @@ const NVIC_ST_CTRL_ENABLE: usize = 0x00000001; // Enable
 /// We configure SysTick to run at PIOSC / 4, with the full 24 bit range.
 pub fn init() {
     unsafe {
-        let syst = cm_periph::syst_mut();
+        let syst = &*cm_periph::SYST.get();
         syst.rvr.write(SYSTICK_MAX as u32);
         // A write to current resets the timer
         syst.cvr.write(0);
@@ -92,7 +92,7 @@ pub fn get_overflows() -> usize {
 
 /// Gets the current SysTick value
 pub fn get_ticks() -> usize {
-    cm_periph::syst().cvr.read() as usize
+    unsafe { (*cm_periph::SYST.get()).cvr.read() as usize }
 }
 
 /// Returns (overflows, ticks), correctly handling the case that it overflowed

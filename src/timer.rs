@@ -148,47 +148,48 @@ impl Timer {
     /// Activate the PWM output, with the specified period (in clock ticks)
     pub fn enable_pwm(&mut self, period: u32) {
         self.period = period;
-
-        if self.use_timer_a() {
-            self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TAEN);
-            if self.is_double_width() {
-                self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
+        unsafe {
+            if self.use_timer_a() {
+                self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TAEN);
+                if self.is_double_width() {
+                    self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
+                } else {
+                    self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
+                }
+                self.reg
+                    .tamr
+                    .modify(|mut r| {
+                        r |= reg::TIMER_TAMR_TAAMS;
+                        r &= !reg::TIMER_TAMR_TACMR;
+                        r &= !reg::TIMER_TAMR_TAMR_M;
+                        r |= reg::TIMER_TAMR_TAMR_PERIOD;
+                        r |= reg::TIMER_TAMR_TAPWMIE;
+                        r |= reg::TIMER_TAMR_TAMRSU;
+                        r
+                    });
+                self.set_pwm(period);
+                self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TAEN);
             } else {
-                self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
+                self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TBEN);
+                if self.is_double_width() {
+                    self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
+                } else {
+                    self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
+                }
+                self.reg
+                    .tbmr
+                    .modify(|mut r| {
+                        r |= reg::TIMER_TBMR_TBAMS;
+                        r &= !reg::TIMER_TBMR_TBCMR;
+                        r &= !reg::TIMER_TBMR_TBMR_M;
+                        r |= reg::TIMER_TBMR_TBMR_PERIOD;
+                        r |= reg::TIMER_TBMR_TBPWMIE;
+                        r |= reg::TIMER_TBMR_TBMRSU;
+                        r
+                    });
+                self.set_pwm(period);
+                self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TBEN);
             }
-            self.reg
-                .tamr
-                .modify(|mut r| {
-                    r |= reg::TIMER_TAMR_TAAMS;
-                    r &= !reg::TIMER_TAMR_TACMR;
-                    r &= !reg::TIMER_TAMR_TAMR_M;
-                    r |= reg::TIMER_TAMR_TAMR_PERIOD;
-                    r |= reg::TIMER_TAMR_TAPWMIE;
-                    r |= reg::TIMER_TAMR_TAMRSU;
-                    r
-                });
-            self.set_pwm(period);
-            self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TAEN);
-        } else {
-            self.reg.ctl.modify(|r| r & !reg::TIMER_CTL_TBEN);
-            if self.is_double_width() {
-                self.reg.cfg.write(reg::TIMER_CFG_32_BIT_TIMER);
-            } else {
-                self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
-            }
-            self.reg
-                .tbmr
-                .modify(|mut r| {
-                    r |= reg::TIMER_TBMR_TBAMS;
-                    r &= !reg::TIMER_TBMR_TBCMR;
-                    r &= !reg::TIMER_TBMR_TBMR_M;
-                    r |= reg::TIMER_TBMR_TBMR_PERIOD;
-                    r |= reg::TIMER_TBMR_TBPWMIE;
-                    r |= reg::TIMER_TBMR_TBMRSU;
-                    r
-                });
-            self.set_pwm(period);
-            self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TBEN);
         }
     }
 
@@ -197,12 +198,14 @@ impl Timer {
         if on_time == 0 {
             on_time = 1;
         }
-        if self.use_timer_a() {
-            self.reg.tamatchr.write((self.period - on_time) as usize);
-            self.reg.tailr.write(self.period as usize);
-        } else {
-            self.reg.tbmatchr.write((self.period - on_time) as usize);
-            self.reg.tbilr.write(self.period as usize);
+        unsafe {
+            if self.use_timer_a() {
+                self.reg.tamatchr.write((self.period - on_time) as usize);
+                self.reg.tailr.write(self.period as usize);
+            } else {
+                self.reg.tbmatchr.write((self.period - on_time) as usize);
+                self.reg.tbilr.write(self.period as usize);
+            }
         }
     }
 
