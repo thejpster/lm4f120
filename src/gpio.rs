@@ -323,8 +323,8 @@ fn get_pctl_mask(pinport: PinPort) -> usize {
 fn enable_port(port: PinPort) {
     let mask = get_port_mask(port);
     unsafe {
-        volatile_store(reg::SYSCTL_RCGCGPIO_R, mask);
-        while volatile_load(reg::SYSCTL_RCGCGPIO_R) != mask {
+        volatile_store(reg::SYSCTL_RCGCGPIO_R, mask | volatile_load(reg::SYSCTL_RCGCGPIO_R));
+        while (volatile_load(reg::SYSCTL_RCGCGPIO_R) & mask) == 0 {
             nop();
         }
     }
