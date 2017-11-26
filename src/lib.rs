@@ -25,6 +25,7 @@ pub mod uart;
 pub mod timer;
 pub mod systick;
 pub mod cortex_m4f;
+pub mod flash;
 
 pub use cortex_m4f::fpu;
 
