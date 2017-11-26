@@ -112,19 +112,19 @@ impl Uart {
             // baud_int = round(baud_div * 64)
             let baud_int: u32 = (((pll::get_clock_hz() * 8) / self.baud) + 1) / 2;
             // Store the upper and lower parts of the divider
-            self.reg
-                .ibrd
-                .write(|w| w.divint().bits((baud_int / 64) as u16));
-            self.reg
-                .fbrd
-                .write(|w| w.divfrac().bits((baud_int % 64) as u8));
+            self.reg.ibrd.write(
+                |w| w.divint().bits((baud_int / 64) as u16),
+            );
+            self.reg.fbrd.write(
+                |w| w.divfrac().bits((baud_int % 64) as u8),
+            );
             // Set the UART Line Control register value
             // 8N1 + FIFO enabled
             self.reg.lcrh.write(|w| w.wlen()._8().fen().bit(true));
             // Enable
-            self.reg
-                .ctl
-                .write(|w| w.rxe().bit(true).txe().bit(true).uarten().bit(true));
+            self.reg.ctl.write(|w| {
+                w.rxe().bit(true).txe().bit(true).uarten().bit(true)
+            });
         }
     }
 

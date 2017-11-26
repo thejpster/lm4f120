@@ -156,17 +156,15 @@ impl Timer {
                 } else {
                     self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
                 }
-                self.reg
-                    .tamr
-                    .modify(|mut r| {
-                        r |= reg::TIMER_TAMR_TAAMS;
-                        r &= !reg::TIMER_TAMR_TACMR;
-                        r &= !reg::TIMER_TAMR_TAMR_M;
-                        r |= reg::TIMER_TAMR_TAMR_PERIOD;
-                        r |= reg::TIMER_TAMR_TAPWMIE;
-                        r |= reg::TIMER_TAMR_TAMRSU;
-                        r
-                    });
+                self.reg.tamr.modify(|mut r| {
+                    r |= reg::TIMER_TAMR_TAAMS;
+                    r &= !reg::TIMER_TAMR_TACMR;
+                    r &= !reg::TIMER_TAMR_TAMR_M;
+                    r |= reg::TIMER_TAMR_TAMR_PERIOD;
+                    r |= reg::TIMER_TAMR_TAPWMIE;
+                    r |= reg::TIMER_TAMR_TAMRSU;
+                    r
+                });
                 self.set_pwm(period);
                 self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TAEN);
             } else {
@@ -176,17 +174,15 @@ impl Timer {
                 } else {
                     self.reg.cfg.write(reg::TIMER_CFG_16_BIT);
                 }
-                self.reg
-                    .tbmr
-                    .modify(|mut r| {
-                        r |= reg::TIMER_TBMR_TBAMS;
-                        r &= !reg::TIMER_TBMR_TBCMR;
-                        r &= !reg::TIMER_TBMR_TBMR_M;
-                        r |= reg::TIMER_TBMR_TBMR_PERIOD;
-                        r |= reg::TIMER_TBMR_TBPWMIE;
-                        r |= reg::TIMER_TBMR_TBMRSU;
-                        r
-                    });
+                self.reg.tbmr.modify(|mut r| {
+                    r |= reg::TIMER_TBMR_TBAMS;
+                    r &= !reg::TIMER_TBMR_TBCMR;
+                    r &= !reg::TIMER_TBMR_TBMR_M;
+                    r |= reg::TIMER_TBMR_TBMR_PERIOD;
+                    r |= reg::TIMER_TBMR_TBPWMIE;
+                    r |= reg::TIMER_TBMR_TBMRSU;
+                    r
+                });
                 self.set_pwm(period);
                 self.reg.ctl.modify(|r| r | reg::TIMER_CTL_TBEN);
             }
