@@ -23,9 +23,13 @@ use tm4c123x;
 
 /// Represents an address in Flash memory. As flash memory starts at
 /// 0x0000_0000, flash addresses are equal to CPU physical addresses.
-pub struct FlashAddress(u32);
+pub struct FlashAddress(pub u32);
 
+#[derive(Debug)]
 pub enum Error {
+    /// A hardware error occured. The value is the
+    /// contents of the FCRIS register.
+    HardwareError(u32),
     /// Given address did not have the alignment
     /// specified here (as a u32).
     BadAlignment(u32),
@@ -58,8 +62,8 @@ pub enum Error {
 // ****************************************************************************
 
 // const PAGE_LENGTH: usize = 128;
-const FLASH_KEY: u16 = 0x71D5;
-// const FLASH_KEY: u16 = 0xA442;
+// const FLASH_KEY: u16 = 0x71D5;
+const FLASH_KEY: u16 = 0xA442;
 
 // ****************************************************************************
 //
@@ -71,47 +75,50 @@ const FLASH_KEY: u16 = 0x71D5;
 /// (i.e. a multiple of 1024).
 pub fn erase_page(address: FlashAddress) -> Result<(), Error> {
     if (address.0 & 1023) != 0 {
-        return Err(Error::BadAlignment(1024))
+        return Err(Error::BadAlignment(1024));
     }
 
     unsafe {
         let reg = get_registers();
+        clear_bits(reg);
         // Write the page address to the FMA register
         reg.fma.write(|w| w.offset().bits(address.0));
         // Write the flash memory key and the erase bit
-        reg.fmc.modify(|_, w| w.erase().bit(true).wrkey().bits(FLASH_KEY));
+        reg.fmc.modify(
+            |_, w| w.erase().bit(true).wrkey().bits(FLASH_KEY),
+        );
         // Poll the FMC register until the ERASE bit is cleared
         while reg.fmc.read().erase().bit() {
             nop();
         }
+        get_status(reg)
     }
-
-    Ok(())
 }
 
 /// Write a 32-bit value to flash at the given address. The address
 /// must be on a 4-byte boundary (i.e. a multiple of 4).
 pub fn write_word(address: FlashAddress, word: u32) -> Result<(), Error> {
     if (address.0 & 3) != 0 {
-        return Err(Error::BadAlignment(4))
+        return Err(Error::BadAlignment(4));
     }
 
     unsafe {
         let reg = get_registers();
-        // Write the data to the FMD register
-        reg.fmd.write(|w| w.data().bits(word));
+        clear_bits(reg);
         // Write the target address to the FMA register
         reg.fma.write(|w| w.offset().bits(address.0));
+        // Write the data to the FMD register
+        reg.fmd.write(|w| w.data().bits(word));
         // Write the flash memory key and the write bit
-        reg.fmc.modify(|_, w| w.write().bit(true).wrkey().bits(FLASH_KEY));
+        reg.fmc.modify(
+            |_, w| w.write().bit(true).wrkey().bits(FLASH_KEY),
+        );
         // Poll the FMC register until the WRITE bit is cleared
         while reg.fmc.read().write().bit() {
             nop();
         }
+        get_status(reg)
     }
-
-    Ok(())
-
 }
 
 /// Write a 128 byte buffer to flash at the given address. The address
@@ -152,10 +159,37 @@ pub fn write_word(address: FlashAddress, word: u32) -> Result<(), Error> {
 // Private Functions
 //
 // ****************************************************************************
-
 /// Get a reference to the UART control register struct in the chip.
 unsafe fn get_registers() -> &'static tm4c123x::flash_ctrl::RegisterBlock {
     &*tm4c123x::FLASH_CTRL.get()
+}
+
+/// Clear all the status bits
+fn clear_bits(reg: &'static tm4c123x::flash_ctrl::RegisterBlock) {
+    reg.fcmisc.write(|w| {
+        w.amisc()
+            .bit(true)
+            .voltmisc()
+            .bit(true)
+            .invdmisc()
+            .bit(true)
+            .progmisc()
+            .bit(true)
+            .ermisc()
+            .bit(true)
+    });
+}
+
+/// Get pass/fail from the controller
+fn get_status(reg: &'static tm4c123x::flash_ctrl::RegisterBlock) -> Result<(), Error> {
+    let fcris = reg.fcris.read();
+    if fcris.aris().bit() || fcris.voltris().bit() || fcris.invdris().bit() ||
+        fcris.progris().bit() || fcris.erris().bit()
+    {
+        Err(Error::HardwareError(fcris.bits()))
+    } else {
+        Ok(())
+    }
 }
 
 // ****************************************************************************
