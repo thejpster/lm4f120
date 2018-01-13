@@ -112,7 +112,7 @@ pub fn set(pinport: PinPort, level: Level) {
 pub fn read(pinport: PinPort) -> Level {
     let mask = get_pin_mask(pinport);
     let gpio_reg = get_port_registers(pinport);
-    if gpio_reg.data_mask[mask].read() == 0 {
+    if unsafe { gpio_reg.data_mask[mask].read() } == 0 {
         Level::Low
     } else {
         Level::High

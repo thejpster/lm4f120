@@ -17,18 +17,21 @@ homepage = "https://www.thejpster.org.uk"
 # The development profile, used for `cargo build`.
 [profile.dev]
 panic = "abort"
+incremental = false
+codegen-units = 1
 
 # The release profile, used for `cargo build --release`.
 [profile.release]
 panic = "abort"
 debug = true
-lto = true
+incremental = false
+codegen-units = 1
 
 [dependencies]
-cortex-m = "0.2.7"
-volatile-register = "0.2.0"
-embedded-serial = "0.5.0"
-tm4c123x = "0.4.0"
+cortex-m = "0.3"
+volatile-register = "0.2"
+embedded-serial = "0.5"
+tm4c123x = "0.4"
 
 [dependencies.lazy_static]
 version = "^0.2"

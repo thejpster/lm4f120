@@ -208,9 +208,9 @@ impl Timer {
     /// Read the current timer value
     pub fn get_timer(&self) -> u32 {
         if !self.use_timer_a() {
-            self.reg.tar.read() as u32
+            unsafe { self.reg.tar.read() as u32 }
         } else {
-            self.reg.tbr.read() as u32
+            unsafe { self.reg.tbr.read() as u32 }
         }
     }
 
