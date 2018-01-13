@@ -39,6 +39,14 @@ pub enum Error {
     BufferTooShort(usize),
 }
 
+#[derive(Debug)]
+pub enum ProtectMode {
+    ExecuteOnly,
+    ReadOnly,
+    ReadWrite
+}
+
+
 // ****************************************************************************
 //
 // Public Data
@@ -64,6 +72,11 @@ pub enum Error {
 // const PAGE_LENGTH: usize = 128;
 // const FLASH_KEY: u16 = 0x71D5;
 const FLASH_KEY: u16 = 0xA442;
+
+const FLASH_PROTECT_BLOCK_SIZE: u32 = 2048;
+const FLASH_PROTECT_NUM_BLOCKS: u32 = 32;
+const FLASH_PROTECT_BANK_SIZE: u32 = FLASH_PROTECT_BLOCK_SIZE * FLASH_PROTECT_NUM_BLOCKS;
+const FLASH_PROTECT_NUM_BANKS: u32 = 4;
 
 // ****************************************************************************
 //
@@ -119,6 +132,44 @@ pub fn write_word(address: FlashAddress, word: u32) -> Result<(), Error> {
         }
         get_status(reg)
     }
+}
+
+/// Get the protection status of the block containing the given address.
+pub fn get_protection(address: FlashAddress) -> ProtectMode {
+    let bank = (address.0 / FLASH_PROTECT_BANK_SIZE) % FLASH_PROTECT_NUM_BANKS;
+    let bank_offset = address.0 & (FLASH_PROTECT_BANK_SIZE - 1);
+    let block = bank_offset / FLASH_PROTECT_BLOCK_SIZE;
+    let reg = unsafe {
+        get_registers()
+    };
+
+    let read_bits = match bank {
+        0 => reg.fmpre0.read().bits(),
+        1 => reg.fmpre1.read().bits(),
+        2 => reg.fmpre2.read().bits(),
+        3 => reg.fmpre3.read().bits(),
+        _ => unreachable!(),
+    };
+    let exec_bits = match bank {
+        0 => reg.fmppe0.read().bits(),
+        1 => reg.fmppe1.read().bits(),
+        2 => reg.fmppe2.read().bits(),
+        3 => reg.fmppe3.read().bits(),
+        _ => unreachable!(),
+    };
+    let read_enabled = (read_bits & (1 << block)) == 1;
+    let exec_enabled = (exec_bits & (1 << block)) == 1;
+
+    if read_enabled {
+        if exec_enabled {
+            ProtectMode::ReadWrite
+        } else {
+            ProtectMode::ReadOnly
+        }
+    } else {
+        ProtectMode::ExecuteOnly
+    }
+
 }
 
 /// Write a 128 byte buffer to flash at the given address. The address
