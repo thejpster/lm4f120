@@ -6,7 +6,7 @@
 //
 // ****************************************************************************
 
-use core::intrinsics::{volatile_store, volatile_load};
+use core::intrinsics::{volatile_load, volatile_store};
 use cortex_m::asm::nop;
 use super::registers;
 
@@ -58,7 +58,6 @@ static mut CURRENT_CLOCKSPEED: ClockSpeed = ClockSpeed::Speed16MHz;
 
 /// Sets the clock speed to the given clock speed.
 pub fn init(speed: ClockSpeed) {
-
     // Set up a 16MHz crystal first
     unsafe {
         let mut rcc: usize = volatile_load(registers::SYSCTL_RCC_R);
@@ -85,7 +84,6 @@ pub fn init(speed: ClockSpeed) {
         // We could get 80MHz if we danced with RCC2 instead and got 400MHz / 5.
         //
         if speed == ClockSpeed::Speed66MHz {
-
             // Clear PLL lock status
             // MISC = Masked Interrupt Status & Clear, not miscellaneous
             volatile_store(registers::SYSCTL_MISC_R, registers::SYSCTL_MISC_PLLLMIS);

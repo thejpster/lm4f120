@@ -58,8 +58,8 @@ const NVIC_CPAC_CP10_FULL: usize = 0x00300000; // Full Access
 pub fn init() {
     unsafe {
         (*cortex_m::peripheral::SCB.get()).cpacr.modify(|r| {
-            (r & !(NVIC_CPAC_CP11_M as u32 | NVIC_CPAC_CP10_M as u32)) |
-                (NVIC_CPAC_CP11_FULL as u32 | NVIC_CPAC_CP10_FULL as u32)
+            (r & !(NVIC_CPAC_CP11_M as u32 | NVIC_CPAC_CP10_M as u32))
+                | (NVIC_CPAC_CP11_FULL as u32 | NVIC_CPAC_CP10_FULL as u32)
         });
     }
 }

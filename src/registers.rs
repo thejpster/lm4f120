@@ -8001,64 +8001,64 @@ pub const UDMA_CHCTL_XFERSIZE_S: usize = 4;
 #[repr(C, packed)]
 pub struct GpioRegisters {
     pub data_mask: [RW<usize>; 255], // Data - offset sets pin mask
-    pub data: RW<usize>, // Data register - sets all pins
-    pub dir: RW<usize>, // Direction
-    pub is: RW<usize>, // Interrupt Sense
-    pub ibe: RW<usize>, // Interrupt Both Edges
-    pub iev: RW<usize>, // Interrupt Event
-    pub im: RW<usize>, // Interrupt Mask
-    pub ris: RO<usize>, // Raw Interrupt Status
-    pub mis: RW<usize>, // Masked Interrupt Status
-    pub icr: RW<usize>, // Interrupt Clear
-    pub afsel: RW<usize>, // Alternate function Select
-    pub _padding: [usize; 55],
-    pub dr2r: RW<usize>, // 2mA drive select
-    pub dr4r: RW<usize>, // 4mA drive select
-    pub dr8r: RW<usize>, // 8mA drive select
-    pub odr: RW<usize>, // Open-drain select
-    pub pur: RW<usize>, // Pull-up select
-    pub pdr: RW<usize>, // Pull-down select
-    pub slr: RW<usize>, // Slew-rate control
-    pub den: RW<usize>, // Digital enable
-    pub lock: RW<usize>, // Lock
-    pub cr: RW<usize>, // Commit
-    pub amsel: RW<usize>, // Analog mode select
-    pub pctl: RW<usize>, // Port Control
-    pub adcctl: RW<usize>, // ADC Control
-    pub dmactl: RW<usize>, // DMA Control
-    pub _padding2: [usize; 678],
-    pub periphid4: RW<usize>, // Peripheral ID 4
-    pub periphid5: RW<usize>, // Peripheral ID 5
-    pub periphid6: RW<usize>, // Peripheral ID 6
-    pub periphid7: RW<usize>, // Peripheral ID 7
-    pub periphid0: RW<usize>, // Peripheral ID 0
-    pub periphid1: RW<usize>, // Peripheral ID 1
-    pub periphid2: RW<usize>, // Peripheral ID 2
-    pub periphid3: RW<usize>, // Peripheral ID 3
-    pub pcelld0: RW<usize>, // PrimeCell ID 0
-    pub pcelld1: RW<usize>, // PrimeCell ID 1
-    pub pcelld2: RW<usize>, // PrimeCell ID 2
-    pub pcelld3: RW<usize>, // PrimeCell ID 3
+    pub data: RW<usize>,             // Data register - sets all pins
+    pub dir: RW<usize>,              // Direction
+    pub is: RW<usize>,               // Interrupt Sense
+    pub ibe: RW<usize>,              // Interrupt Both Edges
+    pub iev: RW<usize>,              // Interrupt Event
+    pub im: RW<usize>,               // Interrupt Mask
+    pub ris: RO<usize>,              // Raw Interrupt Status
+    pub mis: RW<usize>,              // Masked Interrupt Status
+    pub icr: RW<usize>,              // Interrupt Clear
+    pub afsel: RW<usize>,            // Alternate function Select
+    pub _padding: [usize; 55],       // Padding
+    pub dr2r: RW<usize>,             // 2mA drive select
+    pub dr4r: RW<usize>,             // 4mA drive select
+    pub dr8r: RW<usize>,             // 8mA drive select
+    pub odr: RW<usize>,              // Open-drain select
+    pub pur: RW<usize>,              // Pull-up select
+    pub pdr: RW<usize>,              // Pull-down select
+    pub slr: RW<usize>,              // Slew-rate control
+    pub den: RW<usize>,              // Digital enable
+    pub lock: RW<usize>,             // Lock
+    pub cr: RW<usize>,               // Commit
+    pub amsel: RW<usize>,            // Analog mode select
+    pub pctl: RW<usize>,             // Port Control
+    pub adcctl: RW<usize>,           // ADC Control
+    pub dmactl: RW<usize>,           // DMA Control
+    pub _padding2: [usize; 678],     // Padding
+    pub periphid4: RW<usize>,        // Peripheral ID 4
+    pub periphid5: RW<usize>,        // Peripheral ID 5
+    pub periphid6: RW<usize>,        // Peripheral ID 6
+    pub periphid7: RW<usize>,        // Peripheral ID 7
+    pub periphid0: RW<usize>,        // Peripheral ID 0
+    pub periphid1: RW<usize>,        // Peripheral ID 1
+    pub periphid2: RW<usize>,        // Peripheral ID 2
+    pub periphid3: RW<usize>,        // Peripheral ID 3
+    pub pcelld0: RW<usize>,          // PrimeCell ID 0
+    pub pcelld1: RW<usize>,          // PrimeCell ID 1
+    pub pcelld2: RW<usize>,          // PrimeCell ID 2
+    pub pcelld3: RW<usize>,          // PrimeCell ID 3
 }
 
 #[repr(C, packed)]
 pub struct UartRegisters {
-    pub data: RW<usize>, // Data Register
-    pub rsr: RW<usize>, // Receive Status
-    pub _padding: [usize; 4],
-    pub rf: RW<usize>, // Flags
-    pub _padding2: usize,
-    pub ilpr: RW<usize>, // IrDA Low-Power Register
-    pub ibrd: RW<usize>, // Integer Baud-Rate Divisor
-    pub fbrd: RW<usize>, // Fractional Baud-Rate Divisor
-    pub lcrh: RW<usize>, // Line Control
-    pub ctl: RW<usize>, // Control
-    pub ifls: RW<usize>, // Interrupt FIFO Level Select
-    pub im: RW<usize>, // Interrupt Mask
-    pub ris: RW<usize>, // UARTx_RIS_R
-    pub mis: RW<usize>, // UARTx_MIS_R
-    pub icr: RW<usize>, // UARTx_ICR_R
-    pub dmactl: RW<usize>, // UARTx_DMACTL_R
+    pub data: RW<usize>,      // Data Register
+    pub rsr: RW<usize>,       // Receive Status
+    pub _padding: [usize; 4], // Padding
+    pub rf: RW<usize>,        // Flags
+    pub _padding2: usize,     // Padding
+    pub ilpr: RW<usize>,      // IrDA Low-Power Register
+    pub ibrd: RW<usize>,      // Integer Baud-Rate Divisor
+    pub fbrd: RW<usize>,      // Fractional Baud-Rate Divisor
+    pub lcrh: RW<usize>,      // Line Control
+    pub ctl: RW<usize>,       // Control
+    pub ifls: RW<usize>,      // Interrupt FIFO Level Select
+    pub im: RW<usize>,        // Interrupt Mask
+    pub ris: RW<usize>,       // UARTx_RIS_R
+    pub mis: RW<usize>,       // UARTx_MIS_R
+    pub icr: RW<usize>,       // UARTx_ICR_R
+    pub dmactl: RW<usize>,    // UARTx_DMACTL_R
 }
 
 #[repr(C, packed)]

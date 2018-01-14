@@ -74,9 +74,8 @@ pub fn init() {
         // A write to current resets the timer
         syst.cvr.write(0);
         // Set to multi-shot mode, with interrupts on and on the PIOSC / 4
-        syst.csr.write(
-            (NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_INTEN) as u32,
-        );
+        syst.csr
+            .write((NVIC_ST_CTRL_ENABLE | NVIC_ST_CTRL_INTEN) as u32);
     }
 }
 
@@ -111,7 +110,6 @@ pub fn get_overflows_ticks() -> (usize, usize) {
         (overflow1, ticks)
     }
 }
-
 
 /// Calculates the elapsed period in SysTicks between `start` and the current value.
 pub fn get_since(start: usize) -> usize {
