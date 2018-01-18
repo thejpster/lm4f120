@@ -30,8 +30,9 @@ codegen-units = 1
 [dependencies]
 cortex-m = "0.3"
 volatile-register = "0.2"
-embedded-serial = "0.5"
 tm4c123x = "0.4"
+embedded-hal = "0.1.0"
+nb = "0.1.1"
 
 [dependencies.lazy_static]
 version = "^0.2"

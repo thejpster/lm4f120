@@ -9,12 +9,16 @@
 use core::fmt;
 use core::intrinsics::{volatile_load, volatile_store};
 
-use embedded_serial::{self, BlockingTx, NonBlockingRx};
 use cortex_m::asm::nop;
 
 use super::gpio;
 use super::pll;
 use super::registers as reg;
+
+use embedded_hal::serial::Read as ReadHal;
+use embedded_hal::serial::Write as WriteHal;
+
+use nb;
 
 use tm4c123x::uart0;
 
@@ -150,65 +154,46 @@ impl Uart {
         }
     }
 
-    #[deprecated]
-    pub fn read_single(&mut self) -> Option<u8> {
-        self.getc_try().unwrap()
-    }
-}
-
-impl embedded_serial::BlockingTx for Uart {
-    type Error = !;
-
-    /// Emit a single octet, busy-waiting if the FIFO is full.
-    /// Never returns `Err`.
-    fn putc(&mut self, value: u8) -> Result<(), Self::Error> {
-        while self.reg.fr.read().txff().bit() {
-            nop();
-        }
-        self.reg.dr.write(|w| unsafe { w.data().bits(value) });
-        Ok(())
-    }
-}
-
-impl embedded_serial::NonBlockingTx for Uart {
-    type Error = !;
-
-    /// Attempts to write to the UART. Returns `Ok(None)` if the transmiter
-    /// not ready, or `Ok(Some(value))`. Never returns `Err`.
-    fn putc_try(&mut self, value: u8) -> Result<Option<u8>, Self::Error> {
-        if self.reg.fr.read().txff().bit() {
-            Ok(None)
-        } else {
-            self.reg.dr.write(|w| unsafe { w.data().bits(value) });
-            Ok(Some(value))
+    /// Write a complete string to the UART.
+    /// If this returns `Ok(())`, all the data was sent.
+    /// Otherwise you get number of octets sent and the error.
+    pub fn write_all<I: ?Sized>(&mut self, data: &I)
+        where I: AsRef<[u8]>
+    {
+        for octet in data.as_ref().iter() {
+            block!(self.write(*octet)).unwrap();
         }
     }
 }
 
-impl embedded_serial::BlockingRx for Uart {
+impl ReadHal<u8> for Uart {
     type Error = !;
 
-    /// Read a single octet, busy-waiting if the FIFO is empty.
-    /// Never returns `Err`.
-    fn getc(&mut self) -> Result<u8, Self::Error> {
-        while self.reg.fr.read().rxfe().bit() {
-            nop();
+    fn read(&mut self) -> nb::Result<u8, Self::Error> {
+        if self.reg.fr.read().rxfe().bit() {
+            return Err(nb::Error::WouldBlock);
         }
         Ok(self.reg.dr.read().data().bits())
     }
+
 }
 
-impl embedded_serial::NonBlockingRx for Uart {
+impl WriteHal<u8> for Uart {
     type Error = !;
 
-    /// Attempts to read from the UART. Returns `Ok(None)` if the FIFO is
-    /// empty, or `Ok(octet)`. Never returns `Err`.
-    fn getc_try(&mut self) -> Result<Option<u8>, Self::Error> {
-        if self.reg.fr.read().rxfe().bit() {
-            Ok(None)
-        } else {
-            Ok(Some(self.reg.dr.read().data().bits()))
+    fn write(&mut self, word: u8) -> nb::Result<(), Self::Error> {
+        if self.reg.fr.read().txff().bit() {
+            return Err(nb::Error::WouldBlock);
         }
+        self.reg.dr.write(|w| unsafe { w.data().bits(word) });
+        Ok(())
+    }
+
+    fn flush(&mut self) -> nb::Result<(), Self::Error> {
+        if self.reg.fr.read().txff().bit() {
+            return Err(nb::Error::WouldBlock);
+        }
+        Ok(())
     }
 }
 
@@ -216,14 +201,14 @@ impl embedded_serial::NonBlockingRx for Uart {
 impl fmt::Write for Uart {
     fn write_str(&mut self, s: &str) -> fmt::Result {
         match self.nl_mode {
-            NewlineMode::Binary => self.puts(s).unwrap(),
+            NewlineMode::Binary => self.write_all(s),
             NewlineMode::SwapLFtoCRLF => {
                 for byte in s.bytes() {
                     if byte == 0x0A {
                         // Prefix every \n with a \r
-                        self.putc(0x0D).unwrap()
+                        block!(self.write(0x0D))?;
                     }
-                    self.putc(byte).unwrap()
+                    block!(self.write(byte))?;
                 }
             }
         }
