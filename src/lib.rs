@@ -12,13 +12,13 @@
 // ****************************************************************************
 
 extern crate cortex_m;
+extern crate embedded_hal;
 #[macro_use]
 extern crate lazy_static;
-extern crate tm4c123x;
-extern crate volatile_register;
-extern crate embedded_hal;
 #[macro_use(block)]
 extern crate nb;
+extern crate tm4c123x;
+extern crate volatile_register;
 
 pub mod gpio;
 pub mod pll;

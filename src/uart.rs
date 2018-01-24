@@ -158,7 +158,8 @@ impl Uart {
     /// If this returns `Ok(())`, all the data was sent.
     /// Otherwise you get number of octets sent and the error.
     pub fn write_all<I: ?Sized>(&mut self, data: &I)
-        where I: AsRef<[u8]>
+    where
+        I: AsRef<[u8]>,
     {
         for octet in data.as_ref().iter() {
             block!(self.write(*octet)).unwrap();
@@ -175,7 +176,6 @@ impl ReadHal<u8> for Uart {
         }
         Ok(self.reg.dr.read().data().bits())
     }
-
 }
 
 impl WriteHal<u8> for Uart {
