@@ -245,7 +245,7 @@ pub fn get_sram_size() -> usize {
 // ****************************************************************************
 /// Get a reference to the UART control register struct in the chip.
 unsafe fn get_registers() -> &'static tm4c123x::flash_ctrl::RegisterBlock {
-    &*tm4c123x::FLASH_CTRL.get()
+    &*tm4c123x::FLASH_CTRL::ptr()
 }
 
 /// Clear all the status bits

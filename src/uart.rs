@@ -230,14 +230,14 @@ fn get_uart_registers(uart_id: UartId) -> &'static uart0::RegisterBlock {
     use tm4c123x::{UART0, UART1, UART2, UART3, UART4, UART5, UART6, UART7};
     unsafe {
         match uart_id {
-            UartId::Uart0 => &*UART0.get(),
-            UartId::Uart1 => &*UART1.get(),
-            UartId::Uart2 => &*UART2.get(),
-            UartId::Uart3 => &*UART3.get(),
-            UartId::Uart4 => &*UART4.get(),
-            UartId::Uart5 => &*UART5.get(),
-            UartId::Uart6 => &*UART6.get(),
-            UartId::Uart7 => &*UART7.get(),
+            UartId::Uart0 => &*UART0::ptr(),
+            UartId::Uart1 => &*UART1::ptr(),
+            UartId::Uart2 => &*UART2::ptr(),
+            UartId::Uart3 => &*UART3::ptr(),
+            UartId::Uart4 => &*UART4::ptr(),
+            UartId::Uart5 => &*UART5::ptr(),
+            UartId::Uart6 => &*UART6::ptr(),
+            UartId::Uart7 => &*UART7::ptr(),
         }
     }
 }
