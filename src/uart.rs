@@ -49,6 +49,8 @@ pub struct Uart {
     baud: u32,
     nl_mode: NewlineMode,
     reg: &'static uart0::RegisterBlock,
+    pin_a: gpio::PinPort,
+    pin_b: gpio::PinPort,
 }
 
 /// writeln!() emits LF chars, so this is useful
@@ -90,12 +92,20 @@ impl Uart {
     /// 8 data bits, 1 stop bit, no parity and is not configurable.
     /// Optionally, newline translation can be performed on outbound data
     /// - this will cause writeln!() to emit a CRLF.
-    pub fn new(id: UartId, baud: u32, nl_mode: NewlineMode) -> Uart {
+    pub fn new(
+        id: UartId,
+        baud: u32,
+        nl_mode: NewlineMode,
+        pin_a: gpio::PinPort,
+        pin_b: gpio::PinPort,
+    ) -> Uart {
         let mut uart = Uart {
             id: id,
             baud: baud,
             nl_mode: nl_mode,
             reg: get_uart_registers(id),
+            pin_a: pin_a,
+            pin_b: pin_b,
         };
         uart.init();
         uart
@@ -104,7 +114,7 @@ impl Uart {
     /// Configure the hardware
     fn init(&mut self) -> () {
         // Do GPIO pin muxing
-        gpio::enable_uart(self.id);
+        gpio::enable_uart(self.id, &mut self.pin_a, &mut self.pin_b);
         // Enable UART module in RCGUART register p306
         unsafe {
             self.enable_clock();
