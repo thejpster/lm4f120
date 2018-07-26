@@ -15,7 +15,7 @@ use cortex_m::asm::nop;
 use super::registers as reg;
 use super::uart::UartId;
 
-use embedded_hal::digital::OutputPin;
+use embedded_hal::digital::{StatefulOutputPin, OutputPin};
 
 // ****************************************************************************
 //
@@ -214,17 +214,19 @@ impl PinPort {
     }
 }
 
-impl OutputPin for PinPort {
+impl StatefulOutputPin for PinPort {
     /// Check if pin is currently set high.
-    fn is_high(&self) -> bool {
+    fn is_set_high(&self) -> bool {
         self.read() == Level::High
     }
 
     /// Check if pin is currently set low.
-    fn is_low(&self) -> bool {
+    fn is_set_low(&self) -> bool {
         self.read() == Level::Low
     }
+}
 
+impl OutputPin for PinPort {
     /// Set pin logic low.
     fn set_low(&mut self) {
         self.set(Level::Low);
